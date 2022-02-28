@@ -12,6 +12,8 @@ public enum Direction
 
 public class AvatarMovementComponent : MonoBehaviour
 {
+    public static Vector2 PlayerRenderHaftRect = new Vector2((float)0.16, (float)0.32);
+
     public float MoveSpeed = 1;
 
     private Direction facingDirection = Direction.Backward;

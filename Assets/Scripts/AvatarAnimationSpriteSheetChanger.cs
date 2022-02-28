@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
 {
-    public string asPrefix;
+    public string AsPrefix;
 
-    public Sprite[] newSprites;
+    public Sprite[] NewSprites;
 
     private SpriteRenderer spriteRenderer;
 
@@ -22,24 +22,24 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
             return;
         }
 
-        if (asPrefix.Length <= 0)
+        if (AsPrefix.Length <= 0)
         {
             return;
         }
 
-        if (newSprites == null || newSprites.Length <= 0)
+        if (NewSprites == null || NewSprites.Length <= 0)
         {
             return;
         }
 
         string currentSpriteName = spriteRenderer.sprite.name;
-        if (currentSpriteName.Length > asPrefix.Length && currentSpriteName.StartsWith(asPrefix))
+        if (currentSpriteName.Length > AsPrefix.Length && currentSpriteName.StartsWith(AsPrefix))
         {
-            string indexString = currentSpriteName.Substring(asPrefix.Length);
+            string indexString = currentSpriteName.Substring(AsPrefix.Length);
             bool indexParseResult = int.TryParse(indexString, out int spriteIndex);
-            if (indexParseResult && spriteIndex < newSprites.Length)
+            if (indexParseResult && spriteIndex < NewSprites.Length)
             {
-                spriteRenderer.sprite = newSprites[spriteIndex];
+                spriteRenderer.sprite = NewSprites[spriteIndex];
             }
         }
     }

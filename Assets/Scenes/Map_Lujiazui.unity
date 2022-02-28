@@ -123,6 +123,88 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58240520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58240522}
+  - component: {fileID: 58240521}
+  m_Layer: 0
+  m_Name: MapBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &58240521
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58240520}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 569f3cb427d894040b50cf0d225a2614, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.8, y: 10.4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &58240522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58240520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802202064
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +216,7 @@ GameObject:
   - component: {fileID: 1802202067}
   - component: {fileID: 1802202066}
   - component: {fileID: 1802202065}
+  - component: {fileID: 1802202068}
   m_Layer: 0
   m_Name: FollowCamera
   m_TagString: MainCamera
@@ -206,6 +289,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1802202068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802202064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102519f6f543c433c9311f73ad40d6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeHalfRect: {x: 1.8, y: 1.1}
+  PlayerAvatar: {fileID: 8826759861831530770}
 --- !u!114 &49367741140225286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,30 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3d7aeae0aaf41cda857c48c9e26426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asPrefix: T_P1_W0_JG_LP_
-  newSprites:
-  - {fileID: -3391712692223916066, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -6684980117813591582, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 550923072454568625, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 8062932579758868288, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 5986903302379661132, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 5701095356090699594, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 3895964792672127603, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -611168952627652828, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -9011968713077379783, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -4812982366192607561, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -1664652898429488537, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -7549308404222816961, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 5545584863764417611, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -4492564682983466743, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -4292047743373462370, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -3464640602989827711, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 8401653212497562088, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 1400221453039696990, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 4844830961369844393, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: -1969406563585599312, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 3902797060167045759, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
-  - {fileID: 8636572194536916631, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
+  AsPrefix: 
+  NewSprites: []
 --- !u!212 &8826759861831530768
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -281,7 +356,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8079003166496031945, guid: 8f933e665b7febf4fba6903993c5d161, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -327,7 +402,7 @@ GameObject:
   - component: {fileID: 8826759861831530782}
   - component: {fileID: 49367741140225286}
   m_Layer: 0
-  m_Name: AnimationPreviewActor
+  m_Name: BP_PlayerAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,8 +433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f056ca83ee9abd84aabdbed5452f63d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 0
-  facingDirection: 0
+  IsMoving: 0
+  FacingDirection: 0
 --- !u!4 &8826759861831530783
 Transform:
   m_ObjectHideFlags: 0

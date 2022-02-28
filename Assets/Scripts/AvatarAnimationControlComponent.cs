@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AvatarAnimationControlComponent : MonoBehaviour
 {
-    public bool isMoving;
+    public bool IsMoving;
 
-    public Direction facingDirection;
+    public Direction FacingDirection;
 
     private Animator animator;
 
@@ -22,14 +22,14 @@ public class AvatarAnimationControlComponent : MonoBehaviour
     {
         if (movementComponent != null)
         {
-            isMoving = movementComponent.IsMoving;
-            facingDirection = movementComponent.FacingDirection;
+            IsMoving = movementComponent.IsMoving;
+            FacingDirection = movementComponent.FacingDirection;
         }
 
         if(animator!= null)
         {
-            animator.SetBool("IsMoving", isMoving);
-            animator.SetInteger("Direction", (int)facingDirection);
+            animator.SetBool("IsMoving", IsMoving);
+            animator.SetInteger("Direction", (int)FacingDirection);
         }
     }
 }

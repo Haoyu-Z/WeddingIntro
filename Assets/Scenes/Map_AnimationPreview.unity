@@ -256,8 +256,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
@@ -416,6 +424,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
       value: 2
       objectReference: {fileID: 0}
@@ -485,8 +497,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
@@ -556,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 8826759862972708090, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
@@ -696,6 +720,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
       value: 1
       objectReference: {fileID: 0}
@@ -767,6 +795,10 @@ PrefabInstance:
     - target: {fileID: 8826759862972708090, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
@@ -842,6 +874,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
       value: 1
       objectReference: {fileID: 0}
@@ -911,7 +947,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
@@ -984,6 +1028,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
       value: 1
       objectReference: {fileID: 0}
@@ -1053,8 +1101,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
@@ -1130,7 +1186,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
@@ -1207,8 +1271,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection
@@ -1284,6 +1356,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: IsMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: isMoving
       value: 1
       objectReference: {fileID: 0}
@@ -1351,6 +1427,10 @@ PrefabInstance:
     - target: {fileID: 8826759862972708090, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: FacingDirection
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708091, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: facingDirection

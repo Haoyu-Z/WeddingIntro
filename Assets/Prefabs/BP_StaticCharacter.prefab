@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8826759862972708091}
   - component: {fileID: 49367740133916899}
   m_Layer: 0
-  m_Name: BP_AnimationPreviewActor
+  m_Name: BP_StaticCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8079003166496031945, guid: 8f933e665b7febf4fba6903993c5d161, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -12,13 +12,13 @@ public class AvatarAnimationControlComponent : MonoBehaviour
 
     private AvatarMovementComponent movementComponent;
 
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         movementComponent = GetComponent<AvatarMovementComponent>();
     }
 
-    void Update()
+    private void Update()
     {
         if (movementComponent != null)
         {

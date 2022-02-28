@@ -12,7 +12,7 @@ public enum Direction
 
 public class AvatarMovementComponent : MonoBehaviour
 {
-    public static Vector2 PlayerRenderHaftRect = new Vector2((float)0.16, (float)0.32);
+    public static Vector2 PlayerRenderHaftRect = new Vector2(0.08f, 0.16f);
 
     public float MoveSpeed = 1;
 

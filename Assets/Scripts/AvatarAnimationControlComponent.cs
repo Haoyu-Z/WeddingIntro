@@ -22,8 +22,8 @@ public class AvatarAnimationControlComponent : MonoBehaviour
     {
         if (movementComponent != null)
         {
-            isMoving = movementComponent.isMoving;
-            facingDirection = movementComponent.facingDirection;
+            isMoving = movementComponent.IsMoving;
+            facingDirection = movementComponent.FacingDirection;
         }
 
         if(animator!= null)

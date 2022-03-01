@@ -15,6 +15,15 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         camera = GetComponent<Camera>();
+
+        if (PlayerAvatar != null)
+        {
+            Vector3 viewPosition = PlayerAvatar.transform.position;
+            viewPosition.y += AvatarMovementComponent.PlayerRenderHaftRect.y;
+            viewPosition.z = gameObject.transform.position.z;
+
+            gameObject.transform.position = viewPosition;
+        }
     }
 
     void LateUpdate()
@@ -34,8 +43,8 @@ public class CameraFollow : MonoBehaviour
             playerPosition.x - playerHalfRect.x - ScreenBorder + camera.orthographicSize * camera.aspect);
         float newCameraY = Mathf.Clamp(
             cameraPosition.y,
-            playerPosition.y + playerHalfRect.y + ScreenBorder - camera.orthographicSize,
-            playerPosition.y - playerHalfRect.y - ScreenBorder + camera.orthographicSize);
+            playerPosition.y + playerHalfRect.y + playerHalfRect.y + ScreenBorder - camera.orthographicSize,
+            playerPosition.y - ScreenBorder + camera.orthographicSize);
         gameObject.transform.position = new Vector3(newCameraX, newCameraY, cameraPosition.z);
     }
 }

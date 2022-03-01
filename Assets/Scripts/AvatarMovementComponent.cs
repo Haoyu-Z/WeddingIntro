@@ -16,9 +16,13 @@ public class AvatarMovementComponent : MonoBehaviour
 
     public float MoveSpeed = 1;
 
+    public float SpeedFade = 0.8f;
+
     private Direction facingDirection = Direction.Backward;
 
     private bool isMoving = false;
+
+    private Rigidbody2D rigidBody2D;
 
     public Direction FacingDirection
     {
@@ -30,9 +34,37 @@ public class AvatarMovementComponent : MonoBehaviour
         get { return isMoving; }
     }
 
+    private Vector3 movementInputVector
+    {
+        get { return new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0); }
+    }
+
+    private void Start()
+    {
+        rigidBody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (rigidBody2D == null)
+        {
+            return;
+        }
+
+        Vector3 inputVector = movementInputVector;
+        if (inputVector.x != 0 || inputVector.y != 0)
+        {
+            rigidBody2D.velocity = new Vector2(inputVector.x, inputVector.y) * MoveSpeed;
+        }
+        else
+        {
+            rigidBody2D.velocity = Vector2.Lerp(rigidBody2D.velocity, Vector2.zero, SpeedFade);
+        }
+    }
+
     private void Update()
     {
-        Vector3 inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+        Vector3 inputVector = movementInputVector;
         isMoving = inputVector.x != 0 || inputVector.y != 0;
         if (isMoving)
         {
@@ -45,7 +77,5 @@ public class AvatarMovementComponent : MonoBehaviour
                 facingDirection = inputVector.y > 0 ? Direction.Forward : Direction.Backward;
             }
         }
-
-        gameObject.transform.Translate(MoveSpeed * Time.deltaTime * inputVector.normalized);
     }
 }

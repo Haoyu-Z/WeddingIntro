@@ -12,9 +12,9 @@ public enum Direction
 
 public class AvatarMovementComponent : MonoBehaviour
 {
-    public static readonly Vector2 PlayerRenderHaftRect = new Vector2(0.08f, 0.16f);
+    public static readonly Vector2 PlayerRenderHaftRect = new Vector2(0.5f, 1.0f);
 
-    public float MoveSpeed = 1;
+    public float MoveSpeed = 3.2f;
 
     public float SpeedFade = 0.8f;
 
@@ -54,7 +54,7 @@ public class AvatarMovementComponent : MonoBehaviour
         Vector3 inputVector = movementInputVector;
         if (inputVector.x != 0 || inputVector.y != 0)
         {
-            rigidBody2D.velocity = new Vector2(inputVector.x, inputVector.y) * MoveSpeed;
+            rigidBody2D.velocity = (new Vector2(inputVector.x, inputVector.y)).normalized * MoveSpeed;
         }
         else
         {

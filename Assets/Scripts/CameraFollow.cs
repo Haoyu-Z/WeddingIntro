@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    [Tooltip("Measured in absolute game unit.")]
     public float ScreenBorder;
 
     public GameObject PlayerAvatar;

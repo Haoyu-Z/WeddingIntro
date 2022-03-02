@@ -23,40 +23,42 @@ public class UIDialogBoxController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             TriggerNextState();
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            ChangeDialogSelection();
+        }
+    }
+
+    private void ChangeDialogSelection()
+    {
+        if (state == DialogBoxState.TextShown && textPopper != null)
+        {
+            textPopper.NextYesNoSelection();
         }
     }
 
     private void TriggerNextState()
     {
-        if(textPopper==null||panelScaler==null)
+        if (textPopper == null || panelScaler == null)
         {
             return;
         }
 
-        switch(state)
+        switch (state)
         {
             case DialogBoxState.Hidden:
                 textPopper.ResetText();
-                panelScaler.TriggerScaleIn(new UIDialogPanelFinishEvent(()=>
-                {
-                    state = DialogBoxState.TextPopping;
-                    textPopper.TriggerText(new UIDialogPanelFinishEvent(() =>
-                    {
-                        state = DialogBoxState.TextShown;
-                    }));
-                }));
+                panelScaler.TriggerScaleIn(new UIDialogPanelFinishEvent(PopTextEventImpl));
                 state = DialogBoxState.ScaleIn;
                 break;
             case DialogBoxState.ScaleIn:
                 panelScaler.ForceFinishScaleIn(false);
-                textPopper.TriggerText(new UIDialogPanelFinishEvent(() =>
-                {
-                    state = DialogBoxState.TextShown;
-                }));
-                state = DialogBoxState.TextPopping;
+                PopTextEventImpl();
                 break;
             case DialogBoxState.TextPopping:
                 textPopper.ForceFinish(false);
@@ -73,5 +75,14 @@ public class UIDialogBoxController : MonoBehaviour
             case DialogBoxState.ScaleOut:
                 break;
         }
+    }
+
+    private void PopTextEventImpl()
+    {
+        state = DialogBoxState.TextPopping;
+        textPopper.TriggerText(new UIDialogPanelFinishEvent(() =>
+        {
+            state = DialogBoxState.TextShown;
+        }));
     }
 }

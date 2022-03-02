@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,31 @@ public class UIDialogTextPopper : MonoBehaviour
 
     public float DialogTextPopTime = 0.07f;
 
+    public float DialogSelectionFadingPeriod = 1.5f;
+
+    public enum DialogTextType
+    {
+        PlainText,
+        TextWithYesOrNo,
+    }
+
+    public DialogTextType TextType;
+
+    [Tooltip("Only used when type is set to TextWithYesOrNo")]
+    public string YesText;
+
+    [Tooltip("Only used when type is set to TextWithYesOrNo")]
+    public string NoText;
+
+    private bool textVisible;
+
+    private bool yesNoSelection = true;
+
     private Text textComponent;
 
-    private float popStartTime = -1.0f;
+    private static readonly float popStartTimeDisabled = -10000.0f;
+
+    private float popStartTime = popStartTimeDisabled;
 
     private UIDialogBoxController.UIDialogPanelFinishEvent popFinishEvent;
 
@@ -27,6 +50,8 @@ public class UIDialogTextPopper : MonoBehaviour
             }
             textComponent.text = "";
         }
+
+        textVisible = false;
     }
 
     private void Update()
@@ -36,7 +61,12 @@ public class UIDialogTextPopper : MonoBehaviour
             return;
         }
 
-        if (popStartTime < 0.0f || DialogTextPopTime <= 0.0f || TextToShow.Length == 0)
+        if (!textVisible || DialogTextPopTime <= 0.0f || TextToShow.Length == 0)
+        {
+            return;
+        }
+
+        if (TextType == DialogTextType.PlainText && popStartTime < 0.0f)
         {
             return;
         }
@@ -44,8 +74,8 @@ public class UIDialogTextPopper : MonoBehaviour
         int showCount = Mathf.FloorToInt((Time.time - popStartTime) / DialogTextPopTime);
         if (showCount > TextToShow.Length)
         {
-            textComponent.text = TextToShow;
-            popStartTime = -1.0f;
+            textComponent.text = fullText;
+            popStartTime = popStartTimeDisabled;
             InvokeFinishEvent();
         }
         else
@@ -54,22 +84,51 @@ public class UIDialogTextPopper : MonoBehaviour
         }
     }
 
+    private string fullText { get { return TextToShow + yesNoText; } }
+
+    private string yesNoText
+    {
+        get
+        {
+            if (TextType == DialogTextType.PlainText)
+            {
+                return "";
+            }
+            else
+            {
+                int alpha = Mathf.FloorToInt(255 * Mathf.Abs(Mathf.Sin(Time.time / DialogSelectionFadingPeriod * Mathf.PI)));
+
+                if (yesNoSelection)
+                {
+                    return string.Format("{0}<color=#8C0E0E{3:X02}>{1}</color>{0}{2}", Environment.NewLine, YesText, NoText, alpha);
+                }
+                else
+                {
+                    return string.Format("{0}{1}{0}<color=#8C0E0E{3:X02}>{2}</color>", Environment.NewLine, YesText, NoText, alpha);
+                }
+            }
+        }
+    }
+
     public void TriggerText(UIDialogBoxController.UIDialogPanelFinishEvent finishEvent)
     {
         popStartTime = Time.time;
         popFinishEvent = finishEvent;
+        textVisible = true;
     }
 
     public void ResetText()
     {
-        popStartTime = -1.0f;
+        popStartTime = popStartTimeDisabled;
         textComponent.text = "";
+        textVisible = false;
     }
 
     public void ForceFinish(bool callFinishEvent = false)
     {
-        popStartTime = -1.0f;
-        textComponent.text = TextToShow;
+        popStartTime = popStartTimeDisabled;
+        textComponent.text = fullText;
+        textVisible = true; 
 
         if (callFinishEvent)
         {
@@ -77,6 +136,11 @@ public class UIDialogTextPopper : MonoBehaviour
         }
 
         popFinishEvent = null;
+    }
+
+    public void NextYesNoSelection()
+    {
+        yesNoSelection = !yesNoSelection;
     }
 
     private void InvokeFinishEvent()

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum ButtonType
 {
-    A,
-    B,
+    ControllerButtonA,
+    ControllerButtonB,
 }
 
 public class UIButtonHintControl : MonoBehaviour

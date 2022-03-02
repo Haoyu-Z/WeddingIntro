@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6264328991577790673}
   - component: {fileID: 3122061029040620229}
   m_Layer: 0
-  m_Name: UI_Hint
+  m_Name: BP_UI_Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

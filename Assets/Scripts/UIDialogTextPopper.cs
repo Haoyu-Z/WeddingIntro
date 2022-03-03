@@ -28,6 +28,8 @@ public class UIDialogTextPopper : MonoBehaviour
 
     private int selectedIndex = 0;
 
+    public int SelectedIndex { get { return selectedIndex; } }
+
     private Text textComponent;
 
     private static readonly float popStartTimeDisabled = -10000.0f;
@@ -41,7 +43,6 @@ public class UIDialogTextPopper : MonoBehaviour
         textComponent = GetComponent<Text>();
         if (textComponent != null)
         {
-            hintText = textComponent.text;
             textComponent.text = "";
         }
 
@@ -96,11 +97,11 @@ public class UIDialogTextPopper : MonoBehaviour
                     string currentLine = null;
                     if (selectionIdx == selectedIndex)
                     {
-                        currentLine = string.Format("{0}<color=#8C0E0E{1:X02}>{2}</color>", Environment.NewLine, alpha, Selections[selectionIdx]);
+                        currentLine = string.Format("{0}  - <color=#8C0E0E{1:X02}>{2}</color>", Environment.NewLine, alpha, Selections[selectionIdx]);
                     }
                     else
                     {
-                        currentLine = string.Format("{0}{1}", Environment.NewLine, Selections[selectionIdx]);
+                        currentLine = string.Format("{0}  - {1}", Environment.NewLine, Selections[selectionIdx]);
                     }
 
                     dialogTextBuilder.Append(currentLine);
@@ -118,11 +119,19 @@ public class UIDialogTextPopper : MonoBehaviour
         textVisible = true;
     }
 
-    public void ResetText()
+    public void ResetText(DialogEntry dialogEntry)
     {
         popStartTime = popStartTimeDisabled;
         textComponent.text = "";
         textVisible = false;
+
+        if (dialogEntry != null)
+        {
+            hintText = dialogEntry.HintText;
+            Selections = dialogEntry.Selections;
+            TextType = Selections.Length > 0 ? DialogTextType.TextWithSelector : DialogTextType.PlainText;
+            selectedIndex = 0;
+        }
     }
 
     public void ForceFinish(bool callFinishEvent = false)

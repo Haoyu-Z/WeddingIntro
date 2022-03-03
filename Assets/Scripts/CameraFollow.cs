@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     [Tooltip("Measured in absolute game unit.")]
     public float ScreenBorder;
 
-    public GameObject PlayerAvatar;
+    private GameObject playerAvatar;
 
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
     private Camera camera;
@@ -17,9 +17,10 @@ public class CameraFollow : MonoBehaviour
     {
         camera = GetComponent<Camera>();
 
-        if (PlayerAvatar != null)
+        playerAvatar = GameStatics.Instance?.PlayerAvatar;
+        if (playerAvatar != null)
         {
-            Vector3 viewPosition = PlayerAvatar.transform.position;
+            Vector3 viewPosition = playerAvatar.transform.position;
             viewPosition.y += AvatarMovementComponent.PlayerRenderHaftRect.y;
             viewPosition.z = gameObject.transform.position.z;
 
@@ -29,12 +30,12 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        if (PlayerAvatar == null || camera == null)
+        if (playerAvatar == null || camera == null)
         {
             return;
         }
 
-        Vector3 playerPosition = PlayerAvatar.transform.position;
+        Vector3 playerPosition = playerAvatar.transform.position;
         Vector3 cameraPosition = gameObject.transform.position;
         Vector2 playerHalfRect = AvatarMovementComponent.PlayerRenderHaftRect;
 

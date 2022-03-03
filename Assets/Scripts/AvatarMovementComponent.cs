@@ -14,6 +14,8 @@ public class AvatarMovementComponent : MonoBehaviour
 {
     public static readonly Vector2 PlayerRenderHaftRect = new Vector2(0.5f, 1.0f);
 
+    private static readonly float[] directionAngles = new float[] { 0.0f, 90.0f, 180.0f, -90.0f };
+
     public float MoveSpeed = 3.2f;
 
     public float SpeedFade = 0.8f;
@@ -32,6 +34,11 @@ public class AvatarMovementComponent : MonoBehaviour
     public bool IsMoving
     {
         get { return isMoving; }
+    }
+
+    public float FacingDirectionAngle
+    {
+        get { return directionAngles[(int)facingDirection]; }
     }
 
     private Vector3 movementInputVector

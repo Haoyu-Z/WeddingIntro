@@ -14,11 +14,12 @@ GameObject:
   - component: {fileID: 7673521308560326670}
   - component: {fileID: 7673521308560326659}
   - component: {fileID: 1201407904415167515}
+  - component: {fileID: 3090734547541135184}
   - component: {fileID: 7673521308560326665}
   - component: {fileID: 7673521308560326664}
   m_Layer: 0
   m_Name: BP_PlayerAvatar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +172,18 @@ MonoBehaviour:
   - {fileID: -1969406563585599312, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
   - {fileID: 3902797060167045759, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
   - {fileID: 8636572194536916631, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
+--- !u!114 &3090734547541135184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673521308560326671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104a70f4fd1ae47a7917c54d8e693331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &7673521308560326665
 Rigidbody2D:
   serializedVersion: 4

@@ -26,7 +26,7 @@ public class AvatarAnimationControlComponent : MonoBehaviour
             FacingDirection = movementComponent.FacingDirection;
         }
 
-        if(animator!= null)
+        if (animator != null)
         {
             animator.SetBool("IsMoving", IsMoving);
             animator.SetInteger("Direction", (int)FacingDirection);

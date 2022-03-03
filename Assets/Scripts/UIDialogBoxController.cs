@@ -28,17 +28,22 @@ public class UIDialogBoxController : MonoBehaviour
             TriggerNextState();
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            ChangeDialogSelection(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             ChangeDialogSelection();
         }
     }
 
-    private void ChangeDialogSelection()
+    private void ChangeDialogSelection(bool inverse = false)
     {
         if (state == DialogBoxState.TextShown && textPopper != null)
         {
-            textPopper.NextYesNoSelection();
+            textPopper.NextSelection(inverse);
         }
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,6 @@ using UnityEngine.UI;
 
 public class UIDialogTextPopper : MonoBehaviour
 {
-    [TextArea]
-    public string TextToShow;
-
     public float DialogTextPopTime = 0.07f;
 
     public float DialogSelectionFadingPeriod = 1.5f;
@@ -16,20 +14,19 @@ public class UIDialogTextPopper : MonoBehaviour
     public enum DialogTextType
     {
         PlainText,
-        TextWithYesOrNo,
+        TextWithSelector,
     }
 
     public DialogTextType TextType;
 
-    [Tooltip("Only used when type is set to TextWithYesOrNo")]
-    public string YesText;
+    [Tooltip("Only used when type is set to TextWithSelector")]
+    public string[] Selections;
 
-    [Tooltip("Only used when type is set to TextWithYesOrNo")]
-    public string NoText;
+    private string hintText;
 
     private bool textVisible;
 
-    private bool yesNoSelection = true;
+    private int selectedIndex = 0;
 
     private Text textComponent;
 
@@ -44,10 +41,7 @@ public class UIDialogTextPopper : MonoBehaviour
         textComponent = GetComponent<Text>();
         if (textComponent != null)
         {
-            if (TextToShow == "")
-            {
-                TextToShow = textComponent.text;
-            }
+            hintText = textComponent.text;
             textComponent.text = "";
         }
 
@@ -61,7 +55,7 @@ public class UIDialogTextPopper : MonoBehaviour
             return;
         }
 
-        if (!textVisible || DialogTextPopTime <= 0.0f || TextToShow.Length == 0)
+        if (!textVisible || DialogTextPopTime <= 0.0f || hintText.Length == 0)
         {
             return;
         }
@@ -72,40 +66,47 @@ public class UIDialogTextPopper : MonoBehaviour
         }
 
         int showCount = Mathf.FloorToInt((Time.time - popStartTime) / DialogTextPopTime);
-        if (showCount > TextToShow.Length)
+        if (showCount > hintText.Length)
         {
-            textComponent.text = fullText;
+            textComponent.text = fullDialogText;
             popStartTime = popStartTimeDisabled;
             InvokeFinishEvent();
         }
         else
         {
-            textComponent.text = TextToShow.Substring(0, showCount);
+            textComponent.text = hintText.Substring(0, showCount);
         }
     }
 
-    private string fullText { get { return TextToShow + yesNoText; } }
-
-    private string yesNoText
+    private string fullDialogText
     {
         get
         {
             if (TextType == DialogTextType.PlainText)
             {
-                return "";
+                return hintText;
             }
             else
             {
+                StringBuilder dialogTextBuilder = new StringBuilder(hintText);
                 int alpha = Mathf.FloorToInt(255 * Mathf.Abs(Mathf.Sin(Time.time / DialogSelectionFadingPeriod * Mathf.PI)));
 
-                if (yesNoSelection)
+                for (int selectionIdx = 0; selectionIdx < Selections.Length; selectionIdx++)
                 {
-                    return string.Format("{0}<color=#8C0E0E{3:X02}>{1}</color>{0}{2}", Environment.NewLine, YesText, NoText, alpha);
+                    string currentLine = null;
+                    if (selectionIdx == selectedIndex)
+                    {
+                        currentLine = string.Format("{0}<color=#8C0E0E{1:X02}>{2}</color>", Environment.NewLine, alpha, Selections[selectionIdx]);
+                    }
+                    else
+                    {
+                        currentLine = string.Format("{0}{1}", Environment.NewLine, Selections[selectionIdx]);
+                    }
+
+                    dialogTextBuilder.Append(currentLine);
                 }
-                else
-                {
-                    return string.Format("{0}{1}{0}<color=#8C0E0E{3:X02}>{2}</color>", Environment.NewLine, YesText, NoText, alpha);
-                }
+
+                return dialogTextBuilder.ToString();
             }
         }
     }
@@ -127,8 +128,8 @@ public class UIDialogTextPopper : MonoBehaviour
     public void ForceFinish(bool callFinishEvent = false)
     {
         popStartTime = popStartTimeDisabled;
-        textComponent.text = fullText;
-        textVisible = true; 
+        textComponent.text = fullDialogText;
+        textVisible = true;
 
         if (callFinishEvent)
         {
@@ -138,9 +139,24 @@ public class UIDialogTextPopper : MonoBehaviour
         popFinishEvent = null;
     }
 
-    public void NextYesNoSelection()
+    public void NextSelection(bool inverse = false)
     {
-        yesNoSelection = !yesNoSelection;
+        if (!inverse)
+        {
+            selectedIndex++;
+            if (selectedIndex >= Selections.Length)
+            {
+                selectedIndex = 0;
+            }
+        }
+        else
+        {
+            selectedIndex--;
+            if (selectedIndex < 0)
+            {
+                selectedIndex = Selections.Length - 1;
+            }
+        }
     }
 
     private void InvokeFinishEvent()

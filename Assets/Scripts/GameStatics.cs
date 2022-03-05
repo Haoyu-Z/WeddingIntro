@@ -8,6 +8,8 @@ public class GameStatics : MonoBehaviour
 
     public GameObject PlayerAvatar;
 
+    public CameraFollow Camera;
+
     private AvatarMovementComponent playerAvatarMovement;
 
     public AvatarMovementComponent PlayerAvatarMovement { get { return playerAvatarMovement; } }

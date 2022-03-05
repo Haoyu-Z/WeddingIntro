@@ -20,6 +20,10 @@ public class AvatarMovementComponent : MonoBehaviour
 
     public float SpeedFade = 0.8f;
 
+    public Vector2 playerMovementRangeX;
+
+    public Vector2 playerMovementRangeY;
+
     private Direction facingDirection = Direction.Backward;
 
     private bool isMoving = false;
@@ -49,6 +53,20 @@ public class AvatarMovementComponent : MonoBehaviour
     private void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+
+        float ScreenBorder = 0.0f;
+        CameraFollow cameraFollow = GameStatics.Instance?.Camera;
+        Debug.Assert(cameraFollow != null);
+
+        ScreenBorder = cameraFollow.ScreenBorder;
+        playerMovementRangeX = new Vector2(
+            cameraFollow.PlayerRenderBorderX.x + ScreenBorder + PlayerRenderHaftRect.x,
+            cameraFollow.PlayerRenderBorderX.y - ScreenBorder - PlayerRenderHaftRect.x
+            );
+        playerMovementRangeY = new Vector2(
+            cameraFollow.PlayerRenderBorderY.x + ScreenBorder,
+            cameraFollow.PlayerRenderBorderY.y - ScreenBorder - PlayerRenderHaftRect.y - PlayerRenderHaftRect.y
+            );
     }
 
     private void FixedUpdate()
@@ -83,6 +101,15 @@ public class AvatarMovementComponent : MonoBehaviour
             {
                 facingDirection = inputVector.y > 0 ? Direction.Forward : Direction.Backward;
             }
+        }
+
+        CameraFollow cameraFollow = GameStatics.Instance?.Camera;
+        if (cameraFollow != null)
+        {
+            Vector3 position = gameObject.transform.position;
+            position.x = Mathf.Clamp(position.x, playerMovementRangeX.x, playerMovementRangeX.y);
+            position.y = Mathf.Clamp(position.y, playerMovementRangeY.x, playerMovementRangeY.y);
+            gameObject.transform.position = position;
         }
     }
 }

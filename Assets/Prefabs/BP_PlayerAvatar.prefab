@@ -120,8 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78245b8c1e957c341b14995a7bd98f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 3.2
-  SpeedFade: 0.8
+  moveSpeed: 3.2
+  speedFade: 0.8
+  playerMovementRangeX: {x: 0, y: 0}
+  playerMovementRangeY: {x: 0, y: 0}
 --- !u!114 &7673521308560326659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f056ca83ee9abd84aabdbed5452f63d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsMoving: 0
-  FacingDirection: 0
 --- !u!114 &1201407904415167515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3d7aeae0aaf41cda857c48c9e26426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsPrefix: T_P1_W0_JG_LP_
-  NewSprites:
+  asPrefix: T_P1_W0_JG_LP_
+  newSprites:
   - {fileID: -3391712692223916066, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
   - {fileID: -6684980117813591582, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}
   - {fileID: 550923072454568625, guid: 14b6cded58d0c4a129c5b438fe0e1829, type: 3}

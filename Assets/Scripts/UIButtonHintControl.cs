@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ButtonType
@@ -10,7 +8,8 @@ public enum ButtonType
 
 public class UIButtonHintControl : MonoBehaviour
 {
-    public ButtonType Type;
+    [SerializeField]
+    private ButtonType Type;
 
     private void Start()
     {

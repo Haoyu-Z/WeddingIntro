@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
 {
-    public string AsPrefix;
+    [SerializeField]
+    private string asPrefix;
 
-    public Sprite[] NewSprites;
+    [SerializeField]
+    private Sprite[] newSprites;
 
     private SpriteRenderer spriteRenderer;
 
@@ -22,24 +22,24 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
             return;
         }
 
-        if (AsPrefix.Length <= 0)
+        if (asPrefix.Length <= 0)
         {
             return;
         }
 
-        if (NewSprites == null || NewSprites.Length <= 0)
+        if (newSprites == null || newSprites.Length <= 0)
         {
             return;
         }
 
         string currentSpriteName = spriteRenderer.sprite.name;
-        if (currentSpriteName.Length > AsPrefix.Length && currentSpriteName.StartsWith(AsPrefix))
+        if (currentSpriteName.Length > asPrefix.Length && currentSpriteName.StartsWith(asPrefix))
         {
-            string indexString = currentSpriteName.Substring(AsPrefix.Length);
+            string indexString = currentSpriteName.Substring(asPrefix.Length);
             bool indexParseResult = int.TryParse(indexString, out int spriteIndex);
-            if (indexParseResult && spriteIndex < NewSprites.Length)
+            if (indexParseResult && spriteIndex < newSprites.Length)
             {
-                spriteRenderer.sprite = NewSprites[spriteIndex];
+                spriteRenderer.sprite = newSprites[spriteIndex];
             }
         }
     }

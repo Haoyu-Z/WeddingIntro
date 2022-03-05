@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIDialogPanelScaler : MonoBehaviour
 {
-    public float ScaleInTime = 0.2f;
+    [SerializeField]
+    private float ScaleInTime = 0.2f;
 
-    public float ScaleOutTime = 0.2f;
+    [SerializeField]
+    private float ScaleOutTime = 0.2f;
 
     private float scaleSpeed;
 

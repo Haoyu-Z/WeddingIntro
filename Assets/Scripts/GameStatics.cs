@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStatics : MonoBehaviour
@@ -17,6 +15,10 @@ public class GameStatics : MonoBehaviour
     private AvatarInteraction playerAvatarInteraction;
 
     public AvatarInteraction PlayerAvatarInteraction { get { return playerAvatarInteraction; } }
+
+    private AvatarState playerAvatarState;
+
+    public AvatarState PlayerAvatarState { get { return playerAvatarState; } }
 
     private void Awake()
     {

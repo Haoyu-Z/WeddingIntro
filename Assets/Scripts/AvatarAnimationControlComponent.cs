@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AvatarAnimationControlComponent : MonoBehaviour
 {
-    public bool IsMoving;
+    private bool isMoving;
 
-    public Direction FacingDirection;
+    private Direction facingDirection;
 
     private Animator animator;
 
@@ -22,14 +20,14 @@ public class AvatarAnimationControlComponent : MonoBehaviour
     {
         if (movementComponent != null)
         {
-            IsMoving = movementComponent.IsMoving;
-            FacingDirection = movementComponent.FacingDirection;
+            isMoving = movementComponent.IsMoving;
+            facingDirection = movementComponent.FacingDirection;
         }
 
         if (animator != null)
         {
-            animator.SetBool("IsMoving", IsMoving);
-            animator.SetInteger("Direction", (int)FacingDirection);
+            animator.SetBool("IsMoving", isMoving);
+            animator.SetInteger("Direction", (int)facingDirection);
         }
     }
 }

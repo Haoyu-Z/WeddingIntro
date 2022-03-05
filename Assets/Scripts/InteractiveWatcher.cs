@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum InteractiveType
@@ -9,9 +7,11 @@ public enum InteractiveType
 
 public class InteractiveWatcher : MonoBehaviour
 {
-    public InteractiveType interactiveType;
+    [SerializeField]
+    private InteractiveType interactiveType;
 
-    public string dialogEntrance;
+    [SerializeField]
+    private string dialogEntrance;
 
     private void Start()
     {

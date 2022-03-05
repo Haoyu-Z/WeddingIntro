@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIDialogBoxController : MonoBehaviour
 {
-    public static UIDialogBoxController Instance;
+    private static UIDialogBoxController instance;
 
-    public UIDialogTextPopper textPopper;
+    public static UIDialogBoxController Instance { get { return instance; } }
 
-    public UIDialogPanelScaler panelScaler;
+    [SerializeField]
+    private UIDialogTextPopper textPopper;
+
+    [SerializeField]
+    private UIDialogPanelScaler panelScaler;
 
     public delegate void UIDialogPanelFinishEvent();
 
@@ -27,8 +29,8 @@ public class UIDialogBoxController : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Assert(Instance == null);
-        Instance = this;
+        Debug.Assert(instance == null);
+        instance = this;
     }
 
     private void Update()

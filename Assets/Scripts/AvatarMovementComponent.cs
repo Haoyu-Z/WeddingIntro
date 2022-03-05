@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum Direction
@@ -16,13 +14,15 @@ public class AvatarMovementComponent : MonoBehaviour
 
     private static readonly float[] directionAngles = new float[] { 0.0f, 90.0f, 180.0f, -90.0f };
 
-    public float MoveSpeed = 3.2f;
+    [SerializeField]
+    private float moveSpeed = 3.2f;
 
-    public float SpeedFade = 0.8f;
+    [SerializeField]
+    private float speedFade = 0.8f;
 
-    public Vector2 playerMovementRangeX;
+    private Vector2 playerMovementRangeX;
 
-    public Vector2 playerMovementRangeY;
+    private Vector2 playerMovementRangeY;
 
     private Direction facingDirection = Direction.Backward;
 
@@ -79,11 +79,11 @@ public class AvatarMovementComponent : MonoBehaviour
         Vector3 inputVector = movementInputVector;
         if (inputVector.x != 0 || inputVector.y != 0)
         {
-            rigidBody2D.velocity = (new Vector2(inputVector.x, inputVector.y)).normalized * MoveSpeed;
+            rigidBody2D.velocity = (new Vector2(inputVector.x, inputVector.y)).normalized * moveSpeed;
         }
         else
         {
-            rigidBody2D.velocity = Vector2.Lerp(rigidBody2D.velocity, Vector2.zero, SpeedFade);
+            rigidBody2D.velocity = Vector2.Lerp(rigidBody2D.velocity, Vector2.zero, speedFade);
         }
     }
 

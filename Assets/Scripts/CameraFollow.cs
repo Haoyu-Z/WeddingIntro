@@ -1,15 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [Tooltip("Measured in absolute game unit.")]
-    public float ScreenBorder = 0.375f;
+    [SerializeField, Tooltip("Measured in absolute game unit.")]
+    private float screenBorder = 0.375f;
 
-    public Vector2 PlayerRenderBorderX = new Vector2(-11.0f, 12.0f);
+    public float ScreenBorder { get { return screenBorder; } }
 
-    public Vector2 PlayerRenderBorderY = new Vector3(-13.0f, 14.0f);
+    [SerializeField]
+    private Vector2 playerRenderBorderX = new Vector2(-11.0f, 12.0f);
+
+    public Vector2 PlayerRenderBorderX { get { return playerRenderBorderX; } }
+
+    [SerializeField]
+    private Vector2 playerRenderBorderY = new Vector3(-13.0f, 14.0f);
+
+    public Vector2 PlayerRenderBorderY { get { return playerRenderBorderY; } }
 
     private Vector2 cameraBorderX;
 

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +23,7 @@ public class DialogData : MonoBehaviour
 
     public DialogEntry[] DialogCollection;
 
-    public Dictionary<string, DialogEntry> DialogLUT = new Dictionary<string, DialogEntry>();
+    private readonly Dictionary<string, DialogEntry> DialogLUT = new Dictionary<string, DialogEntry>();
 
     public DialogEntry LookupDialog(string dialogId)
     {

@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class AvatarInteraction : MonoBehaviour
 {
-    private HashSet<InteractiveWatcher> watchers = new HashSet<InteractiveWatcher>();
+    private readonly HashSet<InteractiveWatcher> watchers = new HashSet<InteractiveWatcher>();
 
     private void Update()
     {

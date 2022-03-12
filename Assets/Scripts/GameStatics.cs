@@ -16,10 +16,6 @@ public class GameStatics : MonoBehaviour
 
     public AvatarInteraction PlayerAvatarInteraction { get { return playerAvatarInteraction; } }
 
-    private AvatarState playerAvatarState;
-
-    public AvatarState PlayerAvatarState { get { return playerAvatarState; } }
-
     private void Awake()
     {
         Debug.Assert(Instance == null);
@@ -29,6 +25,14 @@ public class GameStatics : MonoBehaviour
         {
             playerAvatarMovement = PlayerAvatar.GetComponent<AvatarMovementComponent>();
             playerAvatarInteraction = PlayerAvatar.GetComponent<AvatarInteraction>();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
         }
     }
 }

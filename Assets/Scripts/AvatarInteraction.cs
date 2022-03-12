@@ -5,6 +5,13 @@ public class AvatarInteraction : MonoBehaviour
 {
     private readonly HashSet<InteractiveWatcher> watchers = new HashSet<InteractiveWatcher>();
 
+    private AvatarMovementComponent avatarMovementComponent;
+
+    private void Start()
+    {
+        avatarMovementComponent = GetComponent<AvatarMovementComponent>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -15,12 +22,10 @@ public class AvatarInteraction : MonoBehaviour
 
     private void CheckInteraction()
     {
-        if (GameStatics.Instance?.PlayerAvatarMovement == null)
+        if (avatarMovementComponent == null)
         {
             return;
         }
-
-        AvatarMovementComponent movement = GameStatics.Instance.PlayerAvatarMovement;
 
         foreach (InteractiveWatcher watcher in watchers)
         {
@@ -31,7 +36,7 @@ public class AvatarInteraction : MonoBehaviour
             }
 
             float angle = Mathf.Atan2(relative.x, relative.y) / Mathf.PI * 180;
-            float angleDiff = angle - movement.FacingDirectionAngle;
+            float angleDiff = angle - avatarMovementComponent.FacingDirectionAngle;
             angleDiff -= Mathf.RoundToInt(angleDiff / 360.0f) * 360.0f;
             if (Mathf.Abs(angleDiff) < 30.0f)
             {

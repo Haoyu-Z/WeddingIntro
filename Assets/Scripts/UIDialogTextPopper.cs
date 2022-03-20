@@ -57,7 +57,7 @@ public class UIDialogTextPopper : MonoBehaviour
             return;
         }
 
-        if (!textVisible || DialogTextPopTime <= 0.0f || hintText.Length == 0)
+        if (!textVisible || DialogTextPopTime <= 0.0f || hintText == null || hintText.Length == 0)
         {
             return;
         }

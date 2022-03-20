@@ -21,13 +21,13 @@ public class DialogData : MonoBehaviour
 {
     public static DialogData Instance = null;
 
-    public DialogEntry[] DialogCollection;
+    public PieceOfDialog[] AllDialogs;
 
     private readonly Dictionary<string, DialogEntry> DialogLUT = new Dictionary<string, DialogEntry>();
 
     public DialogEntry LookupDialog(string dialogId)
     {
-        if(DialogLUT.ContainsKey(dialogId))
+        if (DialogLUT.ContainsKey(dialogId))
         {
             return DialogLUT[dialogId];
         }
@@ -42,9 +42,17 @@ public class DialogData : MonoBehaviour
         Debug.Assert(Instance == null);
         Instance = this;
 
-        foreach(DialogEntry entry in DialogCollection)
+        foreach (PieceOfDialog piece in AllDialogs)
         {
-            DialogLUT.Add(entry.DialogId, entry);
+            if (piece == null)
+            {
+                continue;
+            }
+
+            foreach (DialogEntry entry in piece.DialogEntries)
+            {
+                DialogLUT.Add(entry.DialogId, entry);
+            }
         }
     }
 }

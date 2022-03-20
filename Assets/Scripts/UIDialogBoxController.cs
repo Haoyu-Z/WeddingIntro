@@ -99,6 +99,8 @@ public class UIDialogBoxController : MonoBehaviour
                 state = DialogBoxState.TextShown;
                 break;
             case DialogBoxState.TextShown:
+                Debug.Assert(currentDialogEntry != null);
+
                 string nextDialogId = "";
                 if (textPopper.TextType == UIDialogTextPopper.DialogTextType.PlainText)
                 {

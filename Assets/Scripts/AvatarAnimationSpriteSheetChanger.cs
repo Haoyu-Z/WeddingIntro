@@ -6,7 +6,7 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
     private string asPrefix;
 
     [SerializeField]
-    private Sprite[] newSprites;
+    private PieceOfAvatarSprite newSprites;
 
     private SpriteRenderer spriteRenderer;
 
@@ -27,7 +27,7 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
             return;
         }
 
-        if (newSprites == null || newSprites.Length <= 0)
+        if (newSprites == null || newSprites.SpriteSequence.Length <= 0)
         {
             return;
         }
@@ -37,9 +37,9 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
         {
             string indexString = currentSpriteName.Substring(asPrefix.Length);
             bool indexParseResult = int.TryParse(indexString, out int spriteIndex);
-            if (indexParseResult && spriteIndex < newSprites.Length)
+            if (indexParseResult && spriteIndex < newSprites.SpriteSequence.Length)
             {
-                spriteRenderer.sprite = newSprites[spriteIndex];
+                spriteRenderer.sprite = newSprites.SpriteSequence[spriteIndex];
             }
         }
     }

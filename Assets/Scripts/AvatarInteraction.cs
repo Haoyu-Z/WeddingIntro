@@ -7,20 +7,18 @@ public class AvatarInteraction : MonoBehaviour
 
     private AvatarMovementComponent avatarMovementComponent;
 
+    private AvatarInput avatarInput;
+
     private void Start()
     {
         avatarMovementComponent = GetComponent<AvatarMovementComponent>();
+
+        avatarInput = GetComponent<AvatarInput>();
+        Debug.Assert(avatarInput != null);
+        avatarInput.AddKeyResponse(InteractionKeyPriority.InteractiveWatcher, new AvatarInput.KeyResponse(CheckInteraction), KeyPressType.KeyDown);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            CheckInteraction();
-        }
-    }
-
-    private void CheckInteraction()
+    private void CheckInteraction(GameKeyCode _ = GameKeyCode.KeyA)
     {
         if (avatarMovementComponent == null)
         {

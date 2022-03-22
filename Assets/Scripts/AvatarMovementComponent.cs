@@ -45,9 +45,28 @@ public class AvatarMovementComponent : MonoBehaviour
         get { return directionAngles[(int)facingDirection]; }
     }
 
-    private Vector3 movementInputVector
+    private Vector3 pendingMovementInputVector;
+
+    private Vector3 movementInputVector;
+
+    private void AddMovementInputVector(GameKeyCode gameKeyCode)
     {
-        get { return new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0); }
+        if(gameKeyCode == GameKeyCode.DirectionRight)
+        {
+            pendingMovementInputVector += Vector3.right;
+        }
+        else if(gameKeyCode == GameKeyCode.DirectionLeft)
+        {
+            pendingMovementInputVector += Vector3.left;
+        }
+        else if(gameKeyCode == GameKeyCode.DirectionUp)
+        {
+            pendingMovementInputVector += Vector3.up;
+        }
+        else if(gameKeyCode == GameKeyCode.DirectionDown)
+        {
+            pendingMovementInputVector += Vector3.down;
+        }
     }
 
     private void Start()
@@ -67,6 +86,10 @@ public class AvatarMovementComponent : MonoBehaviour
             cameraFollow.PlayerRenderBorderY.x + ScreenBorder,
             cameraFollow.PlayerRenderBorderY.y - ScreenBorder - PlayerRenderHaftRect.y - PlayerRenderHaftRect.y
             );
+
+        AvatarInput avatarInput = GetComponent<AvatarInput>();
+        Debug.Assert(avatarInput != null);
+        avatarInput.AddKeyResponse(DirectionKeyResponsePriority.Movement, new AvatarInput.KeyResponse(AddMovementInputVector), KeyPressType.DefaultPressing);
     }
 
     private void FixedUpdate()
@@ -76,10 +99,9 @@ public class AvatarMovementComponent : MonoBehaviour
             return;
         }
 
-        Vector3 inputVector = movementInputVector;
-        if (inputVector.x != 0 || inputVector.y != 0)
+        if (movementInputVector.x != 0 || movementInputVector.y != 0)
         {
-            rigidBody2D.velocity = (new Vector2(inputVector.x, inputVector.y)).normalized * moveSpeed;
+            rigidBody2D.velocity = (new Vector2(movementInputVector.x, movementInputVector.y)).normalized * moveSpeed;
         }
         else
         {
@@ -89,17 +111,16 @@ public class AvatarMovementComponent : MonoBehaviour
 
     private void Update()
     {
-        Vector3 inputVector = movementInputVector;
-        isMoving = inputVector.x != 0 || inputVector.y != 0;
+        isMoving = pendingMovementInputVector.x != 0 || pendingMovementInputVector.y != 0;
         if (isMoving)
         {
-            if (Mathf.Abs(inputVector.x) >= Mathf.Abs(inputVector.y))
+            if (Mathf.Abs(pendingMovementInputVector.x) >= Mathf.Abs(pendingMovementInputVector.y))
             {
-                facingDirection = inputVector.x > 0 ? Direction.Rightward : Direction.Leftward;
+                facingDirection = pendingMovementInputVector.x > 0 ? Direction.Rightward : Direction.Leftward;
             }
             else
             {
-                facingDirection = inputVector.y > 0 ? Direction.Forward : Direction.Backward;
+                facingDirection = pendingMovementInputVector.y > 0 ? Direction.Forward : Direction.Backward;
             }
         }
 
@@ -111,5 +132,8 @@ public class AvatarMovementComponent : MonoBehaviour
             position.y = Mathf.Clamp(position.y, playerMovementRangeY.x, playerMovementRangeY.y);
             gameObject.transform.position = position;
         }
+
+        movementInputVector = pendingMovementInputVector;
+        pendingMovementInputVector = Vector3.zero;
     }
 }

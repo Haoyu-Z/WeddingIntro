@@ -27,28 +27,18 @@ public class UIDialogBoxController : MonoBehaviour
 
     private DialogEntry currentDialogEntry;
 
+    private AvatarInput avatarInput;
+
     private void Awake()
     {
         Debug.Assert(instance == null);
         instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            TriggerNextState();
-        }
-
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            ChangeDialogSelection(true);
-        }
-
-        if(Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            ChangeDialogSelection(false);
-        }
+        avatarInput = GameStatics.Instance.PlayerAvatarInput;
+        Debug.Assert(avatarInput != null);
     }
 
     public void StartDialog(string dialogId)
@@ -64,8 +54,23 @@ public class UIDialogBoxController : MonoBehaviour
             return;
         }
 
+        avatarInput.AddKeyResponse(InteractionKeyPriority.DialogConfirm, new AvatarInput.KeyResponse(TriggerNextState), KeyPressType.KeyDown);
+        avatarInput.AddKeyResponse(DirectionKeyResponsePriority.ChangeDialogSelection, new AvatarInput.KeyResponse(ChangeDialogSelectionWrapper), KeyPressType.KeyDown);
+
         currentDialogEntry = dialogEntry;
         TriggerNextState();
+    }
+
+    private void ChangeDialogSelectionWrapper(GameKeyCode gameKeyCode)
+    {
+        if(gameKeyCode == GameKeyCode.DirectionUp)
+        {
+            ChangeDialogSelection(true);
+        }
+        else if(gameKeyCode == GameKeyCode.DirectionDown)
+        {
+            ChangeDialogSelection(false);
+        }
     }
 
     private void ChangeDialogSelection(bool inverse = false)
@@ -76,12 +81,9 @@ public class UIDialogBoxController : MonoBehaviour
         }
     }
 
-    private void TriggerNextState()
+    private void TriggerNextState(GameKeyCode _ = GameKeyCode.KeyA)
     {
-        if (textPopper == null || panelScaler == null)
-        {
-            return;
-        }
+        Debug.Assert(textPopper != null && panelScaler != null);
 
         switch (state)
         {
@@ -112,10 +114,10 @@ public class UIDialogBoxController : MonoBehaviour
                     nextDialogId = currentDialogEntry.SelectionsNextDialogId[textPopper.SelectedIndex];
                 }
 
-                DialogEntry dialogEntry = DialogData.Instance.LookupDialog(nextDialogId);
-                if (dialogEntry != null)
+                DialogEntry nextDialogEntry = DialogData.Instance.LookupDialog(nextDialogId);
+                if (nextDialogEntry != null)
                 {
-                    currentDialogEntry = dialogEntry;
+                    currentDialogEntry = nextDialogEntry;
                     textPopper.ResetText(currentDialogEntry);
                     StartPopTextEventImpl();
                 }
@@ -146,5 +148,8 @@ public class UIDialogBoxController : MonoBehaviour
             textPopper.ResetText(null);
         }));
         state = DialogBoxState.ScaleOut;
+
+        avatarInput.RemoveKeyResponse(InteractionKeyPriority.DialogConfirm);
+        avatarInput.RemoveKeyResponse(DirectionKeyResponsePriority.ChangeDialogSelection);
     }
 }

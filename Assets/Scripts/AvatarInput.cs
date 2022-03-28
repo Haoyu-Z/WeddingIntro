@@ -6,12 +6,18 @@ public enum DirectionKeyResponsePriority
 {
     Movement = 0,
     ChangeDialogSelection = 1,
+
+    // sentinel, always highest
+    UIFocus,
 }
 
 public enum InteractionKeyPriority
 {
     InteractiveWatcher = 0,
     DialogConfirm = 1,
+
+    // sentinel, always highest
+    UIFocus,
 }
 
 public enum GameKeyType

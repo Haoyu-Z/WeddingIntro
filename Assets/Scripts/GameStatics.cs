@@ -1,8 +1,28 @@
 using UnityEngine;
 
+public struct PlayerInfo
+{
+    public string Name;
+
+    public string Gender;
+
+    public PlayerInfo(string name, string gender)
+    {
+        Debug.Assert(name != null && gender != null);
+        Name = name;
+        Gender = gender;
+    }
+
+    public static readonly string NoNameHint = "üo√˚ œ£ø";
+
+    public static readonly PlayerInfo Tarnished = new PlayerInfo("UnNamed", "NoGender");
+}
+
 public class GameStatics : MonoBehaviour
 {
     public static GameStatics Instance;
+
+    public PlayerInfo PlayerInformation { get; set; } = PlayerInfo.Tarnished;
 
     public GameObject PlayerAvatar;
 

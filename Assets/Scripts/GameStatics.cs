@@ -13,7 +13,7 @@ public struct PlayerInfo
         Gender = gender;
     }
 
-    public static readonly string NoNameHint = "ŸoÃûÊÏ£¿";
+    public static readonly string NoNameHint = "?o??????";
 
     public static readonly PlayerInfo Tarnished = new PlayerInfo("UnNamed", "NoGender");
 }
@@ -22,7 +22,21 @@ public class GameStatics : MonoBehaviour
 {
     public static GameStatics Instance;
 
-    public PlayerInfo PlayerInformation { get; set; } = PlayerInfo.Tarnished;
+    public delegate void OnPlayerInfoSet(PlayerInfo info);
+
+    public OnPlayerInfoSet PlayerInfoSetEvent;
+
+    private PlayerInfo playerInfo = PlayerInfo.Tarnished;
+
+    public PlayerInfo PlayerInformation
+    {
+        get => playerInfo;
+        set
+        {
+            playerInfo = value;
+            PlayerInfoSetEvent.Invoke(playerInfo);
+        }
+    }
 
     public GameObject PlayerAvatar;
 

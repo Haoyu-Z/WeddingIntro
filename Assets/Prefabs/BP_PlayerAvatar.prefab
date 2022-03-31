@@ -147,8 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3d7aeae0aaf41cda857c48c9e26426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asPrefix: T_P1_W0_JG_LP_
-  newSprites: {fileID: 11400000, guid: 79e07faa1d9b741e8b2f68c59601fc97, type: 2}
+  spriteSheetsTable: {fileID: 11400000, guid: 49d609f0970ab4c93b7ae96802ce4d44, type: 2}
 --- !u!114 &3090734547541135184
 MonoBehaviour:
   m_ObjectHideFlags: 0

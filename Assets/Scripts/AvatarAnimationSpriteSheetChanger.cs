@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
 {
-    [SerializeField]
     private string asPrefix;
 
-    [SerializeField]
-    private PieceOfAvatarSprite newSprites;
+    private Sprite[] newSprites;
 
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private AvatarSpriteSheetsTable spriteSheetsTable;
+
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();          
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        Debug.Assert(GameStatics.Instance != null);
+        GameStatics.Instance.PlayerInfoSetEvent += OnPlayerInfoSetResponse;
     }
 
     private void LateUpdate()
@@ -22,12 +26,12 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
             return;
         }
 
-        if (asPrefix.Length <= 0)
+        if (asPrefix == null || asPrefix.Length <= 0)
         {
             return;
         }
 
-        if (newSprites == null || newSprites.SpriteSequence.Length <= 0)
+        if (newSprites == null || newSprites.Length <= 0)
         {
             return;
         }
@@ -37,10 +41,29 @@ public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
         {
             string indexString = currentSpriteName.Substring(asPrefix.Length);
             bool indexParseResult = int.TryParse(indexString, out int spriteIndex);
-            if (indexParseResult && spriteIndex < newSprites.SpriteSequence.Length)
+            if (indexParseResult && spriteIndex < newSprites.Length)
             {
-                spriteRenderer.sprite = newSprites.SpriteSequence[spriteIndex];
+                spriteRenderer.sprite = newSprites[spriteIndex];
             }
         }
+    }
+
+    private void OnPlayerInfoSetResponse(PlayerInfo info)
+    {
+        foreach(SpriteSheetTablePair pair in spriteSheetsTable.Table)
+        {
+            if(pair.Key == info.Gender)
+            {
+                SetSpriteSheetChangerData(pair.Prefix, pair.SpriteSequence);
+                break;
+            }
+        }
+    }
+
+    private void SetSpriteSheetChangerData(string prefix, Sprite[] sprites)
+    {
+        Debug.Assert(prefix != null && sprites != null);
+        asPrefix = prefix;
+        newSprites = sprites;
     }
 }

@@ -38,6 +38,10 @@ public class GameStatics : MonoBehaviour
         }
     }
 
+    public bool SendMailOnLogin = false;
+
+    [Header("Non-prefab Attribute")]
+
     public GameObject PlayerAvatar;
 
     public CameraFollow Camera;

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 8fe861622fc282849b9fe5b82009ba48
+guid: 8db5440aeb8717b488cf7808f174f481
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2601572635411862195
-    second: T_UI_GenderButton_0
+      213: 8481469934003679758
+    second: As_UI_GenderButton_0
   - first:
-      213: -7820825456866533290
-    second: T_UI_GenderButton_1
+      213: -8301033750901292909
+    second: As_UI_GenderButton_1
   - first:
-      213: 2163655974463833255
-    second: T_UI_GenderButton_2
+      213: 6313443844059535314
+    second: As_UI_GenderButton_2
   - first:
-      213: 4834894902603128300
-    second: T_UI_GenderButton_3
+      213: -2854946629354677862
+    second: As_UI_GenderButton_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -60,7 +60,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_UI_GenderButton_0
+      name: As_UI_GenderButton_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b2d9173784aa1420800000000000000
-      internalID: 2601572635411862195
+      spriteID: e02f17dd7fb34b570800000000000000
+      internalID: 8481469934003679758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_UI_GenderButton_1
+      name: As_UI_GenderButton_1
       rect:
         serializedVersion: 2
         x: 48
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6506329fea8d67390800000000000000
-      internalID: -7820825456866533290
+      spriteID: 3900009c8cdcccc80800000000000000
+      internalID: -8301033750901292909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_UI_GenderButton_2
+      name: As_UI_GenderButton_2
       rect:
         serializedVersion: 2
         x: 96
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a4811e25a9d60e10800000000000000
-      internalID: 2163655974463833255
+      spriteID: 2d79b82e9bbdd9750800000000000000
+      internalID: 6313443844059535314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_UI_GenderButton_3
+      name: As_UI_GenderButton_3
       rect:
         serializedVersion: 2
         x: 144
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ced910c2c4ff81340800000000000000
-      internalID: 4834894902603128300
+      spriteID: a999d90ba213168d0800000000000000
+      internalID: -2854946629354677862
       vertices: []
       indices: 
       edges: []

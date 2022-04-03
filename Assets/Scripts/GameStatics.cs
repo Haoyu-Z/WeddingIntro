@@ -13,13 +13,13 @@ public struct PlayerInfo
         Gender = gender;
     }
 
-    public static readonly string NoNameHint = "?o??????";
-
     public static readonly PlayerInfo Tarnished = new PlayerInfo("UnNamed", "NoGender");
 }
 
 public class GameStatics : MonoBehaviour
 {
+    public string PlayerNameAutoFill;
+
     public static GameStatics Instance;
 
     public delegate void OnPlayerInfoSet(PlayerInfo info);

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a02d9c2dd1741408a515bdf90bd7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerNameAutoFill: "\u672A\u547D\u540D.jpg"
   PlayerAvatar: {fileID: 0}
   Camera: {fileID: 0}
 --- !u!114 &8931848893862806469

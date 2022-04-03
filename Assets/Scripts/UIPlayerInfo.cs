@@ -77,7 +77,7 @@ public class UIPlayerInfo : MonoBehaviour
     {
         if (playerInfo.Name.Trim() == "")
         {
-            inputFieldName.text = PlayerInfo.NoNameHint;
+            inputFieldName.text = GameStatics.Instance.PlayerNameAutoFill;
             return;
         }
 

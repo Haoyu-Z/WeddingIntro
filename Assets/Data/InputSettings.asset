@@ -14,17 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputSettings:
   - key: 119
+    uiKey: 0
     keyDefinition: 0
     keyType: 0
   - key: 115
+    uiKey: 1
     keyDefinition: 1
     keyType: 0
   - key: 97
+    uiKey: 2
     keyDefinition: 2
     keyType: 0
   - key: 100
+    uiKey: 3
     keyDefinition: 3
     keyType: 0
   - key: 106
+    uiKey: 4
     keyDefinition: 4
     keyType: 1

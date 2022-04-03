@@ -44,20 +44,26 @@ public class GameStatics : MonoBehaviour
 
     private AvatarMovementComponent playerAvatarMovement;
 
-    public AvatarMovementComponent PlayerAvatarMovement { get { return playerAvatarMovement; } }
+    public AvatarMovementComponent PlayerAvatarMovement => playerAvatarMovement;
 
     private AvatarInteraction playerAvatarInteraction;
 
-    public AvatarInteraction PlayerAvatarInteraction { get { return playerAvatarInteraction; } }
+    public AvatarInteraction PlayerAvatarInteraction => playerAvatarInteraction;
 
     private AvatarInput playerAvatarInput;
 
-    public AvatarInput PlayerAvatarInput { get { return playerAvatarInput; } }
+    public AvatarInput PlayerAvatarInput => playerAvatarInput;
+
+    private UIKeyManager uiKeyManager;
+
+    public UIKeyManager UIKeyManager => uiKeyManager;
 
     private void Awake()
     {
         Debug.Assert(Instance == null);
         Instance = this;
+
+        uiKeyManager = GetComponent<UIKeyManager>();    
 
         if (PlayerAvatar != null)
         {

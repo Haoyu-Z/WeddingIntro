@@ -46,6 +46,7 @@ public enum KeyPressType
 public struct GameKeyDefinition
 {
     public KeyCode key;
+    public UIKeyCode uiKey;
     public GameKeyCode keyDefinition;
     public GameKeyType keyType;
 }
@@ -107,10 +108,14 @@ public class AvatarInput : MonoBehaviour
 
     private void Update()
     {
+        Debug.Assert(GameStatics.Instance != null || GameStatics.Instance.UIKeyManager != null);
+
+        UIKeyManager uiKeyManager = GameStatics.Instance.UIKeyManager;
+
         foreach (GameKeyDefinition definition in inputSetting.InputSettings)
         {
-            bool keyDown = Input.GetKeyDown(definition.key);
-            bool keyPressing = Input.GetKey(definition.key);
+            bool keyDown = Input.GetKeyDown(definition.key) || uiKeyManager.GetUIKeyDown(definition.uiKey);
+            bool keyPressing = Input.GetKey(definition.key) || uiKeyManager.GetUIKey(definition.uiKey);
             if (keyDown || keyPressing)
             {
                 Debug.Assert(gameKeyTypeToPriorityType.ContainsKey(definition.keyType));

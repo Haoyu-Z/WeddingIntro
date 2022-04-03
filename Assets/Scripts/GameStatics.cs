@@ -58,12 +58,17 @@ public class GameStatics : MonoBehaviour
 
     public UIKeyManager UIKeyManager => uiKeyManager;
 
+    [SerializeField]
+    private UIDebugText uiDebugText;
+
+    public UIDebugText UIDebugText => uiDebugText;
+
     private void Awake()
     {
         Debug.Assert(Instance == null);
         Instance = this;
 
-        uiKeyManager = GetComponent<UIKeyManager>();    
+        uiKeyManager = GetComponent<UIKeyManager>();
 
         if (PlayerAvatar != null)
         {

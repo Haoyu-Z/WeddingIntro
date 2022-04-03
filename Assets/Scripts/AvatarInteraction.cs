@@ -43,7 +43,7 @@ public class AvatarInteraction : MonoBehaviour
             }
         }
 
-        Debug.Log("No interaction triggered.");
+        GameStatics.Instance.UIDebugText.AddDebugText("No interaction triggered.");
     }
 
     public void RegisterInteractiveWatcher(InteractiveWatcher watcher)

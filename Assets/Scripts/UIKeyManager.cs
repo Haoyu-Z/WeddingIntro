@@ -12,7 +12,7 @@ public enum UIKeyCode
     UI_B,
 }
 
-public struct UIKeyState
+public class UIKeyState
 {
     public UIKeyCode keyCode;
     public bool IsPressed;
@@ -38,7 +38,7 @@ public class UIKeyManager : MonoBehaviour
         }
         else
         {
-            keyStates[key] = new UIKeyState(key, state, keyStates[key].IsPressedLastFrame);
+            keyStates[key].IsPressed = state;
         }
     }
 

@@ -8,6 +8,12 @@ public class CameraFollow : MonoBehaviour
     public float ScreenBorder { get { return screenBorder; } }
 
     [SerializeField]
+    private Vector2 uiBorderX = new Vector2(0.0f, 0.0f);
+
+    [SerializeField]
+    private Vector2 uiBorderY = new Vector2(0.0f, 0.0f);
+
+    [SerializeField]
     private Vector2 playerRenderBorderX = new Vector2(-11.0f, 12.0f);
 
     public Vector2 PlayerRenderBorderX { get { return playerRenderBorderX; } }
@@ -27,6 +33,16 @@ public class CameraFollow : MonoBehaviour
     private Camera camera;
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
 
+    private void ResetCameraBorder()
+    {
+        AvatarMovementComponent playerMovement = GameStatics.Instance?.PlayerAvatarMovement;
+        if (playerMovement != null)
+        {
+            cameraBorderX = new Vector2(PlayerRenderBorderX.x + camera.orthographicSize * camera.aspect - uiBorderX.x, PlayerRenderBorderX.y - camera.orthographicSize * camera.aspect + uiBorderX.y);
+            cameraBorderY = new Vector2(PlayerRenderBorderY.x + camera.orthographicSize - uiBorderY.x, PlayerRenderBorderY.y - camera.orthographicSize + uiBorderY.y);
+        }
+    }
+
     private void Start()
     {
         camera = GetComponent<Camera>();
@@ -42,12 +58,7 @@ public class CameraFollow : MonoBehaviour
             gameObject.transform.position = viewPosition;
         }
 
-        AvatarMovementComponent playerMovement = GameStatics.Instance?.PlayerAvatarMovement;
-        if (playerMovement != null)
-        {
-            cameraBorderX = new Vector2(PlayerRenderBorderX.x + camera.orthographicSize * camera.aspect, PlayerRenderBorderX.y - camera.orthographicSize * camera.aspect);
-            cameraBorderY = new Vector2(PlayerRenderBorderY.x + camera.orthographicSize, PlayerRenderBorderY.y - camera.orthographicSize);
-        }
+        ResetCameraBorder();
     }
 
     void LateUpdate()

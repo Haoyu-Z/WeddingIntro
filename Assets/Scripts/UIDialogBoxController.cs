@@ -110,8 +110,11 @@ public class UIDialogBoxController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Assert(textPopper.SelectedIndex >= 0 && textPopper.SelectedIndex < currentDialogEntry.SelectionsNextDialogId.Length);
-                    nextDialogId = currentDialogEntry.SelectionsNextDialogId[textPopper.SelectedIndex];
+                    Debug.Assert(textPopper.SelectedIndex >= 0 && textPopper.SelectedIndex < currentDialogEntry.NextSelections.Length);
+                    DialogNextSelection nextSelection = currentDialogEntry.NextSelections[textPopper.SelectedIndex];
+                    nextDialogId = nextSelection.NextDialogId;
+
+                    WorldEvent.TriggerEvent(nextSelection.TriggerWorldEvent);
                 }
 
                 DialogEntry nextDialogEntry = DialogData.Instance.LookupDialog(nextDialogId);

@@ -87,10 +87,7 @@ public class UIPlayerInfo : MonoBehaviour
         GameStatics.Instance.PlayerInformation = playerInfo;
         HideUIPanel();
 
-        if(GameStatics.Instance.SendMailOnLogin)
-        {
-            Mailer.SendMail(new Mailer.MailInfo(Mailer.MailType.Login, playerInfo));
-        }
+        WorldEvent.TriggerEvent(WorldEvent.WorldEventType.Login);
     }
 
     private void OnSelectGenderMaleButtonClicked()

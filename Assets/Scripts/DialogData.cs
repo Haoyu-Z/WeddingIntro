@@ -2,6 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public class DialogNextSelection
+{
+    public string HintString;
+
+    public string NextDialogId;
+
+    public WorldEvent.WorldEventType TriggerWorldEvent;
+}
+
+[System.Serializable]
 public class DialogEntry
 {
     public string DialogId;
@@ -12,9 +22,7 @@ public class DialogEntry
     [TextArea]
     public string HintText;
 
-    public string[] Selections;
-
-    public string[] SelectionsNextDialogId;
+    public DialogNextSelection[] NextSelections;
 }
 
 public class DialogData : MonoBehaviour

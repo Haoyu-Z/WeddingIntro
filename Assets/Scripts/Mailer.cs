@@ -8,6 +8,8 @@ public class Mailer
     public enum MailType
     {
         Login,
+        ConfirmComing,
+        RejectComing,
     }
 
     public struct MailInfo
@@ -46,6 +48,10 @@ public class Mailer
         {
             case MailType.Login:
                 return $"Player {info.PlayerInfo.Name}({info.PlayerInfo.Gender}) has played your game!";
+            case MailType.ConfirmComing:
+                return $"Player {info.PlayerInfo.Name}({info.PlayerInfo.Gender}) has confirmed to come!";
+            case MailType.RejectComing:
+                return $"Player {info.PlayerInfo.Name}({info.PlayerInfo.Gender}) has rejected to come!";
             default:
                 return null;
         }
@@ -57,6 +63,10 @@ public class Mailer
         {
             case MailType.Login:
                 return $"Congratulations for having a new player!";
+            case MailType.ConfirmComing:
+                return $"Player + 1! \u2764";
+            case MailType.RejectComing:
+                return $"Player - 1! Sad...";
             default:
                 return null;
         }

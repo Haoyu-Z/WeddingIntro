@@ -21,7 +21,7 @@ public class UIDialogTextPopper : MonoBehaviour
 
     public DialogTextType TextType { get { return textType; } }
 
-    private string[] selections;
+    private DialogNextSelection[] selections;
 
     private string hintText;
 
@@ -98,11 +98,11 @@ public class UIDialogTextPopper : MonoBehaviour
                     string currentLine = null;
                     if (selectionIdx == selectedIndex)
                     {
-                        currentLine = string.Format("{0}  - <color=#8C0E0E{1:X02}>{2}</color>", Environment.NewLine, alpha, selections[selectionIdx]);
+                        currentLine = string.Format("{0}  - <color=#8C0E0E{1:X02}>{2}</color>", Environment.NewLine, alpha, selections[selectionIdx].HintString);
                     }
                     else
                     {
-                        currentLine = string.Format("{0}  - {1}", Environment.NewLine, selections[selectionIdx]);
+                        currentLine = string.Format("{0}  - {1}", Environment.NewLine, selections[selectionIdx].HintString);
                     }
 
                     dialogTextBuilder.Append(currentLine);
@@ -129,7 +129,7 @@ public class UIDialogTextPopper : MonoBehaviour
         if (dialogEntry != null)
         {
             hintText = dialogEntry.HintText;
-            selections = dialogEntry.Selections;
+            selections = dialogEntry.NextSelections;
             textType = selections.Length > 0 ? DialogTextType.TextWithSelector : DialogTextType.PlainText;
             selectedIndex = 0;
         }

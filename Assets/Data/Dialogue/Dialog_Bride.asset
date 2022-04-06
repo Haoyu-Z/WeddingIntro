@@ -15,9 +15,7 @@ MonoBehaviour:
   DialogEntries:
   - DialogId: Dialog_Bride_Meet
     NextDialogId: 
-    HintText: "\u4F60\u597D\u5440\u52C7\u58EB\u3002\u6B61\u8FCE\u4F86\u53C3\u52A0\u6211\u548C\u88DD\u597D\u9B5A\u7684\u5A5A\u79AE\u3002"
-    Selections: []
-    SelectionsNextDialogId: []
+    HintText: "\u4F60\u597D\u5440\u3002\u6B61\u8FCE\u4F86\u53C3\u52A0\u6211\u548C\u88DD\u597D\u9B5A\u7684\u5A5A\u79AE\u3002"
     NextSelections:
     - HintString: "\u4EC0\u4E48\u6642\u9593\u5730\u9EDE\u8209\u8FA6\u5462\uFF1F"
       NextDialogId: Dialog_Bride_Info_01
@@ -34,8 +32,6 @@ MonoBehaviour:
   - DialogId: Dialog_Bride_Meet_Reentry
     NextDialogId: 
     HintText: "\u597D\u5566\uFF0C\u9084\u6709\u4EC0\u4E48\u5176\u4ED6\u60F3\u804A\u7684\u5417\uFF1F"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections:
     - HintString: "\u4EC0\u4E48\u6642\u9593\u5730\u9EDE\u8209\u8FA6\u5462\uFF1F"
       NextDialogId: Dialog_Bride_Info_01
@@ -52,26 +48,18 @@ MonoBehaviour:
   - DialogId: Dialog_Bride_Info_01
     NextDialogId: Dialog_Bride_Info_02
     HintText: "\u6211\u5011\u5A5A\u79AE\u8209\u8FA6\u7684\u65E5\u671F\u662F2022\u5E745\u67087\u65E5\uFF0C\u662F\u661F\u671F\u516D\u3002\n\u8209\u8FA6\u7684\u5730\u9EDE\u662F\u5728\u6C5F\u8607\u7701\u63DA\u5DDE\u5E02\u897F\u5712\u98EF\u5E97\u3002"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []
   - DialogId: Dialog_Bride_Info_02
     NextDialogId: Dialog_Bride_Info_03
     HintText: "\u8A3B\u610F5\u67087\u65E5\u90A3\u4E00\u5929\u8981\u8ABF\u4F11\u4E0A\u73ED\u5594\uFF01\n\u5982\u679C\u60F3\u8981\u4F86\u53C3\u52A0\u7684\u8A71\u8981\u9EBB\u7169\u4F60\u8ACB\u5047\u5566\u3002"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []
   - DialogId: Dialog_Bride_Info_03
     NextDialogId: Dialog_Bride_Info_04
     HintText: "\u5A5A\u79AE\u5100\u5F0F\u8209\u8FA6\u7684\u6642\u9593\u662F\u4E0B\u5348\u768415:30\uFF0C\u5730\u9EDE\u5728\u897F\u5712\u98EF\u5E97\u7684\u6236\u5916\u5C0F\u8349\u576A\u3002\n\u665A\u5BB4\u6642\u9593\u662F\u665A\u4E0A\u768418:58\uFF0C\u5730\u9EDE\u662F\u897F\u5712\u98EF\u5E97\u7684\u8C50\u6A02\u5EF3\u3002"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []
   - DialogId: Dialog_Bride_Info_04
     NextDialogId: 
     HintText: "\u597D\u5566\uFF0C\u6709\u6C92\u6709\u60F3\u597D\u8981\u4E0D\u8981\u4F86\u53C3\u52A0\u5462\uFF1F"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections:
     - HintString: "\u6211\u6703\u4F86\u53C3\u52A0\uFF01"
       NextDialogId: Dialog_Bride_Info_Confirm
@@ -85,26 +73,18 @@ MonoBehaviour:
   - DialogId: Dialog_Bride_Info_Confirm
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u597D\u7684\uFF0C\u90A3\u6211\u5011\u5230\u6642\u5019\u5728\u897F\u5712\u98EF\u5E97\u7B49\u4F60\u4F86\u5594\uFF01"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []
   - DialogId: Dialog_Bride_Info_Reject
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u554A\u54A7\uFF0C\u90A3\u597D\u53EF\u60DC..."
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []
   - DialogId: Dialog_Bride_Info_Later
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u55EF\uFF0C\u597D\u5427\uFF0C\u53EF\u4EE5\u518D\u8003\u616E\u8003\u616E\uFF0C\u7B49\u4F60\u5F88\u5FEB\u4F86\u544A\u8A34\u6211\u5011\u5594\uFF01"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []
   - DialogId: Dialog_Bride_Quest_01
     NextDialogId: 
     HintText: "\u4F60\u770B\u5230\u6211\u7684\u528D\u653E\u5728\u54EA\u88CF\u4E86\u5417\uFF1F\u6211\u597D\u50CF\u628A\u5B83\u5F04\u4E1F\u4E86\u3002"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections:
     - HintString: "\u5728\u8349\u5730\u4E0A\u7684\u6A39\u4E0B\uFF01"
       NextDialogId: Dialog_Bride_Quest_02
@@ -121,6 +101,4 @@ MonoBehaviour:
   - DialogId: Dialog_Bride_Quest_02
     NextDialogId: 
     HintText: "\u6211\u9019\u88CF\u9084\u6709\u597D\u591A\u4E8B\u60C5\u8981\u505A\uFF0C\u53EF\u4EE5\u9EBB\u7169\u4F60\u5E6B\u6211\u53D6\u56DE\u4F86\u5417\uFF1F"
-    Selections: []
-    SelectionsNextDialogId: []
     NextSelections: []

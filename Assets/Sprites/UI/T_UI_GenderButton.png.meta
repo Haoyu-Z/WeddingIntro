@@ -3,17 +3,17 @@ guid: 8db5440aeb8717b488cf7808f174f481
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8481469934003679758
-    second: As_UI_GenderButton_0
+      213: 2601572635411862195
+    second: T_UI_GenderButton_0
   - first:
-      213: -8301033750901292909
-    second: As_UI_GenderButton_1
+      213: -7820825456866533290
+    second: T_UI_GenderButton_1
   - first:
-      213: 6313443844059535314
-    second: As_UI_GenderButton_2
+      213: 2163655974463833255
+    second: T_UI_GenderButton_2
   - first:
-      213: -2854946629354677862
-    second: As_UI_GenderButton_3
+      213: 4834894902603128300
+    second: T_UI_GenderButton_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,10 +55,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 0
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: As_UI_GenderButton_0
+      name: T_UI_GenderButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +129,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e02f17dd7fb34b570800000000000000
-      internalID: 8481469934003679758
+      spriteID: 3b2d9173784aa1420800000000000000
+      internalID: 2601572635411862195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: As_UI_GenderButton_1
+      name: T_UI_GenderButton_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6506329fea8d67390800000000000000
+      internalID: -7820825456866533290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_UI_GenderButton_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4811e25a9d60e10800000000000000
+      internalID: 2163655974463833255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_UI_GenderButton_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 48
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,50 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3900009c8cdcccc80800000000000000
-      internalID: -8301033750901292909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: As_UI_GenderButton_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d79b82e9bbdd9750800000000000000
-      internalID: 6313443844059535314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: As_UI_GenderButton_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a999d90ba213168d0800000000000000
-      internalID: -2854946629354677862
+      spriteID: ced910c2c4ff81340800000000000000
+      internalID: 4834894902603128300
       vertices: []
       indices: 
       edges: []

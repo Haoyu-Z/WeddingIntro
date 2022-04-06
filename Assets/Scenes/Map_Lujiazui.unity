@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3ee0996b20b8c44b413e6f87332e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 1
+  enableDebug: 0
   debugText: {fileID: 745479106}
   lineCount: 20
 --- !u!114 &1610920828

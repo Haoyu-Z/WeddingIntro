@@ -24,6 +24,34 @@ public class Mailer
         }
     }
 
+    static Mailer()
+    {
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login,
+            () =>
+            {
+                if (GameStatics.Instance.SendMailOnLogin)
+                {
+                    SendMail(new MailInfo(MailType.Login, GameStatics.Instance.PlayerInformation));
+                }
+            });
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing,
+            () =>
+            {
+                if (GameStatics.Instance.SendMailOnConfirmComing)
+                {
+                    SendMail(new MailInfo(MailType.ConfirmComing, GameStatics.Instance.PlayerInformation));
+                }
+            });
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.RejectComing,
+            () =>
+            {
+                if (GameStatics.Instance.SendMailOnRejectComing)
+                {
+                    SendMail(new MailInfo(MailType.RejectComing, GameStatics.Instance.PlayerInformation));
+                }
+            });
+    }
+
     private static SmtpClient client = null;
 
     private static SmtpClient Client
@@ -93,7 +121,7 @@ public class Mailer
 
         SmtpClient client = Client;
 
-        Debug.Log("Trying to send an email...");
+        Debug.Log($"Trying to send an email : {mail.Body}");
         client.SendAsync(mail, null);
     }
 

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 public class AvatarInteraction : MonoBehaviour
 {
+    [SerializeField]
+    private float interactAngle = 30.0f;
+
+    [SerializeField]
+    private float interactDistance = 1.1f;
+
     private readonly HashSet<InteractiveWatcher> watchers = new HashSet<InteractiveWatcher>();
 
     private AvatarMovementComponent avatarMovementComponent;
@@ -28,7 +34,7 @@ public class AvatarInteraction : MonoBehaviour
         foreach (InteractiveWatcher watcher in watchers)
         {
             Vector3 relative = watcher.gameObject.transform.position - gameObject.transform.position;
-            if (relative.magnitude > 1.0f)
+            if (relative.magnitude > interactDistance)
             {
                 continue;
             }
@@ -36,7 +42,7 @@ public class AvatarInteraction : MonoBehaviour
             float angle = Mathf.Atan2(relative.x, relative.y) / Mathf.PI * 180;
             float angleDiff = angle - avatarMovementComponent.FacingDirectionAngle;
             angleDiff -= Mathf.RoundToInt(angleDiff / 360.0f) * 360.0f;
-            if (Mathf.Abs(angleDiff) < 30.0f)
+            if (Mathf.Abs(angleDiff) < interactAngle)
             {
                 watcher.InvokeInteract();
                 return;

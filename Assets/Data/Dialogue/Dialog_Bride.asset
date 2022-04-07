@@ -21,10 +21,10 @@ MonoBehaviour:
       NextDialogId: Dialog_Bride_Info_01
       TriggerWorldEvent: 0
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
-      NextDialogId: 
+      NextDialogId: Dialog_AboutUs_Bride_01
       TriggerWorldEvent: 0
     - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
-      NextDialogId: Dialog_Bride_Quest_01
+      NextDialogId: Dialog_Quest_Bride_01
       TriggerWorldEvent: 0
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       NextDialogId: 
@@ -37,10 +37,10 @@ MonoBehaviour:
       NextDialogId: Dialog_Bride_Info_01
       TriggerWorldEvent: 0
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
-      NextDialogId: 
+      NextDialogId: Dialog_AboutUs_Bride
       TriggerWorldEvent: 0
     - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
-      NextDialogId: Dialog_Bride_Quest_01
+      NextDialogId: Dialog_Quest_Bride_01
       TriggerWorldEvent: 0
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       NextDialogId: 
@@ -82,22 +82,6 @@ MonoBehaviour:
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u55EF\uFF0C\u597D\u5427\uFF0C\u53EF\u4EE5\u518D\u8003\u616E\u8003\u616E\uFF0C\u7B49\u4F60\u5F88\u5FEB\u4F86\u544A\u8A34\u6211\u5011\u5594\uFF01"
     NextSelections: []
-  - DialogId: Dialog_Bride_Quest_01
-    NextDialogId: 
-    HintText: "\u4F60\u770B\u5230\u6211\u7684\u528D\u653E\u5728\u54EA\u88CF\u4E86\u5417\uFF1F\u6211\u597D\u50CF\u628A\u5B83\u5F04\u4E1F\u4E86\u3002"
-    NextSelections:
-    - HintString: "\u5728\u8349\u5730\u4E0A\u7684\u6A39\u4E0B\uFF01"
-      NextDialogId: Dialog_Bride_Quest_02
-      TriggerWorldEvent: 0
-    - HintString: "\u5728\u79AE\u5802\u7684\u65C1\u908A\uFF01"
-      NextDialogId: Dialog_Bride_Quest_02
-      TriggerWorldEvent: 0
-    - HintString: "\u5728\u65C1\u908A\u7684\u6E56\u88CF\uFF01"
-      NextDialogId: Dialog_Bride_Quest_02
-      TriggerWorldEvent: 0
-    - HintString: "\u6211\u518D\u53BB\u627E\u627E..."
-      NextDialogId: Dialog_Bride_Quest_02
-      TriggerWorldEvent: 0
   - DialogId: Dialog_Bride_Quest_02
     NextDialogId: 
     HintText: "\u6211\u9019\u88CF\u9084\u6709\u597D\u591A\u4E8B\u60C5\u8981\u505A\uFF0C\u53EF\u4EE5\u9EBB\u7169\u4F60\u5E6B\u6211\u53D6\u56DE\u4F86\u5417\uFF1F"

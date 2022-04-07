@@ -46,8 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNameAutoFill: "\u672A\u547D\u540D.jpg"
+  SendMailOnLogin: 0
+  SendMailOnConfirmComing: 0
+  SendMailOnRejectComing: 0
   PlayerAvatar: {fileID: 0}
   Camera: {fileID: 0}
+  uiDebugText: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &8931848893862806469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +67,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllDialogs:
   - {fileID: 11400000, guid: 4de474d6144d54207a30437904b6019f, type: 2}
+  - {fileID: 11400000, guid: 02aa01d3ec0b22b4e956452e9ab66633, type: 2}
+  - {fileID: 11400000, guid: 1624cf7634794794d907ac2fd1a0f2c9, type: 2}
+  - {fileID: 11400000, guid: 5a694d630bc24f04e8f653f1197048ad, type: 2}
 --- !u!114 &1927697592781912968
 MonoBehaviour:
   m_ObjectHideFlags: 0

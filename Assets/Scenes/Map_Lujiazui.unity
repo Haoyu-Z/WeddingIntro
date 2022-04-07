@@ -2118,6 +2118,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6659074275208985759, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: dialogEntrance
+      value: Dialog_Groom_Meet
+      objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708084, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: m_Controller
       value: 

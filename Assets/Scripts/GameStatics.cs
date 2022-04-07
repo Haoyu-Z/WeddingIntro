@@ -71,6 +71,11 @@ public class GameStatics : MonoBehaviour
 
     public UIDebugText UIDebugText => uiDebugText;
 
+    [SerializeField]
+    private AudioManager audioManager;
+
+    public AudioManager AudioManager => audioManager;
+
     private void Awake()
     {
         Debug.Assert(Instance == null);

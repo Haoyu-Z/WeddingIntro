@@ -13,6 +13,9 @@ public class InteractiveWatcher : MonoBehaviour
     [SerializeField]
     private string dialogEntrance;
 
+    [SerializeField]
+    private string dialogVoice;
+
     private void Start()
     {
         GameStatics.Instance?.PlayerAvatarInteraction?.RegisterInteractiveWatcher(this);
@@ -27,7 +30,7 @@ public class InteractiveWatcher : MonoBehaviour
     {
         if(interactiveType == InteractiveType.Dialog)
         {
-            UIDialogBoxController.Instance.StartDialog(dialogEntrance);
+            UIDialogBoxController.Instance.StartDialog(dialogEntrance, dialogVoice);
         }
     }
 }

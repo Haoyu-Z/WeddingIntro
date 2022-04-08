@@ -37,7 +37,7 @@ MonoBehaviour:
       NextDialogId: Dialog_Bride_Info_01
       TriggerWorldEvent: 0
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
-      NextDialogId: Dialog_AboutUs_Bride
+      NextDialogId: Dialog_AboutUs_Bride_01
       TriggerWorldEvent: 0
     - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
       NextDialogId: Dialog_Quest_Bride_01

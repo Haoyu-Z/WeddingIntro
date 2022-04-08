@@ -21,12 +21,16 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioSource effectAudioSource;
 
+    [SerializeField]
+    private SpeechAudio speechAudio;
+
     private bool isBackgroundMusicPlayed;
 
     private void Awake()
     {
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login, new System.Action(PlayBackgroundMusic));
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing, () => PlayerSoundEffect("ConfirmJoin"));
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.RejectComing, () => PlayerSoundEffect("RejectJoin"));
     }
 
     public void PlayBackgroundMusic()
@@ -53,6 +57,16 @@ public class AudioManager : MonoBehaviour
             effectAudioSource.loop = false;
             effectAudioSource.Play();
         }
+    }
+
+    public void StartSpeechVoice(string speechVoiceId)
+    {
+        speechAudio.StartPlaying(speechVoiceId);
+    }
+
+    public void StopSpeechVoice()
+    {
+        speechAudio.StopPlaying();
     }
 
     private void Update()

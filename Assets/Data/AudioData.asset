@@ -21,3 +21,5 @@ MonoBehaviour:
     ClipAsset: {fileID: 8300000, guid: 39efa7bf792a54961bc03d02dac47e29, type: 3}
   - EntryName: Winner
     ClipAsset: {fileID: 8300000, guid: c35bb43f707874203a78634ff3c4e970, type: 3}
+  - EntryName: RejectJoin
+    ClipAsset: {fileID: 8300000, guid: 938f82b2d9111004eb7e40daf7e41d2d, type: 3}

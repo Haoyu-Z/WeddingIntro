@@ -29,6 +29,8 @@ public class UIDialogBoxController : MonoBehaviour
 
     private AvatarInput avatarInput;
 
+    private string currentSpeechVoiceId;
+
     private void Awake()
     {
         Debug.Assert(instance == null);
@@ -41,7 +43,7 @@ public class UIDialogBoxController : MonoBehaviour
         Debug.Assert(avatarInput != null);
     }
 
-    public void StartDialog(string dialogId)
+    public void StartDialog(string dialogId, string speechVoiceId)
     {
         if (state != DialogBoxState.Hidden)
         {
@@ -58,6 +60,7 @@ public class UIDialogBoxController : MonoBehaviour
         avatarInput.AddKeyResponse(DirectionKeyResponsePriority.ChangeDialogSelection, new AvatarInput.KeyResponse(ChangeDialogSelectionWrapper), KeyPressType.KeyDown);
 
         currentDialogEntry = dialogEntry;
+        currentSpeechVoiceId = speechVoiceId;
         TriggerNextState();
     }
 
@@ -99,6 +102,7 @@ public class UIDialogBoxController : MonoBehaviour
             case DialogBoxState.TextPopping:
                 textPopper.ForceFinish(false);
                 state = DialogBoxState.TextShown;
+                GameStatics.Instance.AudioManager.StopSpeechVoice();
                 break;
             case DialogBoxState.TextShown:
                 Debug.Assert(currentDialogEntry != null);
@@ -137,9 +141,11 @@ public class UIDialogBoxController : MonoBehaviour
     private void StartPopTextEventImpl()
     {
         state = DialogBoxState.TextPopping;
+        GameStatics.Instance.AudioManager.StartSpeechVoice(currentSpeechVoiceId);
         textPopper.TriggerText(new UIDialogPanelFinishEvent(() =>
         {
             state = DialogBoxState.TextShown;
+            GameStatics.Instance.AudioManager.StopSpeechVoice();
         }));
     }
 

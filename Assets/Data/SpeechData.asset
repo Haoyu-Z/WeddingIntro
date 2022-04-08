@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afcdf7d0ab319d748874746e05d3f5ba, type: 3}
+  m_Name: SpeechData
+  m_EditorClassIdentifier: 
+  SpeechEntries:
+  - EntryId: Bride
+    AssetEntries:
+    - Asset: {fileID: 8300000, guid: 33be65afbf1f26342bb57f6d7caed612, type: 3}
+      PossibitiliesOfContinue:
+      - 0.7
+      - 0.4
+      - 0.2
+    - Asset: {fileID: 8300000, guid: d9512c957e52b034682a1ba02039d5be, type: 3}
+      PossibitiliesOfContinue:
+      - 0.9
+      - 0.8
+      - 0.7
+      - 0.6
+      - 0.5
+      - 0.4
+      - 0.3
+  - EntryId: Bridegroom
+    AssetEntries:
+    - Asset: {fileID: 8300000, guid: c911f116b0b47ae43b004be261ae610f, type: 3}
+      PossibitiliesOfContinue:
+      - 0.7
+      - 0.4
+      - 0.2
+    - Asset: {fileID: 8300000, guid: 7ecae6a83d6815a48ae4a3ee44132073, type: 3}
+      PossibitiliesOfContinue:
+      - 0.9
+      - 0.8
+      - 0.7
+      - 0.6
+      - 0.5
+      - 0.4
+      - 0.3

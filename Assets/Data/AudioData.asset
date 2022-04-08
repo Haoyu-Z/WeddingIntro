@@ -23,3 +23,5 @@ MonoBehaviour:
     ClipAsset: {fileID: 8300000, guid: c35bb43f707874203a78634ff3c4e970, type: 3}
   - EntryName: RejectJoin
     ClipAsset: {fileID: 8300000, guid: 938f82b2d9111004eb7e40daf7e41d2d, type: 3}
+  - EntryName: MessageSent
+    ClipAsset: {fileID: 8300000, guid: 0512dbff925fa2b458892dc1b9eb57a7, type: 3}

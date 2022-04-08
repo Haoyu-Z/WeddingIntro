@@ -76,13 +76,13 @@ public class Mailer
         switch (info.MailType)
         {
             case MailType.Login:
-                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) has played your game!";
+                return $"Player {(info.Message[0] as PlayerInfo?)} has played your game!";
             case MailType.ConfirmComing:
-                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) has confirmed to come!";
+                return $"Player {(info.Message[0] as PlayerInfo?)} has confirmed to come!";
             case MailType.RejectComing:
-                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) has rejected to come!";
+                return $"Player {(info.Message[0] as PlayerInfo?)} has rejected to come!";
             case MailType.MessageBoard:
-                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) send you two a message! Check it out.";
+                return $"Player {(info.Message[0] as PlayerInfo?)} send you two a message! Check it out.";
             default:
                 return null;
         }
@@ -99,7 +99,7 @@ public class Mailer
             case MailType.RejectComing:
                 return $"Player - 1! Sad...";
             case MailType.MessageBoard:
-                return $"Player {(info.Message[0] as PlayerInfo?)?.Name} says: {info.Message[1] as string}";
+                return $"Player {(info.Message[0] as PlayerInfo?)} says: {info.Message[1] as string}";
             default:
                 return null;
         }

@@ -14,6 +14,11 @@ public struct PlayerInfo
     }
 
     public static readonly PlayerInfo Tarnished = new PlayerInfo("UnNamed", "NoGender");
+
+    public override string ToString()
+    {
+        return $"{Name} ({Gender})";
+    }
 }
 
 public class GameStatics : MonoBehaviour

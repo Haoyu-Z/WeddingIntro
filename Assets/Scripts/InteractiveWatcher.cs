@@ -3,6 +3,7 @@ using UnityEngine;
 public enum InteractiveType
 {
     Dialog,
+    MessageBoard,
 }
 
 public class InteractiveWatcher : MonoBehaviour
@@ -28,9 +29,14 @@ public class InteractiveWatcher : MonoBehaviour
 
     public void InvokeInteract()
     {
-        if(interactiveType == InteractiveType.Dialog)
+        switch (interactiveType)
         {
-            UIDialogBoxController.Instance.StartDialog(dialogEntrance, dialogVoice);
+            case InteractiveType.Dialog:
+                UIDialogBoxController.Instance.StartDialog(dialogEntrance, dialogVoice);
+                break;
+            case InteractiveType.MessageBoard:
+                UIMessageBoardController.Instance.ShowMessageBoard();
+                break;
         }
     }
 }

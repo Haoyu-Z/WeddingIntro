@@ -10,17 +10,18 @@ public class Mailer
         Login,
         ConfirmComing,
         RejectComing,
+        MessageBoard,
     }
 
     public struct MailInfo
     {
         public MailType MailType;
-        public PlayerInfo PlayerInfo;
+        public object[] Message;
 
-        public MailInfo(MailType type, PlayerInfo playerInfo)
+        public MailInfo(MailType type, object[] message)
         {
             MailType = type;
-            PlayerInfo = playerInfo;
+            Message = message;
         }
     }
 
@@ -31,7 +32,7 @@ public class Mailer
             {
                 if (GameStatics.Instance.SendMailOnLogin)
                 {
-                    SendMail(new MailInfo(MailType.Login, GameStatics.Instance.PlayerInformation));
+                    SendMail(new MailInfo(MailType.Login, new object[] { GameStatics.Instance.PlayerInformation, }));
                 }
             });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing,
@@ -39,7 +40,7 @@ public class Mailer
             {
                 if (GameStatics.Instance.SendMailOnConfirmComing)
                 {
-                    SendMail(new MailInfo(MailType.ConfirmComing, GameStatics.Instance.PlayerInformation));
+                    SendMail(new MailInfo(MailType.ConfirmComing, new object[] { GameStatics.Instance.PlayerInformation, }));
                 }
             });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.RejectComing,
@@ -47,7 +48,7 @@ public class Mailer
             {
                 if (GameStatics.Instance.SendMailOnRejectComing)
                 {
-                    SendMail(new MailInfo(MailType.RejectComing, GameStatics.Instance.PlayerInformation));
+                    SendMail(new MailInfo(MailType.RejectComing, new object[] { GameStatics.Instance.PlayerInformation, }));
                 }
             });
     }
@@ -75,11 +76,13 @@ public class Mailer
         switch (info.MailType)
         {
             case MailType.Login:
-                return $"Player {info.PlayerInfo.Name}({info.PlayerInfo.Gender}) has played your game!";
+                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) has played your game!";
             case MailType.ConfirmComing:
-                return $"Player {info.PlayerInfo.Name}({info.PlayerInfo.Gender}) has confirmed to come!";
+                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) has confirmed to come!";
             case MailType.RejectComing:
-                return $"Player {info.PlayerInfo.Name}({info.PlayerInfo.Gender}) has rejected to come!";
+                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) has rejected to come!";
+            case MailType.MessageBoard:
+                return $"Player {(info.Message[0] as PlayerInfo?)?.Name}({(info.Message[0] as PlayerInfo?)?.Gender}) send you two a message! Check it out.";
             default:
                 return null;
         }
@@ -95,6 +98,8 @@ public class Mailer
                 return $"Player + 1! \u2764";
             case MailType.RejectComing:
                 return $"Player - 1! Sad...";
+            case MailType.MessageBoard:
+                return $"Player {(info.Message[0] as PlayerInfo?)?.Name} says: {info.Message[1] as string}";
             default:
                 return null;
         }

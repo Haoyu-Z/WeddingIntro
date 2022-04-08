@@ -4,7 +4,7 @@ public class UIDialogBoxController : MonoBehaviour
 {
     private static UIDialogBoxController instance;
 
-    public static UIDialogBoxController Instance { get { return instance; } }
+    public static UIDialogBoxController Instance =>instance;
 
     [SerializeField]
     private UIDialogTextPopper textPopper;

@@ -44,6 +44,8 @@ public class GameStatics : MonoBehaviour
 
     public bool SendMailOnRejectComing = false;
 
+    public bool SendMailOnMessageBoard = false;
+
     [Header("Non-prefab Attribute")]
 
     public GameObject PlayerAvatar;

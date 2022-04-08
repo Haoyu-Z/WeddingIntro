@@ -6,6 +6,7 @@ public enum DirectionKeyResponsePriority
 {
     Movement = 0,
     ChangeDialogSelection = 1,
+    MessageBoardFocus = 2,
 
     // sentinel, always highest
     UIFocus,
@@ -15,6 +16,7 @@ public enum InteractionKeyPriority
 {
     InteractiveWatcher = 0,
     DialogConfirm = 1,
+    MessageBoardFocus = 2,
 
     // sentinel, always highest
     UIFocus,

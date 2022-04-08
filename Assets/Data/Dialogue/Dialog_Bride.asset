@@ -14,75 +14,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PieceOfDialog
   DialogEntries:
   - DialogId: Dialog_Bride_Meet
+    TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u4F60\u597D\u5440\u3002\u6B61\u8FCE\u4F86\u53C3\u52A0\u6211\u548C\u88DD\u597D\u9B5A\u7684\u5A5A\u79AE\u3002"
     NextSelections:
     - HintString: "\u4EC0\u4E48\u6642\u9593\u5730\u9EDE\u8209\u8FA6\u5462\uFF1F"
       NextDialogId: Dialog_Bride_Info_01
-      TriggerWorldEvent: 0
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
       NextDialogId: Dialog_AboutUs_Bride_01
-      TriggerWorldEvent: 0
     - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
       NextDialogId: Dialog_Quest_Bride_01
-      TriggerWorldEvent: 0
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       NextDialogId: 
-      TriggerWorldEvent: 0
   - DialogId: Dialog_Bride_Meet_Reentry
+    TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u597D\u5566\uFF0C\u9084\u6709\u4EC0\u4E48\u5176\u4ED6\u60F3\u804A\u7684\u5417\uFF1F"
     NextSelections:
     - HintString: "\u4EC0\u4E48\u6642\u9593\u5730\u9EDE\u8209\u8FA6\u5462\uFF1F"
       NextDialogId: Dialog_Bride_Info_01
-      TriggerWorldEvent: 0
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
       NextDialogId: Dialog_AboutUs_Bride_01
-      TriggerWorldEvent: 0
     - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
       NextDialogId: Dialog_Quest_Bride_01
-      TriggerWorldEvent: 0
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       NextDialogId: 
-      TriggerWorldEvent: 0
   - DialogId: Dialog_Bride_Info_01
+    TriggerWorldEvent: 0
     NextDialogId: Dialog_Bride_Info_02
     HintText: "\u6211\u5011\u5A5A\u79AE\u8209\u8FA6\u7684\u65E5\u671F\u662F2022\u5E745\u67087\u65E5\uFF0C\u662F\u661F\u671F\u516D\u3002\n\u8209\u8FA6\u7684\u5730\u9EDE\u662F\u5728\u6C5F\u8607\u7701\u63DA\u5DDE\u5E02\u897F\u5712\u98EF\u5E97\u3002"
     NextSelections: []
   - DialogId: Dialog_Bride_Info_02
+    TriggerWorldEvent: 0
     NextDialogId: Dialog_Bride_Info_03
     HintText: "\u8A3B\u610F5\u67087\u65E5\u90A3\u4E00\u5929\u8981\u8ABF\u4F11\u4E0A\u73ED\u5594\uFF01\n\u5982\u679C\u60F3\u8981\u4F86\u53C3\u52A0\u7684\u8A71\u8981\u9EBB\u7169\u4F60\u8ACB\u5047\u5566\u3002"
     NextSelections: []
   - DialogId: Dialog_Bride_Info_03
+    TriggerWorldEvent: 0
     NextDialogId: Dialog_Bride_Info_04
     HintText: "\u5A5A\u79AE\u5100\u5F0F\u8209\u8FA6\u7684\u6642\u9593\u662F\u4E0B\u5348\u768415:30\uFF0C\u5730\u9EDE\u5728\u897F\u5712\u98EF\u5E97\u7684\u6236\u5916\u5C0F\u8349\u576A\u3002\n\u665A\u5BB4\u6642\u9593\u662F\u665A\u4E0A\u768418:58\uFF0C\u5730\u9EDE\u662F\u897F\u5712\u98EF\u5E97\u7684\u8C50\u6A02\u5EF3\u3002"
     NextSelections: []
   - DialogId: Dialog_Bride_Info_04
+    TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u597D\u5566\uFF0C\u6709\u6C92\u6709\u60F3\u597D\u8981\u4E0D\u8981\u4F86\u53C3\u52A0\u5462\uFF1F"
     NextSelections:
     - HintString: "\u6211\u6703\u4F86\u53C3\u52A0\uFF01"
       NextDialogId: Dialog_Bride_Info_Confirm
-      TriggerWorldEvent: 2
     - HintString: "\u53EF\u662F\u6211\u4E0D\u60F3\u8ACB\u5047\u3002"
       NextDialogId: Dialog_Bride_Info_Reject
-      TriggerWorldEvent: 3
     - HintString: "\u6211\u8981\u518D\u60F3\u60F3..."
       NextDialogId: Dialog_Bride_Info_Later
-      TriggerWorldEvent: 0
   - DialogId: Dialog_Bride_Info_Confirm
+    TriggerWorldEvent: 2
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u597D\u7684\uFF0C\u90A3\u6211\u5011\u5230\u6642\u5019\u5728\u897F\u5712\u98EF\u5E97\u7B49\u4F60\u4F86\u5594\uFF01"
     NextSelections: []
   - DialogId: Dialog_Bride_Info_Reject
+    TriggerWorldEvent: 3
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u554A\u54A7\uFF0C\u90A3\u597D\u53EF\u60DC..."
     NextSelections: []
   - DialogId: Dialog_Bride_Info_Later
+    TriggerWorldEvent: 0
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u55EF\uFF0C\u597D\u5427\uFF0C\u53EF\u4EE5\u518D\u8003\u616E\u8003\u616E\uFF0C\u7B49\u4F60\u5F88\u5FEB\u4F86\u544A\u8A34\u6211\u5011\u5594\uFF01"
     NextSelections: []
   - DialogId: Dialog_Bride_Quest_02
+    TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u6211\u9019\u88CF\u9084\u6709\u597D\u591A\u4E8B\u60C5\u8981\u505A\uFF0C\u53EF\u4EE5\u9EBB\u7169\u4F60\u5E6B\u6211\u53D6\u56DE\u4F86\u5417\uFF1F"
     NextSelections: []

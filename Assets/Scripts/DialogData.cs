@@ -7,14 +7,14 @@ public class DialogNextSelection
     public string HintString;
 
     public string NextDialogId;
-
-    public WorldEvent.WorldEventType TriggerWorldEvent;
 }
 
 [System.Serializable]
 public class DialogEntry
 {
     public string DialogId;
+
+    public WorldEvent.WorldEventType TriggerWorldEvent;
 
     [Tooltip("Will jump to this dialog if there's no selection candidate.")]
     public string NextDialogId;

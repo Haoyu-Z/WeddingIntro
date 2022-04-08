@@ -27,6 +27,19 @@ public class UIDialogBoxController : MonoBehaviour
 
     private DialogEntry currentDialogEntry;
 
+    private DialogEntry CurrentDialogEntry
+    {
+        get { return currentDialogEntry; }
+        set
+        {
+            currentDialogEntry = value;
+            if (value.TriggerWorldEvent != WorldEvent.WorldEventType.None)
+            {
+                WorldEvent.TriggerEvent(value.TriggerWorldEvent);
+            }
+        }
+    }
+
     private AvatarInput avatarInput;
 
     private string currentSpeechVoiceId;
@@ -59,7 +72,7 @@ public class UIDialogBoxController : MonoBehaviour
         avatarInput.AddKeyResponse(InteractionKeyPriority.DialogConfirm, new AvatarInput.KeyResponse(TriggerNextState), KeyPressType.KeyDown);
         avatarInput.AddKeyResponse(DirectionKeyResponsePriority.ChangeDialogSelection, new AvatarInput.KeyResponse(ChangeDialogSelectionWrapper), KeyPressType.KeyDown);
 
-        currentDialogEntry = dialogEntry;
+        CurrentDialogEntry = dialogEntry;
         currentSpeechVoiceId = speechVoiceId;
         TriggerNextState();
     }
@@ -91,7 +104,7 @@ public class UIDialogBoxController : MonoBehaviour
         switch (state)
         {
             case DialogBoxState.Hidden:
-                textPopper.ResetText(currentDialogEntry);
+                textPopper.ResetText(CurrentDialogEntry);
                 panelScaler.TriggerScaleIn(new UIDialogPanelFinishEvent(StartPopTextEventImpl));
                 state = DialogBoxState.ScaleIn;
                 break;
@@ -105,27 +118,25 @@ public class UIDialogBoxController : MonoBehaviour
                 GameStatics.Instance.AudioManager.StopSpeechVoice();
                 break;
             case DialogBoxState.TextShown:
-                Debug.Assert(currentDialogEntry != null);
+                Debug.Assert(CurrentDialogEntry != null);
 
                 string nextDialogId = "";
                 if (textPopper.TextType == UIDialogTextPopper.DialogTextType.PlainText)
                 {
-                    nextDialogId = currentDialogEntry.NextDialogId;
+                    nextDialogId = CurrentDialogEntry.NextDialogId;
                 }
                 else
                 {
-                    Debug.Assert(textPopper.SelectedIndex >= 0 && textPopper.SelectedIndex < currentDialogEntry.NextSelections.Length);
-                    DialogNextSelection nextSelection = currentDialogEntry.NextSelections[textPopper.SelectedIndex];
+                    Debug.Assert(textPopper.SelectedIndex >= 0 && textPopper.SelectedIndex < CurrentDialogEntry.NextSelections.Length);
+                    DialogNextSelection nextSelection = CurrentDialogEntry.NextSelections[textPopper.SelectedIndex];
                     nextDialogId = nextSelection.NextDialogId;
-
-                    WorldEvent.TriggerEvent(nextSelection.TriggerWorldEvent);
                 }
 
                 DialogEntry nextDialogEntry = DialogData.Instance.LookupDialog(nextDialogId);
                 if (nextDialogEntry != null)
                 {
-                    currentDialogEntry = nextDialogEntry;
-                    textPopper.ResetText(currentDialogEntry);
+                    CurrentDialogEntry = nextDialogEntry;
+                    textPopper.ResetText(CurrentDialogEntry);
                     StartPopTextEventImpl();
                 }
                 else

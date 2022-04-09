@@ -81,7 +81,7 @@ public class UIPlayerInfo : MonoBehaviour
             return;
         }
 
-        GameStatics.Instance.UIDebugText.AddDebugText($"PlayerName={playerInfo.Name}, PlayerGender={playerInfo.Gender}");
+        UIDebugText.Instance.AddDebugText($"PlayerName={playerInfo.Name}, PlayerGender={playerInfo.Gender}", UIDebugText.DebugTextLevel.Log);
 
         Debug.Assert(GameStatics.Instance != null);
         GameStatics.Instance.PlayerInformation = playerInfo;
@@ -107,7 +107,7 @@ public class UIPlayerInfo : MonoBehaviour
     private void OnNameTextChanged(string nameValue)
     {
         Debug.Assert(nameValue != null);
-        GameStatics.Instance.UIDebugText.AddDebugText($"Name text field is changed to {nameValue}");
+        UIDebugText.Instance.AddDebugText($"Name text field is changed to {nameValue}", UIDebugText.DebugTextLevel.Log);
         playerInfo.Name = nameValue;
     }
 

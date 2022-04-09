@@ -66,7 +66,7 @@ public class UIMessageBoardController : MonoBehaviour
             return;
         }
 
-        GameStatics.Instance.AudioManager.PlayerSoundEffect("MessageSent");
+        AudioManager.Instance.PlayerSoundEffect("MessageSent");
         string messageText = messageInputField.text;
         if (messageText.Trim().Length > 0 && GameStatics.Instance.SendMailOnMessageBoard)
         {

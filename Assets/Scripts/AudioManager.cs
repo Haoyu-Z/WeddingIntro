@@ -26,8 +26,16 @@ public class AudioManager : MonoBehaviour
 
     private bool isBackgroundMusicPlayed;
 
+    private static AudioManager instance;
+
+    public static AudioManager Instance => instance;
+
+
     private void Awake()
     {
+        Debug.Assert(instance == null);
+        instance = this;
+
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login, new System.Action(PlayBackgroundMusic));
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing, () => PlayerSoundEffect("ConfirmJoin"));
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.RejectComing, () => PlayerSoundEffect("RejectJoin"));

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Net.Mail;
 
-public class Mailer
+public static class Mailer
 {
     public enum MailType
     {
@@ -126,7 +126,7 @@ public class Mailer
 
         SmtpClient client = Client;
 
-        Debug.Log($"Trying to send an email : {mail.Body}");
+        UIDebugText.Instance.AddDebugText($"Trying to send an email : {mail.Body}", UIDebugText.DebugTextLevel.Log);
         client.SendAsync(mail, null);
     }
 
@@ -134,11 +134,13 @@ public class Mailer
     {
         if (e.Error == null)
         {
-            Debug.LogWarning("A mail has been sent.");
+            UIDebugText.Instance.AddDebugText("A mail has been sent.", UIDebugText.DebugTextLevel.Warning);
         }
         else
         {
-            Debug.LogError("A mail has met an error: " + e.Error);
+            UIDebugText.Instance.AddDebugText("A mail has met an error: " + e.Error, UIDebugText.DebugTextLevel.Error);
         }
     }
+
+    public static void Init() { }
 }

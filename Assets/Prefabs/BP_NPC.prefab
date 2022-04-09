@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8826759862972708085}
   - component: {fileID: 8826759862972708084}
   - component: {fileID: 5845335649542995605}
-  - component: {fileID: 6659074275208985759}
+  - component: {fileID: 8142297943916894588}
   m_Layer: 0
   m_Name: BP_NPC
   m_TagString: Untagged
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.98, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &6659074275208985759
+--- !u!114 &8142297943916894588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8826759862972708087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc192ee31cbf94ba5aed3a8adc240162, type: 3}
+  m_Script: {fileID: 11500000, guid: aefbaff363b8fa947a33badf918e7193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogEntrance: 
+  dialogVoice: 

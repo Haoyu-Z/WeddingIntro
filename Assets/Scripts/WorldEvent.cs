@@ -11,12 +11,14 @@ public class WorldEvent
         Login,
         ConfirmComing,
         RejectComing,
+        Quest_Bride_FoundItem,
     }
 
     static WorldEvent()
     {
-        // make sure Mailer class is statically initialized
-        new Mailer();
+        // make sure static class is statically initialized
+        Mailer.Init();
+        QuestManager.Init();
     }
 
     private static Dictionary<WorldEventType, List<Action>> worldEventLUT = null;

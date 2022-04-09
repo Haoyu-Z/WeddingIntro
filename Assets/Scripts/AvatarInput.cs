@@ -110,14 +110,12 @@ public class AvatarInput : MonoBehaviour
 
     private void Update()
     {
-        Debug.Assert(GameStatics.Instance != null || GameStatics.Instance.UIKeyManager != null);
-
-        UIKeyManager uiKeyManager = GameStatics.Instance.UIKeyManager;
+        Debug.Assert(GameStatics.Instance != null || UIKeyManager.Instance != null);
 
         foreach (GameKeyDefinition definition in inputSetting.InputSettings)
         {
-            bool keyDown = Input.GetKeyDown(definition.key) || uiKeyManager.GetUIKeyDown(definition.uiKey);
-            bool keyPressing = Input.GetKey(definition.key) || uiKeyManager.GetUIKey(definition.uiKey);
+            bool keyDown = Input.GetKeyDown(definition.key) || UIKeyManager.Instance.GetUIKeyDown(definition.uiKey);
+            bool keyPressing = Input.GetKey(definition.key) || UIKeyManager.Instance.GetUIKey(definition.uiKey);
             if (keyDown || keyPressing)
             {
                 Debug.Assert(gameKeyTypeToPriorityType.ContainsKey(definition.keyType));

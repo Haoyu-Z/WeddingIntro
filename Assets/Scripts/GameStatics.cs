@@ -69,26 +69,10 @@ public class GameStatics : MonoBehaviour
 
     public AvatarInput PlayerAvatarInput => playerAvatarInput;
 
-    private UIKeyManager uiKeyManager;
-
-    public UIKeyManager UIKeyManager => uiKeyManager;
-
-    [SerializeField]
-    private UIDebugText uiDebugText;
-
-    public UIDebugText UIDebugText => uiDebugText;
-
-    [SerializeField]
-    private AudioManager audioManager;
-
-    public AudioManager AudioManager => audioManager;
-
     private void Awake()
     {
         Debug.Assert(Instance == null);
         Instance = this;
-
-        uiKeyManager = GetComponent<UIKeyManager>();
 
         if (PlayerAvatar != null)
         {

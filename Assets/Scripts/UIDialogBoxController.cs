@@ -115,7 +115,7 @@ public class UIDialogBoxController : MonoBehaviour
             case DialogBoxState.TextPopping:
                 textPopper.ForceFinish(false);
                 state = DialogBoxState.TextShown;
-                GameStatics.Instance.AudioManager.StopSpeechVoice();
+                AudioManager.Instance.StopSpeechVoice();
                 break;
             case DialogBoxState.TextShown:
                 Debug.Assert(CurrentDialogEntry != null);
@@ -152,11 +152,11 @@ public class UIDialogBoxController : MonoBehaviour
     private void StartPopTextEventImpl()
     {
         state = DialogBoxState.TextPopping;
-        GameStatics.Instance.AudioManager.StartSpeechVoice(currentSpeechVoiceId);
+        AudioManager.Instance.StartSpeechVoice(currentSpeechVoiceId);
         textPopper.TriggerText(new UIDialogPanelFinishEvent(() =>
         {
             state = DialogBoxState.TextShown;
-            GameStatics.Instance.AudioManager.StopSpeechVoice();
+            AudioManager.Instance.StopSpeechVoice();
         }));
     }
 

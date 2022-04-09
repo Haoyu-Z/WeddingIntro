@@ -30,6 +30,16 @@ public class UIKeyManager : MonoBehaviour
 {
     private Dictionary<UIKeyCode, UIKeyState> keyStates = new Dictionary<UIKeyCode, UIKeyState>();
 
+    private static UIKeyManager instance;
+
+    public static UIKeyManager Instance => instance;
+
+    private void Awake()
+    {
+        Debug.Assert(instance == null);
+        instance = this;
+    }
+
     public void SetKeyState(UIKeyCode key, bool state)
     {
         if (!keyStates.ContainsKey(key))

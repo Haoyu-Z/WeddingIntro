@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class UIDebugText : MonoBehaviour
 {
+    public enum DebugTextLevel
+    {
+        Log,
+        Warning,
+        Error,
+    }
+
     [SerializeField]
     private bool enableDebug = false;
 
@@ -15,16 +22,67 @@ public class UIDebugText : MonoBehaviour
     [SerializeField]
     private int lineCount = 20;
 
+    [SerializeField]
+    private Color logColor;
+
+    [SerializeField]
+    private Color warningColor;
+
+    [SerializeField]
+    private Color errorColor;
+
     private int startFrom, count;
 
     private string[] text;
 
-    public void AddDebugText(string inText)
+    private static UIDebugText instance;
+
+    public static UIDebugText Instance => instance;
+
+    private void Awake()
+    {
+        Debug.Assert(instance == null);
+        instance = this;
+    }
+
+    private void WriteUnityLog(string inText, DebugTextLevel level)
+    {
+        switch (level)
+        {
+            case DebugTextLevel.Log:
+                Debug.Log(inText);
+                break;
+            case DebugTextLevel.Warning:
+                Debug.LogWarning(inText);
+                break;
+            case DebugTextLevel.Error:
+                Debug.LogError(inText);
+                break;
+        }
+    }
+
+    public void AddDebugText(string inText, DebugTextLevel level)
     {
         if(!enableDebug)
         {
-            return;
+            WriteUnityLog(inText, level);
         }
+
+        Color color;
+        switch(level)
+        {
+            case DebugTextLevel.Warning:
+                color = warningColor;
+                break;
+            case DebugTextLevel.Error:
+                color = errorColor;
+                break;
+            default:
+                color = logColor;
+                break;
+        }
+
+        inText = string.Format("<color=#{0:X02}{1:X02}{2:X02}{3:X02}>{4}</color>", Mathf.FloorToInt(255 * color.r), Mathf.FloorToInt(255 * color.g), Mathf.FloorToInt(255 * color.b), Mathf.FloorToInt(255 * color.a), inText);
 
         if (text == null)
         {

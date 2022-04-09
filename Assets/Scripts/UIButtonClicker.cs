@@ -9,15 +9,13 @@ public class UIButtonClicker : MonoBehaviour
 
     public void OnPressed()
     {
-        Debug.Assert(GameStatics.Instance != null && GameStatics.Instance.UIKeyManager != null);
-        GameStatics.Instance.UIDebugText.AddDebugText($"{key} pressed.");
-        GameStatics.Instance.UIKeyManager.SetKeyState(key, true);
+        UIDebugText.Instance.AddDebugText($"{key} pressed.", UIDebugText.DebugTextLevel.Log);
+        UIKeyManager.Instance.SetKeyState(key, true);
     }
 
     public void OnRelease()
     {
-        Debug.Assert(GameStatics.Instance != null && GameStatics.Instance.UIKeyManager != null);
-        GameStatics.Instance.UIDebugText.AddDebugText($"{key} released.");
-        GameStatics.Instance.UIKeyManager.SetKeyState(key, false);
+        UIDebugText.Instance.AddDebugText($"{key} released.", UIDebugText.DebugTextLevel.Log);
+        UIKeyManager.Instance.SetKeyState(key, false);
     }
 }

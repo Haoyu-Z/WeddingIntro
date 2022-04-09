@@ -1972,6 +1972,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003318810}
   m_CullTransparentMesh: 1
+--- !u!1001 &1038101280
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4919958630322575744, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 373fc68eb9d424087a97673a19d60494, type: 3}
+    - target: {fileID: 4919958630322575749, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_Name
+      value: BrideQuestItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+--- !u!1 &1038101281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4919958630322575749, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
+  m_PrefabInstance: {fileID: 1038101280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038101282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038101281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249c0e158f1cdfc4a961b468272865b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDialog: Dialog_Quest_BrideItem
+  destroySelf: 1
 --- !u!1001 &1039462155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1981,7 +2061,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4919958630322575749, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
       propertyPath: m_Name
-      value: BP_StaticDecoration
+      value: Mailbox
       objectReference: {fileID: 0}
     - target: {fileID: 4919958630322575750, guid: 7fe1f1d121ac86447b41da6cdd0387d5, type: 3}
       propertyPath: m_RootOrder
@@ -2043,12 +2123,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039462156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc192ee31cbf94ba5aed3a8adc240162, type: 3}
+  m_Script: {fileID: 11500000, guid: 333b4b21b8b6102459d1640467e8f84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveType: 1
-  dialogEntrance: 
-  dialogVoice: 
 --- !u!1 &1039589864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2217,14 @@ PrefabInstance:
       value: Bride
       objectReference: {fileID: 0}
     - target: {fileID: 6659074275208985759, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: dialogEntrance
+      value: Dialog_Bride_Meet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142297943916894588, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: dialogVoice
+      value: Bride
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142297943916894588, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: dialogEntrance
       value: Dialog_Bride_Meet
       objectReference: {fileID: 0}
@@ -2836,6 +2921,14 @@ PrefabInstance:
       propertyPath: dialogEntrance
       value: Dialog_Groom_Meet
       objectReference: {fileID: 0}
+    - target: {fileID: 8142297943916894588, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: dialogVoice
+      value: Bridegroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142297943916894588, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
+      propertyPath: dialogEntrance
+      value: Dialog_Groom_Meet
+      objectReference: {fileID: 0}
     - target: {fileID: 8826759862972708084, guid: b540e37d44e20054f95197727aaf0e3c, type: 3}
       propertyPath: m_Controller
       value: 
@@ -3464,9 +3557,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3ee0996b20b8c44b413e6f87332e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 0
+  enableDebug: 1
   debugText: {fileID: 745479106}
   lineCount: 20
+  logColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  warningColor: {r: 0.6132076, g: 0.5324678, b: 0, a: 1}
+  errorColor: {r: 0.6603774, g: 0, b: 0, a: 1}
 --- !u!114 &1610920828
 MonoBehaviour:
   m_ObjectHideFlags: 0

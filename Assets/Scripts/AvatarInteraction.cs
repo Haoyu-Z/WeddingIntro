@@ -9,7 +9,7 @@ public class AvatarInteraction : MonoBehaviour
     [SerializeField]
     private float interactDistance = 1.1f;
 
-    private readonly HashSet<InteractiveWatcher> watchers = new HashSet<InteractiveWatcher>();
+    private readonly HashSet<InteractiveWatcherBase> watchers = new HashSet<InteractiveWatcherBase>();
 
     private AvatarMovementComponent avatarMovementComponent;
 
@@ -31,9 +31,10 @@ public class AvatarInteraction : MonoBehaviour
             return;
         }
 
-        foreach (InteractiveWatcher watcher in watchers)
+        foreach (InteractiveWatcherBase watcher in watchers)
         {
             Vector3 relative = watcher.gameObject.transform.position - gameObject.transform.position;
+            relative.z = 0.0f;
             if (relative.magnitude > interactDistance)
             {
                 continue;
@@ -49,15 +50,15 @@ public class AvatarInteraction : MonoBehaviour
             }
         }
 
-        GameStatics.Instance.UIDebugText.AddDebugText("No interaction triggered.");
+        UIDebugText.Instance.AddDebugText("No interaction triggered.", UIDebugText.DebugTextLevel.Warning);
     }
 
-    public void RegisterInteractiveWatcher(InteractiveWatcher watcher)
+    public void RegisterInteractiveWatcher(InteractiveWatcherBase watcher)
     {
         watchers.Add(watcher);
     }
 
-    public void RemoveInteractiveWatch(InteractiveWatcher watcher)
+    public void RemoveInteractiveWatch(InteractiveWatcherBase watcher)
     {
         watchers.Remove(watcher);
     }

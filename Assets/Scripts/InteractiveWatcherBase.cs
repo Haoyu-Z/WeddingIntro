@@ -2,6 +2,11 @@ using UnityEngine;
 
 public abstract class InteractiveWatcherBase : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject interactCenter;
+
+    public GameObject InteractCenter => interactCenter == null ? gameObject : interactCenter;
+
     protected void Start()
     {
         GameStatics.Instance?.PlayerAvatarInteraction?.RegisterInteractiveWatcher(this);

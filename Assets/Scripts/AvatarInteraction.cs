@@ -33,7 +33,10 @@ public class AvatarInteraction : MonoBehaviour
 
         foreach (InteractiveWatcherBase watcher in watchers)
         {
-            Vector3 relative = watcher.gameObject.transform.position - gameObject.transform.position;
+            Vector3 relative = watcher.InteractCenter.transform.position - gameObject.transform.position;
+
+            Debug.Log($"{watcher}'s relative = {relative}");
+
             relative.z = 0.0f;
             if (relative.magnitude > interactDistance)
             {

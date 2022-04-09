@@ -11,6 +11,7 @@ public static class Mailer
         ConfirmComing,
         RejectComing,
         MessageBoard,
+        FinishBrideQuest,
     }
 
     public struct MailInfo
@@ -51,6 +52,15 @@ public static class Mailer
                     SendMail(new MailInfo(MailType.RejectComing, new object[] { GameStatics.Instance.PlayerInformation, }));
                 }
             });
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Quest_Bride_Finish,
+            () =>
+            {
+                if (GameStatics.Instance.SendMailOnFinishQuest)
+                {
+                    SendMail(new MailInfo(MailType.FinishBrideQuest, new object[] { GameStatics.Instance.PlayerInformation, }));
+                }
+            }
+            );
     }
 
     private static SmtpClient client = null;
@@ -83,6 +93,8 @@ public static class Mailer
                 return $"Player {(info.Message[0] as PlayerInfo?)} has rejected to come!";
             case MailType.MessageBoard:
                 return $"Player {(info.Message[0] as PlayerInfo?)} send you two a message! Check it out.";
+            case MailType.FinishBrideQuest:
+                return $"Player {(info.Message[0] as PlayerInfo?)} wins bride's request !";
             default:
                 return null;
         }
@@ -100,6 +112,8 @@ public static class Mailer
                 return $"Player - 1! Sad...";
             case MailType.MessageBoard:
                 return $"Player {(info.Message[0] as PlayerInfo?)} says: {info.Message[1] as string}";
+            case MailType.FinishBrideQuest:
+                return $"It happens at FrameCount={Time.frameCount}, Time={Time.time}";
             default:
                 return null;
         }

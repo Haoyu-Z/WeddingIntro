@@ -58,7 +58,7 @@ public class AvatarInteraction : MonoBehaviour
         watchers.Add(watcher);
     }
 
-    public void RemoveInteractiveWatch(InteractiveWatcherBase watcher)
+    public void RemoveInteractiveWatcher(InteractiveWatcherBase watcher)
     {
         watchers.Remove(watcher);
     }

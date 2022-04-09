@@ -19,12 +19,18 @@ MonoBehaviour:
     HintText: "\u4F60\u597D\u5440\u3002\u6B61\u8FCE\u4F86\u53C3\u52A0\u6211\u548C\u88DD\u597D\u9B5A\u7684\u5A5A\u79AE\u3002"
     NextSelections:
     - HintString: "\u4EC0\u4E48\u6642\u9593\u5730\u9EDE\u8209\u8FA6\u5462\uFF1F"
+      ConditionedDialogs: []
       NextDialogId: Dialog_Bride_Info_01
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
+      ConditionedDialogs: []
       NextDialogId: Dialog_AboutUs_Bride_01
-    - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
-      NextDialogId: Dialog_Quest_Bride_01
+    - HintString: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u9700\u8981\u5E6B\u5FD9\u5417\uFF1F"
+      ConditionedDialogs:
+      - NextDialogId: Dialog_Quest_Bride_AlreadyFinish
+        ConditionObject: {fileID: 11400000, guid: f7f1e9c7b2a1104428daec21c82ca7b6, type: 2}
+      NextDialogId: Dialog_Quest_Bride_Intro
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
+      ConditionedDialogs: []
       NextDialogId: 
   - DialogId: Dialog_Bride_Meet_Reentry
     TriggerWorldEvent: 0
@@ -32,12 +38,18 @@ MonoBehaviour:
     HintText: "\u597D\u5566\uFF0C\u9084\u6709\u4EC0\u4E48\u5176\u4ED6\u60F3\u804A\u7684\u5417\uFF1F"
     NextSelections:
     - HintString: "\u4EC0\u4E48\u6642\u9593\u5730\u9EDE\u8209\u8FA6\u5462\uFF1F"
+      ConditionedDialogs: []
       NextDialogId: Dialog_Bride_Info_01
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
+      ConditionedDialogs: []
       NextDialogId: Dialog_AboutUs_Bride_01
-    - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
-      NextDialogId: Dialog_Quest_Bride_01
+    - HintString: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u9700\u8981\u5E6B\u5FD9\u5417\uFF1F"
+      ConditionedDialogs:
+      - NextDialogId: Dialog_Quest_Bride_AlreadyFinish
+        ConditionObject: {fileID: 11400000, guid: f7f1e9c7b2a1104428daec21c82ca7b6, type: 2}
+      NextDialogId: Dialog_Quest_Bride_Intro
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
+      ConditionedDialogs: []
       NextDialogId: 
   - DialogId: Dialog_Bride_Info_01
     TriggerWorldEvent: 0
@@ -60,10 +72,13 @@ MonoBehaviour:
     HintText: "\u597D\u5566\uFF0C\u6709\u6C92\u6709\u60F3\u597D\u8981\u4E0D\u8981\u4F86\u53C3\u52A0\u5462\uFF1F"
     NextSelections:
     - HintString: "\u6211\u6703\u4F86\u53C3\u52A0\uFF01"
+      ConditionedDialogs: []
       NextDialogId: Dialog_Bride_Info_Confirm
     - HintString: "\u53EF\u662F\u6211\u4E0D\u60F3\u8ACB\u5047\u3002"
+      ConditionedDialogs: []
       NextDialogId: Dialog_Bride_Info_Reject
     - HintString: "\u6211\u8981\u518D\u60F3\u60F3..."
+      ConditionedDialogs: []
       NextDialogId: Dialog_Bride_Info_Later
   - DialogId: Dialog_Bride_Info_Confirm
     TriggerWorldEvent: 2
@@ -79,9 +94,4 @@ MonoBehaviour:
     TriggerWorldEvent: 0
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u55EF\uFF0C\u597D\u5427\uFF0C\u53EF\u4EE5\u518D\u8003\u616E\u8003\u616E\uFF0C\u7B49\u4F60\u5F88\u5FEB\u4F86\u544A\u8A34\u6211\u5011\u5594\uFF01"
-    NextSelections: []
-  - DialogId: Dialog_Bride_Quest_02
-    TriggerWorldEvent: 0
-    NextDialogId: 
-    HintText: "\u6211\u9019\u88CF\u9084\u6709\u597D\u591A\u4E8B\u60C5\u8981\u505A\uFF0C\u53EF\u4EE5\u9EBB\u7169\u4F60\u5E6B\u6211\u53D6\u56DE\u4F86\u5417\uFF1F"
     NextSelections: []

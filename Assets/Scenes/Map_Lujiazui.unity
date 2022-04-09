@@ -3557,7 +3557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3ee0996b20b8c44b413e6f87332e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 1
+  enableDebug: 0
   debugText: {fileID: 745479106}
   lineCount: 20
   logColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
@@ -5032,6 +5032,14 @@ PrefabInstance:
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnLogin
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
+      propertyPath: PlayerNameAutoFill
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
+      propertyPath: SendMailOnFinishQuest
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnMessageBoard

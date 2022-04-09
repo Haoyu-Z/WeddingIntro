@@ -1,10 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IDialogCondition
+{
+    public bool TestCondition();
+}
+
+[System.Serializable]
+public class ConditionedNextDialog
+{
+    public string NextDialogId;
+
+    public ScriptableObject ConditionObject;
+}
+
 [System.Serializable]
 public class DialogNextSelection
 {
     public string HintString;
+
+    public List<ConditionedNextDialog> ConditionedDialogs;
 
     public string NextDialogId;
 }

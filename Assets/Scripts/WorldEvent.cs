@@ -12,6 +12,7 @@ public class WorldEvent
         ConfirmComing,
         RejectComing,
         Quest_Bride_FoundItem,
+        Quest_Bride_Finish,
     }
 
     static WorldEvent()
@@ -47,6 +48,8 @@ public class WorldEvent
 
     public static void TriggerEvent(WorldEventType eventType)
     {
+        UIDebugText.Instance.AddDebugText($"WorldEvent.{eventType} is triggered.", UIDebugText.DebugTextLevel.Warning);
+
         if (WorldEventLUT.ContainsKey(eventType))
         {
             foreach (Action act in WorldEventLUT[eventType])

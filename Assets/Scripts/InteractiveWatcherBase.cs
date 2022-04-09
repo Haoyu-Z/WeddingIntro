@@ -9,7 +9,7 @@ public abstract class InteractiveWatcherBase : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameStatics.Instance?.PlayerAvatarInteraction?.RegisterInteractiveWatcher(this);
+        GameStatics.Instance?.PlayerAvatarInteraction?.RemoveInteractiveWatcher(this);
     }
 
     public abstract void InvokeInteract();

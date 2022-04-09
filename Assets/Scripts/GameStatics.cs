@@ -51,6 +51,8 @@ public class GameStatics : MonoBehaviour
 
     public bool SendMailOnMessageBoard = false;
 
+    public bool SendMailOnFinishQuest = false;
+
     [Header("Non-prefab Attribute")]
 
     public GameObject PlayerAvatar;

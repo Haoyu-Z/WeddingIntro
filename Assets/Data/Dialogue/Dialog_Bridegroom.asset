@@ -63,11 +63,6 @@ MonoBehaviour:
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       ConditionedDialogs: []
       NextDialogId: 
-  - DialogId: Dialog_AboutUs_Groom_01
-    TriggerWorldEvent: 0
-    NextDialogId: 
-    HintText: "\u9084\u6C92\u958B\u59CB\u5BEB\u9019\u4E00\u8DB4\u5462\u3002"
-    NextSelections: []
   - DialogId: Dialog_Groom_AboutGame_01
     TriggerWorldEvent: 0
     NextDialogId: Dialog_Groom_AboutGame_02

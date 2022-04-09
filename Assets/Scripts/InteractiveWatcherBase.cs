@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class InteractiveWatcherBase : MonoBehaviour
 {
-    private void Start()
+    protected void Start()
     {
         GameStatics.Instance?.PlayerAvatarInteraction?.RegisterInteractiveWatcher(this);
     }

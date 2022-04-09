@@ -8,6 +8,19 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
 
     private int levelNumber = 1;
 
+    private int LevelNumber
+    {
+        get => levelNumber;
+        set
+        {
+            levelNumber = value;
+            if (numberIndicator != null && value >= 0 && value < numberSprites.Length)
+            {
+                numberIndicator.sprite = numberSprites[value];
+            }
+        }
+    }
+
     [SerializeField]
     private float defaultPeriod = 1.0f;
 
@@ -18,40 +31,99 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
     [SerializeField]
     private SpriteRenderer indicator;
 
+    [SerializeField]
+    private SpriteRenderer numberIndicator;
+
+    [SerializeField]
+    private Sprite[] numberSprites;
+
+    [SerializeField]
+    private float winLuckyValue = 0.8f;
+
+    [SerializeField]
+    private string winAllDialog;
+
     public override void InvokeInteract()
     {
         AvatarInput avatarInput = GameStatics.Instance.PlayerAvatarInput;
         avatarInput.AddKeyResponse(InteractionKeyPriority.PunchMachine, new AvatarInput.KeyResponse(HitMachine), KeyPressType.KeyDown);
         avatarInput.AddKeyResponse(DirectionKeyResponsePriority.PunchMachine, new AvatarInput.KeyResponse((GameKeyCode _) => { }), KeyPressType.KeyDown);
 
-        levelNumber = 1;
+        StartGame(1);
+    }
+
+    private void StartGame(int levelNum)
+    {
+        LevelNumber = levelNum;
+        startTime = Time.time;
+    }
+
+    private void EndGame(bool success)
+    {
+        startTime = -1.0f;
+
+        if (!success)
+        {
+            LevelNumber = 0;
+        }
+
+        AvatarInput avatarInput = GameStatics.Instance.PlayerAvatarInput;
+        avatarInput.RemoveKeyResponse(InteractionKeyPriority.PunchMachine);
+        avatarInput.RemoveKeyResponse(DirectionKeyResponsePriority.PunchMachine);
 
     }
 
-    private void StartLevel()
+    private void ResetLuckyIndicator()
     {
-        startTime = Time.time;
+        indicator.gameObject.transform.localScale = new Vector3(indicatorOriginalScale.x, 0.0f, indicatorOriginalScale.z);
     }
 
     private void HitMachine(GameKeyCode gameKeyCode)
     {
-
+        if(startTime < 0.0f)
+        {
+            StartGame(1);
+        }
+        else
+        {
+            if (currentLuckyValue > winLuckyValue)
+            {
+                if (LevelNumber + 1 < numberSprites.Length)
+                {
+                    StartGame(LevelNumber + 1);
+                }
+                else
+                {
+                    AudioManager.Instance.PlayerSoundEffect("Winner");
+                    UIDialogBoxController.Instance.StartDialog(winAllDialog, null);
+                    EndGame(true);
+                }    
+            }
+            else
+            {
+                AudioManager.Instance.PlayerSoundEffect("RejectJoin");
+                EndGame(false);
+            }
+        }
     }
 
-    private void Start()
+    private new void Start()
     {
+        base.Start();
+
         indicatorOriginalScale = indicator.gameObject.transform.localScale;
-        indicator.gameObject.transform.localScale = new Vector3(indicatorOriginalScale.x, 0.0f, indicatorOriginalScale.z);
+        ResetLuckyIndicator();
+        LevelNumber = 0;
     }
 
     private void Update()
     {
-        //if (startTime < 0.0f)
-        //{
-        //    return;
-        //}
+        if (startTime < 0.0f)
+        {
+            return;
+        }
 
-        float period = defaultPeriod / (float)levelNumber;
+        float period = defaultPeriod * Mathf.Pow(0.9f, LevelNumber);
         float timeResidue = Mathf.Repeat(Time.time - startTime, period);
         if (timeResidue > 0.5f * period)
         {

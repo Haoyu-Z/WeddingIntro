@@ -12,6 +12,8 @@ public static class Mailer
         RejectComing,
         MessageBoard,
         FinishBrideQuest,
+        HalfFinishGroomQuest,
+        FinishGroomQuest,
     }
 
     public struct MailInfo
@@ -61,6 +63,22 @@ public static class Mailer
                 }
             }
             );
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Quest_Groom_Win5Finish,
+            () =>
+            {
+                if(GameStatics.Instance.SendMailOnFinishQuest)
+                {
+                    SendMail(new MailInfo(MailType.HalfFinishGroomQuest, new object[] { GameStatics.Instance.PlayerInformation }));
+                }
+            });
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Quest_Groom_Finish,
+            () =>
+            {
+                if(GameStatics.Instance.SendMailOnFinishQuest)
+                {
+                    SendMail(new MailInfo(MailType.FinishGroomQuest, new object[] { GameStatics.Instance.PlayerInformation }));
+                }
+            });
     }
 
     private static SmtpClient client = null;
@@ -86,15 +104,19 @@ public static class Mailer
         switch (info.MailType)
         {
             case MailType.Login:
-                return $"Player {(info.Message[0] as PlayerInfo?)} has played your game!";
+                return $"Player {info.Message[0] as PlayerInfo?} has played your game!";
             case MailType.ConfirmComing:
-                return $"Player {(info.Message[0] as PlayerInfo?)} has confirmed to come!";
+                return $"Player {info.Message[0] as PlayerInfo?} has confirmed to come!";
             case MailType.RejectComing:
-                return $"Player {(info.Message[0] as PlayerInfo?)} has rejected to come!";
+                return $"Player {info.Message[0] as PlayerInfo?} has rejected to come!";
             case MailType.MessageBoard:
-                return $"Player {(info.Message[0] as PlayerInfo?)} send you two a message! Check it out.";
+                return $"Player {info.Message[0] as PlayerInfo?} send you two a message! Check it out.";
             case MailType.FinishBrideQuest:
-                return $"Player {(info.Message[0] as PlayerInfo?)} accompllishes bride's request !";
+                return $"Player {info.Message[0] as PlayerInfo?} accompllishes bride's request !";
+            case MailType.HalfFinishGroomQuest:
+                return $"Player {info.Message[0] as PlayerInfo?} wins bridegroom's punch machine score !";
+            case MailType.FinishGroomQuest:
+                return $"Player {info.Message[0] as PlayerInfo?} beats the punch machine !";
             default:
                 return null;
         }
@@ -113,6 +135,8 @@ public static class Mailer
             case MailType.MessageBoard:
                 return $"Player {(info.Message[0] as PlayerInfo?)} says: {info.Message[1] as string}";
             case MailType.FinishBrideQuest:
+            case MailType.HalfFinishGroomQuest:
+            case MailType.FinishGroomQuest:
                 return $"It happens at FrameCount={Time.frameCount}, Time={Time.time}";
             default:
                 return null;

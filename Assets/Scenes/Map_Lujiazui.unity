@@ -444,6 +444,7 @@ MonoBehaviour:
   - {fileID: -3390140803671404572, guid: b2a13049135e7d04a8f4cfae2681abac, type: 3}
   - {fileID: 5290106725072977510, guid: b2a13049135e7d04a8f4cfae2681abac, type: 3}
   winLuckyValue: 0.7
+  difficultyFactor: 0.88
   winAllDialog: Dialog_Quest_Groom_ItemWinAll
 --- !u!1 &181419961
 GameObject:

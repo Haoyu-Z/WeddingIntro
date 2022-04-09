@@ -41,7 +41,12 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
     private float winLuckyValue = 0.8f;
 
     [SerializeField]
+    private float difficultyFactor = 0.9f;
+
+    [SerializeField]
     private string winAllDialog;
+
+    private float randomTimeShift;
 
     public override void InvokeInteract()
     {
@@ -49,6 +54,7 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
         avatarInput.AddKeyResponse(InteractionKeyPriority.PunchMachine, new AvatarInput.KeyResponse(HitMachine), KeyPressType.KeyDown);
         avatarInput.AddKeyResponse(DirectionKeyResponsePriority.PunchMachine, new AvatarInput.KeyResponse((GameKeyCode _) => { }), KeyPressType.KeyDown);
 
+        AudioManager.Instance.PlayBackgroundMusic("HavingFun");
         StartGame(1);
     }
 
@@ -56,6 +62,7 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
     {
         LevelNumber = levelNum;
         startTime = Time.time;
+        randomTimeShift = Random.value;
     }
 
     private void EndGame(bool success)
@@ -70,6 +77,8 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
         AvatarInput avatarInput = GameStatics.Instance.PlayerAvatarInput;
         avatarInput.RemoveKeyResponse(InteractionKeyPriority.PunchMachine);
         avatarInput.RemoveKeyResponse(DirectionKeyResponsePriority.PunchMachine);
+
+        AudioManager.Instance.PlayBackgroundMusic("Background");
 
     }
 
@@ -123,8 +132,8 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
             return;
         }
 
-        float period = defaultPeriod * Mathf.Pow(0.9f, LevelNumber);
-        float timeResidue = Mathf.Repeat(Time.time - startTime, period);
+        float period = defaultPeriod * Mathf.Pow(difficultyFactor, LevelNumber);
+        float timeResidue = Mathf.Repeat(Time.time + randomTimeShift * period - startTime, period);
         if (timeResidue > 0.5f * period)
         {
             timeResidue = period - timeResidue;

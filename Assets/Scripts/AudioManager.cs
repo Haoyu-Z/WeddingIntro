@@ -24,8 +24,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private SpeechAudio speechAudio;
 
-    private bool isBackgroundMusicPlayed;
-
     private static AudioManager instance;
 
     public static AudioManager Instance => instance;
@@ -36,23 +34,19 @@ public class AudioManager : MonoBehaviour
         Debug.Assert(instance == null);
         instance = this;
 
-        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login, new System.Action(PlayBackgroundMusic));
+        WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login, new System.Action(() => { PlayBackgroundMusic("Background"); }));
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing, () => PlayerSoundEffect("ConfirmJoin"));
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.RejectComing, () => PlayerSoundEffect("RejectJoin"));
     }
 
-    public void PlayBackgroundMusic()
+    public void PlayBackgroundMusic(string name)
     {
-        if(!isBackgroundMusicPlayed)
+        AudioClip clip = audioData?.FindClip(name);
+        if (clip != null)
         {
-            AudioClip clip = audioData?.FindClip("Background");
-            if(clip != null)
-            {
-                backgroundAudioSource.clip = clip;
-                backgroundAudioSource.loop = true;
-                backgroundAudioSource.Play();
-            }
-            isBackgroundMusicPlayed = true;
+            backgroundAudioSource.clip = clip;
+            backgroundAudioSource.loop = true;
+            backgroundAudioSource.Play();
         }
     }
 

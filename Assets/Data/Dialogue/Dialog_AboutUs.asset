@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogEntries:
   - DialogId: Dialog_AboutUs_Bride_01
+    TriggerWorldEvent: 0
     NextDialogId: 
     HintText: Dialog_AboutUs_Bride_01.Dialog_AboutUs_Bride_01
     NextSelections: []
   - DialogId: Dialog_AboutUs_Groom_01
+    TriggerWorldEvent: 0
     NextDialogId: 
-    HintText: Dialog_AboutUs_Groom_01.Dialog_AboutUs_Groom_01
+    HintText: Dialog_AboutUs_Bridegroom_01.Dialog_AboutUs_Bridegroom_01
     NextSelections: []

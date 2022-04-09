@@ -94,7 +94,7 @@ public static class Mailer
             case MailType.MessageBoard:
                 return $"Player {(info.Message[0] as PlayerInfo?)} send you two a message! Check it out.";
             case MailType.FinishBrideQuest:
-                return $"Player {(info.Message[0] as PlayerInfo?)} wins bride's request !";
+                return $"Player {(info.Message[0] as PlayerInfo?)} accompllishes bride's request !";
             default:
                 return null;
         }

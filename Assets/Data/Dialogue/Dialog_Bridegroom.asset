@@ -14,18 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogEntries:
   - DialogId: Dialog_Groom_Meet
+    TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u54C8\u56C9\uFF0C\u5F88\u9AD8\u8208\u4F60\u73A9\u6211\u5011\u7684\u5C0F\u6E38\u6232\u3002\u4F60\u525B\u525B\u6709\u8A8D\u771F\u586B\u4F60\u7684\u540D\u5B57\u5427\uFF1F"
     NextSelections:
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
+      ConditionedDialogs: []
       NextDialogId: Dialog_AboutUs_Groom_01
-      TriggerWorldEvent: 0
     - HintString: "\u804A\u804A\u9019\u500B\u6E38\u6232\u5427\uFF01"
+      ConditionedDialogs: []
       NextDialogId: Dialog_Groom_AboutGame
-      TriggerWorldEvent: 0
-    - HintString: "\u4F60\u6709NPC\u4EFB\u52D9\u5417\uFF1F"
-      NextDialogId: Dialog_Quest_Groom_01
-      TriggerWorldEvent: 0
+    - HintString: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u9700\u8981\u5E6B\u5FD9\u5417\uFF1F"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Quest_Groom_Intro
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
+      ConditionedDialogs: []
       NextDialogId: 
-      TriggerWorldEvent: 0
+  - DialogId: Dialog_Groom_AboutGame
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u9084\u6C92\u958B\u59CB\u5BEB\u9019\u4E00\u8DB4\u5462\u3002"
+    NextSelections: []

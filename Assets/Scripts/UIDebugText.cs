@@ -63,56 +63,59 @@ public class UIDebugText : MonoBehaviour
 
     public void AddDebugText(string inText, DebugTextLevel level)
     {
-        if(!enableDebug)
+        if (!enableDebug)
         {
             WriteUnityLog(inText, level);
         }
-
-        Color color;
-        switch(level)
-        {
-            case DebugTextLevel.Warning:
-                color = warningColor;
-                break;
-            case DebugTextLevel.Error:
-                color = errorColor;
-                break;
-            default:
-                color = logColor;
-                break;
-        }
-
-        inText = string.Format("<color=#{0:X02}{1:X02}{2:X02}{3:X02}>{4}</color>", Mathf.FloorToInt(255 * color.r), Mathf.FloorToInt(255 * color.g), Mathf.FloorToInt(255 * color.b), Mathf.FloorToInt(255 * color.a), inText);
-
-        if (text == null)
-        {
-            text = new string[lineCount];
-            startFrom = 0;
-            count = 0;
-        }
-
-        if (count < lineCount)
-        {
-            int nextIndex = startFrom + count;
-            if (nextIndex >= text.Length)
-            {
-                nextIndex -= text.Length;
-            }
-
-            count += 1;
-            text[nextIndex] = inText;
-        }
         else
         {
-            text[startFrom] = inText;
-            startFrom += 1;
-            if (startFrom >= text.Length)
-            {
-                startFrom -= text.Length;
-            }
-        }
 
-        UpdateText();
+            Color color;
+            switch (level)
+            {
+                case DebugTextLevel.Warning:
+                    color = warningColor;
+                    break;
+                case DebugTextLevel.Error:
+                    color = errorColor;
+                    break;
+                default:
+                    color = logColor;
+                    break;
+            }
+
+            inText = string.Format("<color=#{0:X02}{1:X02}{2:X02}{3:X02}>{4}</color>", Mathf.FloorToInt(255 * color.r), Mathf.FloorToInt(255 * color.g), Mathf.FloorToInt(255 * color.b), Mathf.FloorToInt(255 * color.a), inText);
+
+            if (text == null)
+            {
+                text = new string[lineCount];
+                startFrom = 0;
+                count = 0;
+            }
+
+            if (count < lineCount)
+            {
+                int nextIndex = startFrom + count;
+                if (nextIndex >= text.Length)
+                {
+                    nextIndex -= text.Length;
+                }
+
+                count += 1;
+                text[nextIndex] = inText;
+            }
+            else
+            {
+                text[startFrom] = inText;
+                startFrom += 1;
+                if (startFrom >= text.Length)
+                {
+                    startFrom -= text.Length;
+                }
+            }
+
+            UpdateText();
+        }
     }
 
     private void UpdateText()

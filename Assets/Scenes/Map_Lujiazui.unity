@@ -5039,7 +5039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnFinishQuest
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnMessageBoard

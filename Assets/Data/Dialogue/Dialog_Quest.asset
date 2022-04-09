@@ -57,7 +57,7 @@ MonoBehaviour:
     NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u66AB\u6642\u6C92\u60F3\u5230\u6709\u5225\u7684\u9EBB\u7169\u7684\u4E8B\u60C5\u4E86\u3002\n\u5728\u9019\u5152\u901B\u901B\u5427\uFF01"
     NextSelections: []
-  - DialogId: Dialog_Quest_Groom_01
+  - DialogId: Dialog_Quest_Groom_Intro
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u6211\u9084\u6C92\u60F3\u597D\u6211\u7684\u4EFB\u52D9\u662F\u4EC0\u4E48\u5462\uFF01"

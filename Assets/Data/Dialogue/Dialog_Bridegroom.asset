@@ -16,14 +16,14 @@ MonoBehaviour:
   - DialogId: Dialog_Groom_Meet
     TriggerWorldEvent: 0
     NextDialogId: 
-    HintText: "\u54C8\u56C9\uFF0C\u5F88\u9AD8\u8208\u4F60\u4F86\u53C3\u52A0\u5BB4\u6703\u3002\u4F60\u525B\u525B\u6709\u8A8D\u771F\u586B\u4F60\u7684\u540D\u5B57\u5427\uFF1F"
+    HintText: "\u54C8\u56C9\uFF0C\u8B1D\u8B1D\u4F60\u73A9\u6211\u5011\u7684\u6E38\u6232\u3002\u4F60\u525B\u525B\u6709\u8A8D\u771F\u586B\u4F60\u7684\u540D\u5B57\u5427\uFF1F"
     NextSelections:
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
       ConditionedDialogs: []
       NextDialogId: Dialog_AboutUs_Groom_01
     - HintString: "\u804A\u804A\u9019\u500B\u6E38\u6232\u5427\uFF01"
       ConditionedDialogs: []
-      NextDialogId: Dialog_Groom_AboutGame
+      NextDialogId: Dialog_Groom_AboutGame_01
     - HintString: "\u60F3\u8981\u6311\u6230\u4E00\u4E0B\u6211\u5417\uFF1F"
       ConditionedDialogs:
       - NextDialogId: Dialog_Quest_Groom_WinAllFinish
@@ -38,8 +38,48 @@ MonoBehaviour:
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       ConditionedDialogs: []
       NextDialogId: 
-  - DialogId: Dialog_Groom_AboutGame
+  - DialogId: Dialog_Groom_Meet_Reentry
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u597D\u5566\uFF0C\u9084\u6709\u4EC0\u4E48\u60F3\u804A\u7684\u5417\uFF1F"
+    NextSelections:
+    - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Groom_01
+    - HintString: "\u804A\u804A\u9019\u500B\u6E38\u6232\u5427\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Groom_AboutGame_01
+    - HintString: "\u60F3\u8981\u6311\u6230\u4E00\u4E0B\u6211\u5417\uFF1F"
+      ConditionedDialogs:
+      - NextDialogId: Dialog_Quest_Groom_WinAllFinish
+        ConditionObject: {fileID: 11400000, guid: 64e2d70c4a5314e4481820f02a5dd799, type: 2}
+      - NextDialogId: Dialog_Quest_Groom_WinAll
+        ConditionObject: {fileID: 11400000, guid: 3ae5e79d4c700e84caaef8b996f9cddc, type: 2}
+      - NextDialogId: Dialog_Quest_Groom_Win5Finish
+        ConditionObject: {fileID: 11400000, guid: 38cb2b3da53535b419b068e27e657dc6, type: 2}
+      - NextDialogId: Dialog_Quest_Groom_Win5
+        ConditionObject: {fileID: 11400000, guid: f9bcd44618ab98f4a98e0f85894fe53e, type: 2}
+      NextDialogId: Dialog_Quest_Groom_Intro
+    - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
+      ConditionedDialogs: []
+      NextDialogId: 
+  - DialogId: Dialog_AboutUs_Groom_01
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u9084\u6C92\u958B\u59CB\u5BEB\u9019\u4E00\u8DB4\u5462\u3002"
+    NextSelections: []
+  - DialogId: Dialog_Groom_AboutGame_01
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_Groom_AboutGame_02
+    HintText: "\u9019\u500B\u6E38\u6232\u524D\u5F8C\u65B7\u65B7\u7E8C\u7E8C\u505A\u4E86\u5FEB\u4E00\u500B\u6708\u3002\n\u6211\u8CA0\u8CAC\u7A0B\u5E8F\u548C\u7B56\u5283\uFF0C\u718F\u9D28\u540C\u5B78\u8CA0\u8CAC\u5834\u666F\u7F8E\u8853\u3002\n\u4EBA\u7269\u52D5\u756B\u662F\u6211\u5011\u4E00\u8D77\u641E\u7684\uFF08\u6284\u7684\uFF09\u3002"
+    NextSelections: []
+  - DialogId: Dialog_Groom_AboutGame_02
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_Groom_AboutGame_03
+    HintText: "\u6E38\u6232\u7684\u4EBA\u7269\u52D5\u756B\u548C\u5834\u666F\u7D20\u6750\u662F\u5C0D\u8457\u73A9\u661F\u9732\u8C37\u7269\u8A9E\u6E38\u6232\u7684\u9304\u50CF\u7528\u50CF\u7D20\u756B\u8EDF\u4EF6\u9EDE\u9EDE\u9EDE\u51FA\u4F86\u7684\u3002\n\u9664\u4E86\u6211\u548C\u718F\u9D28\u540C\u5B78\u5169\u500B\u4EBA\u7269\u5F62\u8C61\u662F\u718F\u9D28\u539F\u5275\u3002\n\u80CC\u666F\u97F3\u6A02\u548C\u97F3\u6548\u7528\u4E86\u9EC3\u91D1\u592A\u967D\u7684\u8072\u97F3\u7D20\u6750\u3002\n\u5169\u500B\u90FD\u662F\u6211\u975E\u5E38\u559C\u6B61\u7684\u6E38\u6232\u3002"
+    NextSelections: []
+  - DialogId: Dialog_Groom_AboutGame_03
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_Groom_Meet_Reentry
+    HintText: "\u672C\u4F86\u61C9\u8A72\u80FD\u63D0\u524D\u4E00\u5468\u5B8C\u6210\u7684\u3002\n\u53EF\u662F\u96BB\u72FC\u548C\u8001\u982D\u74B0\u5BE6\u5728\u592A\u597D\u73A9\u4E86\uFF01\u56B4\u91CD\u62D6\u6162\u4E86\u6211\u7684\u9032\u5EA6\u3002\n\u6211\u4E5F\u8981\u8209\u5831\u718F\u9D28\u540C\u5B78\u4E5F\u5728\u6C89\u8FF7\u5728\u6D77\u62C9\u9B6F\u7576\u5230\u8655\u4E82\u901B\u3002"
     NextSelections: []

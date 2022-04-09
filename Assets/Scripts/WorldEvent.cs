@@ -14,6 +14,7 @@ public class WorldEvent
         Quest_Bride_FoundItem,
         Quest_Bride_Finish,
         Quest_Groom_Win5,
+        Quest_Groom_Win5Finish,
         Quest_Groom_WinAll,
         Quest_Groom_Finish,
     }

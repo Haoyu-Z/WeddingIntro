@@ -16,7 +16,7 @@ MonoBehaviour:
   - DialogId: Dialog_Groom_Meet
     TriggerWorldEvent: 0
     NextDialogId: 
-    HintText: "\u54C8\u56C9\uFF0C\u5F88\u9AD8\u8208\u4F60\u73A9\u6211\u5011\u7684\u5C0F\u6E38\u6232\u3002\u4F60\u525B\u525B\u6709\u8A8D\u771F\u586B\u4F60\u7684\u540D\u5B57\u5427\uFF1F"
+    HintText: "\u54C8\u56C9\uFF0C\u5F88\u9AD8\u8208\u4F60\u4F86\u53C3\u52A0\u5BB4\u6703\u3002\u4F60\u525B\u525B\u6709\u8A8D\u771F\u586B\u4F60\u7684\u540D\u5B57\u5427\uFF1F"
     NextSelections:
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
       ConditionedDialogs: []
@@ -24,8 +24,16 @@ MonoBehaviour:
     - HintString: "\u804A\u804A\u9019\u500B\u6E38\u6232\u5427\uFF01"
       ConditionedDialogs: []
       NextDialogId: Dialog_Groom_AboutGame
-    - HintString: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u9700\u8981\u5E6B\u5FD9\u5417\uFF1F"
-      ConditionedDialogs: []
+    - HintString: "\u60F3\u8981\u6311\u6230\u4E00\u4E0B\u6211\u5417\uFF1F"
+      ConditionedDialogs:
+      - NextDialogId: Dialog_Quest_Groom_WinAllFinish
+        ConditionObject: {fileID: 11400000, guid: 64e2d70c4a5314e4481820f02a5dd799, type: 2}
+      - NextDialogId: Dialog_Quest_Groom_WinAll
+        ConditionObject: {fileID: 11400000, guid: 3ae5e79d4c700e84caaef8b996f9cddc, type: 2}
+      - NextDialogId: Dialog_Quest_Groom_Win5Finish
+        ConditionObject: {fileID: 11400000, guid: 38cb2b3da53535b419b068e27e657dc6, type: 2}
+      - NextDialogId: Dialog_Quest_Groom_Win5
+        ConditionObject: {fileID: 11400000, guid: f9bcd44618ab98f4a98e0f85894fe53e, type: 2}
       NextDialogId: Dialog_Quest_Groom_Intro
     - HintString: "\u6C92\u6709\u4E8B\u4E86\u3002"
       ConditionedDialogs: []

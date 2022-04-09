@@ -100,11 +100,18 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
                 if (LevelNumber + 1 < numberSprites.Length)
                 {
                     AudioManager.Instance.PlayerSoundEffect("WinClick");
+
+                    if(LevelNumber == 5)
+                    {
+                        WorldEvent.TriggerEvent(WorldEvent.WorldEventType.Quest_Groom_Win5);
+                    }
+
                     StartGame(LevelNumber + 1);
                 }
                 else
                 {
                     AudioManager.Instance.PlayerSoundEffect("Winner");
+                    WorldEvent.TriggerEvent(WorldEvent.WorldEventType.Quest_Groom_WinAll);
                     UIDialogBoxController.Instance.StartDialog(winAllDialog, null);
                     EndGame(true);
                 }    

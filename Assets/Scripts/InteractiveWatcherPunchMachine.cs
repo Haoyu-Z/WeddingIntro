@@ -99,6 +99,7 @@ public class InteractiveWatcherPunchMachine : InteractiveWatcherBase
             {
                 if (LevelNumber + 1 < numberSprites.Length)
                 {
+                    AudioManager.Instance.PlayerSoundEffect("WinClick");
                     StartGame(LevelNumber + 1);
                 }
                 else

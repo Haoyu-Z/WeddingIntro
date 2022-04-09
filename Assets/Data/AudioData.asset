@@ -27,3 +27,5 @@ MonoBehaviour:
     ClipAsset: {fileID: 8300000, guid: 0512dbff925fa2b458892dc1b9eb57a7, type: 3}
   - EntryName: HavingFun
     ClipAsset: {fileID: 8300000, guid: cec1cbcdec00eb241af3f2695eb019d4, type: 3}
+  - EntryName: WinClick
+    ClipAsset: {fileID: 8300000, guid: 6576e185bae21944e952d4990f1b555b, type: 3}

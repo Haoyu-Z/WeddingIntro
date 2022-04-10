@@ -1,0 +1,4 @@
+- 0.3.1
+    - mail self feature is broken
+    - bride win5 dialog is not present
+    - not popping up screen keyboard

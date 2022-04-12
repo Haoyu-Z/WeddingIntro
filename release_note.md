@@ -6,3 +6,7 @@
 - 0.3.2
     - fix bug 0x02
     - screen debug message is turned on
+- 0.3.3
+    - add scene elements
+    - modify some dialogs
+    - screen debug message is turned off

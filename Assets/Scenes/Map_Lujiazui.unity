@@ -3485,6 +3485,36 @@ Transform:
   m_Father: {fileID: 1375057945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &547515927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547515928}
+  m_Layer: 0
+  m_Name: Interact
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547515928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547515927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.375, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4919958630089798310}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &552003469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5777,7 +5807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249c0e158f1cdfc4a961b468272865b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactCenter: {fileID: 0}
+  interactCenter: {fileID: 547515927}
   interactDialog: Dialog_Quest_BrideItem
   destroySelf: 1
 --- !u!114 &1039462157
@@ -9469,7 +9499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3ee0996b20b8c44b413e6f87332e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 1
+  enableDebug: 0
   debugText: {fileID: 745479106}
   lineCount: 20
   logColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
@@ -13524,6 +13554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3090734547541135184, guid: ce275b8d03bc84541ae48077ce7616e8, type: 3}
+      propertyPath: logInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7673521308560326658, guid: ce275b8d03bc84541ae48077ce7616e8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -14187,7 +14221,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 373fc68eb9d424087a97673a19d60494, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95704c9a8797c2c4e8062263a7868af1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14210,6 +14244,7 @@ GameObject:
   - component: {fileID: 4919958630089798304}
   - component: {fileID: 4919958630089798311}
   - component: {fileID: 1038101282}
+  - component: {fileID: 4919958630089798312}
   m_Layer: 0
   m_Name: BrideQuestItem
   m_TagString: Untagged
@@ -14225,9 +14260,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4919958630089798309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.25, y: -13.89, z: 0}
+  m_LocalPosition: {x: 9.9375, y: -4.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 547515928}
   m_Father: {fileID: 229040923}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14244,10 +14280,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -14255,8 +14291,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4919958630089798312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919958630089798309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a632381313dc4bf49816c2ad56cbbe01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelPerUnit: 16
 --- !u!114 &8588985022910786848
 MonoBehaviour:
   m_ObjectHideFlags: 0

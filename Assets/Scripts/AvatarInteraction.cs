@@ -9,6 +9,9 @@ public class AvatarInteraction : MonoBehaviour
     [SerializeField]
     private float interactDistance = 1.1f;
 
+    [SerializeField]
+    private bool logInteraction = false;
+
     private readonly HashSet<InteractiveWatcherBase> watchers = new HashSet<InteractiveWatcherBase>();
 
     private AvatarMovementComponent avatarMovementComponent;
@@ -35,22 +38,27 @@ public class AvatarInteraction : MonoBehaviour
         {
             Vector3 relative = watcher.InteractCenter.transform.position - gameObject.transform.position;
             relative.z = 0.0f;
-            if (relative.magnitude > interactDistance)
-            {
-                continue;
-            }
 
             float angle = Mathf.Atan2(relative.x, relative.y) / Mathf.PI * 180;
             float angleDiff = angle - avatarMovementComponent.FacingDirectionAngle;
             angleDiff -= Mathf.RoundToInt(angleDiff / 360.0f) * 360.0f;
-            if (Mathf.Abs(angleDiff) < interactAngle)
+
+            if (logInteraction)
+            {
+                UIDebugText.Instance.AddDebugText($"i am at ({gameObject.transform.position.x},{gameObject.transform.position.y}), {watcher} is at ({watcher.InteractCenter.transform.position.x},{watcher.InteractCenter.transform.position.y}). Magnitude={relative.magnitude}, Angle={angleDiff}.", UIDebugText.DebugTextLevel.Log);
+            }
+
+            if (relative.magnitude <= interactDistance && Mathf.Abs(angleDiff) <= interactAngle)
             {
                 watcher.InvokeInteract();
                 return;
             }
         }
 
-        UIDebugText.Instance.AddDebugText("No interaction triggered.", UIDebugText.DebugTextLevel.Warning);
+        if (logInteraction)
+        {
+            UIDebugText.Instance.AddDebugText("No interaction triggered.", UIDebugText.DebugTextLevel.Warning);
+        }
     }
 
     public void RegisterInteractiveWatcher(InteractiveWatcherBase watcher)

@@ -10,3 +10,5 @@
     - add scene elements
     - modify some dialogs
     - screen debug message is turned off
+- 0.3.4
+    - fix bug 0x03

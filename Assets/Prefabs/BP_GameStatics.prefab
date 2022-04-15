@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8931848893862806468}
   - component: {fileID: 8931848893862806469}
   - component: {fileID: 1927697592781912968}
+  - component: {fileID: 5203522616746527198}
   m_Layer: 0
   m_Name: BP_GameStatics
   m_TagString: Untagged
@@ -49,10 +50,10 @@ MonoBehaviour:
   SendMailOnLogin: 0
   SendMailOnConfirmComing: 0
   SendMailOnRejectComing: 0
+  SendMailOnMessageBoard: 0
+  SendMailOnFinishQuest: 0
   PlayerAvatar: {fileID: 0}
   Camera: {fileID: 0}
-  uiDebugText: {fileID: 0}
-  audioManager: {fileID: 0}
 --- !u!114 &8931848893862806469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,5 +81,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97208fd39bcf4eb46bcff45787af6ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5203522616746527198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931848893862806470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35be3c0bce1d3b24eb93f180c27cb0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

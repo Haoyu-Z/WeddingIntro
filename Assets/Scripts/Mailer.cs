@@ -1,10 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net.Mail;
+using System.Text;
+using UnityEngine.Networking;
 
-public static class Mailer
+public class Mailer : MonoBehaviour
 {
+    public interface IJsonSerializable
+    {
+        public string ToJsonObject();
+    }
+
+    public struct SingleValueSerializableField<T> : IJsonSerializable
+    {
+        public string Key;
+
+        public T Value;
+
+        public SingleValueSerializableField(string key, T value)
+        {
+            Key = key;
+            Value = value;
+        }
+
+        public string ToJsonObject()
+        {
+            return $"\"{Key.Replace('\"', '\'')}\" : \"{Value.ToString().Replace('\"', '\'')}\"";
+        }
+    }
+
     public enum MailType
     {
         Login,
@@ -16,119 +40,98 @@ public static class Mailer
         FinishGroomQuest,
     }
 
-    public struct MailInfo
-    {
-        public MailType MailType;
-        public object[] Message;
+    private static Mailer instance = null;
 
-        public MailInfo(MailType type, object[] message)
-        {
-            MailType = type;
-            Message = message;
-        }
-    }
+    public static Mailer Instance => instance;
 
-    static Mailer()
+    private void Awake()
     {
+        Debug.Assert(instance == null);
+        instance = this;
+
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login,
-            () =>
-            {
-                if (GameStatics.Instance.SendMailOnLogin)
-                {
-                    SendMail(new MailInfo(MailType.Login, new object[] { GameStatics.Instance.PlayerInformation, }));
-                }
-            });
+            () => { SendPlayerInfoMail(GameStatics.Instance.SendMailOnLogin, MailType.Login); });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing,
-            () =>
-            {
-                if (GameStatics.Instance.SendMailOnConfirmComing)
-                {
-                    SendMail(new MailInfo(MailType.ConfirmComing, new object[] { GameStatics.Instance.PlayerInformation, }));
-                }
-            });
+            () => { SendPlayerInfoMail(GameStatics.Instance.SendMailOnConfirmComing, MailType.ConfirmComing); });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.RejectComing,
-            () =>
-            {
-                if (GameStatics.Instance.SendMailOnRejectComing)
-                {
-                    SendMail(new MailInfo(MailType.RejectComing, new object[] { GameStatics.Instance.PlayerInformation, }));
-                }
-            });
+            () => { SendPlayerInfoMail(GameStatics.Instance.SendMailOnRejectComing, MailType.RejectComing); });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Quest_Bride_Finish,
-            () =>
-            {
-                if (GameStatics.Instance.SendMailOnFinishQuest)
-                {
-                    SendMail(new MailInfo(MailType.FinishBrideQuest, new object[] { GameStatics.Instance.PlayerInformation, }));
-                }
-            }
-            );
+            () => { SendPlayerInfoAndGameTimeMail(GameStatics.Instance.SendMailOnFinishQuest, MailType.FinishBrideQuest); });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Quest_Groom_Win5Finish,
-            () =>
-            {
-                if(GameStatics.Instance.SendMailOnFinishQuest)
-                {
-                    SendMail(new MailInfo(MailType.HalfFinishGroomQuest, new object[] { GameStatics.Instance.PlayerInformation }));
-                }
-            });
+            () => { SendPlayerInfoAndGameTimeMail(GameStatics.Instance.SendMailOnFinishQuest, MailType.HalfFinishGroomQuest); });
         WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Quest_Groom_Finish,
-            () =>
-            {
-                if(GameStatics.Instance.SendMailOnFinishQuest)
-                {
-                    SendMail(new MailInfo(MailType.FinishGroomQuest, new object[] { GameStatics.Instance.PlayerInformation }));
-                }
-            });
+            () => { SendPlayerInfoAndGameTimeMail(GameStatics.Instance.SendMailOnFinishQuest, MailType.FinishGroomQuest); });
     }
 
-    private static string GetMailSubject(MailInfo info)
+    public void SendPlayerInfoMail(bool Condition, MailType mailType)
     {
-        switch (info.MailType)
+        if (Condition)
         {
-            case MailType.Login:
-                return $"Player {info.Message[0] as PlayerInfo?} has played your game!";
-            case MailType.ConfirmComing:
-                return $"Player {info.Message[0] as PlayerInfo?} has confirmed to come!";
-            case MailType.RejectComing:
-                return $"Player {info.Message[0] as PlayerInfo?} has rejected to come!";
-            case MailType.MessageBoard:
-                return $"Player {info.Message[0] as PlayerInfo?} send you two a message! Check it out.";
-            case MailType.FinishBrideQuest:
-                return $"Player {info.Message[0] as PlayerInfo?} accompllishes bride's request !";
-            case MailType.HalfFinishGroomQuest:
-                return $"Player {info.Message[0] as PlayerInfo?} wins bridegroom's punch machine score !";
-            case MailType.FinishGroomQuest:
-                return $"Player {info.Message[0] as PlayerInfo?} beats the punch machine !";
-            default:
-                return null;
+            SendMail(mailType, new IJsonSerializable[] { GameStatics.Instance.PlayerInformation, });
         }
     }
 
-    private static string GetMailBody(MailInfo info)
+    public void SendPlayerInfoAndGameTimeMail(bool Condition, MailType mailType)
     {
-        switch (info.MailType)
+        if (Condition)
         {
-            case MailType.Login:
-                return $"Congratulations for having a new player!";
-            case MailType.ConfirmComing:
-                return $"Player + 1! \u2764";
-            case MailType.RejectComing:
-                return $"Player - 1! Sad...";
-            case MailType.MessageBoard:
-                return $"Player {(info.Message[0] as PlayerInfo?)} says: {info.Message[1] as string}";
-            case MailType.FinishBrideQuest:
-            case MailType.HalfFinishGroomQuest:
-            case MailType.FinishGroomQuest:
-                return $"It happens at FrameCount={Time.frameCount}, Time={Time.time}";
-            default:
-                return null;
+            SendMail(mailType, new IJsonSerializable[] { GameStatics.Instance.PlayerInformation, new SingleValueSerializableField<float>("Time", Time.time) });
         }
     }
 
-    public static void SendMail(MailInfo info)
+    public static string FormatJsonObject(IJsonSerializable[] objects, params IJsonSerializable[] otherObjects)
     {
-        // TODO use other method to post a message to myself
+        IJsonSerializable[] total = new IJsonSerializable[objects.Length + otherObjects.Length];
+        for (int i = 0; i < objects.Length; i++)
+        {
+            total[i] = objects[i];
+        }
+        for (int i = 0; i < otherObjects.Length; i++)
+        {
+            total[i + objects.Length] = otherObjects[i];
+        }
+
+        if (total.Length <= 0)
+        {
+            return "{ }";
+        }
+
+        StringBuilder builder = new StringBuilder();
+        builder.Append("{ ");
+
+        for (int i = 0; i < total.Length - 1; i++)
+        {
+            builder.Append(total[i].ToJsonObject());
+            builder.Append(", ");
+        }
+        builder.Append(total[total.Length - 1].ToJsonObject());
+
+        builder.Append(" }");
+
+        return builder.ToString();
     }
 
-    public static void Init() { }
+    public void SendMail(MailType mailType, IJsonSerializable[] objects)
+    {
+        UIDebugText.Instance.AddDebugText($"Sending web request message of type {mailType}", UIDebugText.DebugTextLevel.Log);
+        string JsonMessage = FormatJsonObject(objects, new SingleValueSerializableField<string>("Type", $"{mailType}"));
+
+        byte[] messageBytes = Encoding.UTF8.GetBytes(JsonMessage);
+        UnityWebRequest request = UnityWebRequest.Put("http://127.0.0.1:8080", messageBytes);
+        StartCoroutine(SendWebRequest(request));
+    }
+
+    private IEnumerator SendWebRequest(UnityWebRequest request)
+    {
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            UIDebugText.Instance.AddDebugText($"Send web request error {request.error}", UIDebugText.DebugTextLevel.Error);
+        }
+        else
+        {
+            UIDebugText.Instance.AddDebugText($"Send web request success.", UIDebugText.DebugTextLevel.Log);
+        }
+    }
 }

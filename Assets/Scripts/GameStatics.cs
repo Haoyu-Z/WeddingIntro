@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public struct PlayerInfo
+public struct PlayerInfo : Mailer.IJsonSerializable
 {
     public string Name;
 
@@ -15,9 +15,9 @@ public struct PlayerInfo
 
     public static readonly PlayerInfo Tarnished = new PlayerInfo("UnNamed", "NoGender");
 
-    public override string ToString()
+    public string ToJsonObject()
     {
-        return $"{Name} ({Gender})";
+        return $"\"PlayerInfo\" : {{ \"Name\":\"{Name.Replace('\"', '\'')}\", \"Gender\":\"{Gender}\" }}"; // in case it breaks json serialization
     }
 }
 
@@ -52,6 +52,8 @@ public class GameStatics : MonoBehaviour
     public bool SendMailOnMessageBoard = false;
 
     public bool SendMailOnFinishQuest = false;
+
+    public UIDebugText.LogType logType;
 
     [Header("Non-prefab Attribute")]
 

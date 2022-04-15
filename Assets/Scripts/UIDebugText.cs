@@ -13,8 +13,12 @@ public class UIDebugText : MonoBehaviour
         Error,
     }
 
-    [SerializeField]
-    private bool enableDebug = false;
+    public enum LogType
+    {
+        None,
+        Screen,
+        UnityLog,
+    }
 
     [SerializeField]
     private Text debugText;
@@ -63,13 +67,12 @@ public class UIDebugText : MonoBehaviour
 
     public void AddDebugText(string inText, DebugTextLevel level)
     {
-        if (!enableDebug)
+        if (GameStatics.Instance == null || GameStatics.Instance.logType == LogType.UnityLog)
         {
             WriteUnityLog(inText, level);
         }
-        else
+        else if (GameStatics.Instance.logType == LogType.Screen)
         {
-
             Color color;
             switch (level)
             {

@@ -22,7 +22,6 @@ public class WorldEvent
     static WorldEvent()
     {
         // make sure static class is statically initialized
-        Mailer.Init();
         QuestManager.Init();
     }
 

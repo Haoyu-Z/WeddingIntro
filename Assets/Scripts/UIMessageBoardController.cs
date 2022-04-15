@@ -70,7 +70,7 @@ public class UIMessageBoardController : MonoBehaviour
         string messageText = messageInputField.text;
         if (messageText.Trim().Length > 0 && GameStatics.Instance.SendMailOnMessageBoard)
         {
-            Mailer.SendMail(new Mailer.MailInfo(Mailer.MailType.MessageBoard, new object[] { GameStatics.Instance.PlayerInformation, messageText, }));
+            Mailer.Instance.SendMail(Mailer.MailType.MessageBoard, new Mailer.IJsonSerializable[] { GameStatics.Instance.PlayerInformation, new Mailer.SingleValueSerializableField<string>("MessageBoardText", messageText), });
         }
 
         CommonScaleOut();

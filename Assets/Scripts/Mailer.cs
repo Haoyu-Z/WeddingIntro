@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net.Mail;
+// using System.Net.Mail;
 
 public static class Mailer
 {
@@ -81,23 +81,22 @@ public static class Mailer
             });
     }
 
-    private static SmtpClient client = null;
+    // private static SmtpClient client = null;
 
-    private static SmtpClient Client
-    {
-        get
-        {
-            if (client == null)
-            {
-                client = new SmtpClient("smtp.qq.com");
-                client.Credentials = new System.Net.NetworkCredential("====deleted====", "====deleted====");
-                client.EnableSsl = true;
-                client.SendCompleted += SendMailCallback;
-            }
-
-            return client;
-        }
-    }
+    //private static SmtpClient Client
+    //{
+    //    get
+    //    {
+    //        if (client == null)
+    //        {
+    //            client = new SmtpClient("smtp.qq.com");
+    //            client.Credentials = new System.Net.NetworkCredential("====deleted====", "====deleted====");
+    //            client.EnableSsl = true;
+    //            client.SendCompleted += SendMailCallback;
+    //        }
+    //        return client;
+    //    }
+    //}
 
     private static string GetMailSubject(MailInfo info)
     {
@@ -145,27 +144,27 @@ public static class Mailer
 
     public static void SendMail(MailInfo info)
     {
-        MailMessage mail = new MailMessage();
-        mail.From = new MailAddress("154480690@qq.com");
-        mail.To.Add(new MailAddress("154480690@qq.com"));
+        //MailMessage mail = new MailMessage();
+        //mail.From = new MailAddress("154480690@qq.com");
+        //mail.To.Add(new MailAddress("154480690@qq.com"));
 
-        string subject = GetMailSubject(info);
-        string body = GetMailBody(info);
-        if (subject == null || body == null)
-        {
-            return;
-        }
+        //string subject = GetMailSubject(info);
+        //string body = GetMailBody(info);
+        //if (subject == null || body == null)
+        //{
+        //    return;
+        //}
 
-        mail.Subject = subject;
-        mail.SubjectEncoding = System.Text.Encoding.UTF8;
-        mail.Body = body;
-        mail.BodyEncoding = System.Text.Encoding.UTF8;
-        mail.Priority = MailPriority.Normal;
+        //mail.Subject = subject;
+        //mail.SubjectEncoding = System.Text.Encoding.UTF8;
+        //mail.Body = body;
+        //mail.BodyEncoding = System.Text.Encoding.UTF8;
+        //mail.Priority = MailPriority.Normal;
 
-        SmtpClient client = Client;
+        //SmtpClient client = Client;
 
-        UIDebugText.Instance.AddDebugText($"Trying to send an email : {mail.Body}", UIDebugText.DebugTextLevel.Log);
-        client.SendAsync(mail, null);
+        //UIDebugText.Instance.AddDebugText($"Trying to send an email : {mail.Body}", UIDebugText.DebugTextLevel.Log);
+        //client.SendAsync(mail, null);
     }
 
     public static void SendMailCallback(object sender, System.ComponentModel.AsyncCompletedEventArgs e)

@@ -1,0 +1,8 @@
+- 0.3.1
+    - successfully build WebGL game
+    - bug (0x01) mail self feature is broken
+    - bug (0x02, fixed @0.3.2) bride win5 dialog is not present
+    - bug (0x03) not popping up screen keyboard
+- 0.3.2
+    - fix bug 0x02
+    - screen debug message is turned on

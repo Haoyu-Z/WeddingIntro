@@ -3733,7 +3733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3ee0996b20b8c44b413e6f87332e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDebug: 0
+  enableDebug: 1
   debugText: {fileID: 745479106}
   lineCount: 20
   logColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}

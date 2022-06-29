@@ -5848,7 +5848,7 @@ PrefabInstance:
       objectReference: {fileID: 1575872542}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnLogin
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: PlayerNameAutoFill
@@ -5856,19 +5856,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnFinishQuest
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnMessageBoard
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnRejectComing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806468, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: SendMailOnConfirmComing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931848893862806470, guid: 51f6a6b1a858c4815a4df385d9fe7b63, type: 3}
       propertyPath: m_Name

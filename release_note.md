@@ -13,3 +13,8 @@
 - 0.3.4
     - fix bug 0x03
     - bug (0x04) audio is compressed and data loss is too much
+    - screen debug message is turned on
+- 0.3.5
+    - move to Gameboy interface
+    - add some more dialogs
+    - bug (0x05) arial font does not support chinese characters on phones

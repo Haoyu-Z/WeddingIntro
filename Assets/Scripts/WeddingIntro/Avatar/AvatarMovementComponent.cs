@@ -12,9 +12,7 @@ namespace WeddingIntro.Avatar
     }
 
     public class AvatarMovementComponent : MonoBehaviour
-    {
-        public static readonly Vector2 PlayerRenderHaftRect = new Vector2(0.5f, 1.0f);
-
+    { 
         private static readonly float[] directionAngles = new float[] { 0.0f, 90.0f, 180.0f, -90.0f };
 
         [SerializeField]
@@ -76,23 +74,18 @@ namespace WeddingIntro.Avatar
         {
             rigidBody2D = GetComponent<Rigidbody2D>();
 
-            float ScreenBorder = 0.0f;
-            CameraFollow cameraFollow = GameStatics.Instance?.Camera;
-            Debug.Assert(cameraFollow != null);
-
-            ScreenBorder = cameraFollow.ScreenBorder;
-            playerMovementRangeX = new Vector2(
-                cameraFollow.PlayerRenderBorderX.x + ScreenBorder + PlayerRenderHaftRect.x,
-                cameraFollow.PlayerRenderBorderX.y - ScreenBorder - PlayerRenderHaftRect.x
-                );
-            playerMovementRangeY = new Vector2(
-                cameraFollow.PlayerRenderBorderY.x + ScreenBorder,
-                cameraFollow.PlayerRenderBorderY.y - ScreenBorder - PlayerRenderHaftRect.y - PlayerRenderHaftRect.y
-                );
-
             AvatarInput avatarInput = GetComponent<AvatarInput>();
             Debug.Assert(avatarInput != null);
             avatarInput.AddKeyResponse(DirectionKeyResponsePriority.Movement, new AvatarInput.KeyResponse(AddMovementInputVector), KeyPressType.DefaultPressing);
+        }
+
+        private void ResetPlayerMovementRange()
+        {
+            CameraFollow cameraFollow = GameStatics.Instance?.Camera;
+            Debug.Assert(cameraFollow != null);
+
+            playerMovementRangeX = cameraFollow.PlayerMovementRangeX;
+            playerMovementRangeY = cameraFollow.PlayerMovementRangeY;
         }
 
         private void FixedUpdate()
@@ -130,6 +123,7 @@ namespace WeddingIntro.Avatar
             CameraFollow cameraFollow = GameStatics.Instance?.Camera;
             if (cameraFollow != null)
             {
+                ResetPlayerMovementRange();
                 Vector3 position = gameObject.transform.position;
                 position.x = Mathf.Clamp(position.x, playerMovementRangeX.x, playerMovementRangeX.y);
                 position.y = Mathf.Clamp(position.y, playerMovementRangeY.x, playerMovementRangeY.y);
@@ -139,5 +133,13 @@ namespace WeddingIntro.Avatar
             movementInputVector = pendingMovementInputVector;
             pendingMovementInputVector = Vector3.zero;
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(transform.position, 0.1f);
+        }
+#endif
     }
 }

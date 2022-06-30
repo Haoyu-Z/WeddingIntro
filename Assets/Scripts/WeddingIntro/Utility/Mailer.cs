@@ -46,11 +46,14 @@ namespace WeddingIntro.Utility
 
         public static Mailer Instance => instance;
 
+        private static readonly string ServerAddress = "http://47.111.125.115:8080";
+
         private void Awake()
         {
             Debug.Assert(instance == null);
             instance = this;
 
+            // send player infos or player infos together with timestamp
             WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Login,
                 () => { SendPlayerInfoMail(GameStatics.Instance.SendMailOnLogin, MailType.Login); });
             WorldEvent.RegisterEvent(WorldEvent.WorldEventType.ConfirmComing,
@@ -117,13 +120,13 @@ namespace WeddingIntro.Utility
         {
             UIDebugText.Instance.AddDebugText($"Sending web request message of type {mailType}", UIDebugText.DebugTextLevel.Log);
             string JsonMessage = FormatJsonObject(objects, new SingleValueSerializableField<string>("Type", $"{mailType}"));
-
-            byte[] messageBytes = Encoding.UTF8.GetBytes(JsonMessage);
-            UnityWebRequest request = UnityWebRequest.Put("http://127.0.0.1:8080", messageBytes);
+            string EscapedMessage = System.Uri.EscapeDataString(JsonMessage);
+            byte[] messageBytes = Encoding.UTF8.GetBytes(EscapedMessage);
+            UnityWebRequest request = UnityWebRequest.Put(ServerAddress, messageBytes);
             StartCoroutine(SendWebRequest(request));
         }
 
-        private IEnumerator SendWebRequest(UnityWebRequest request)
+        private static IEnumerator SendWebRequest(UnityWebRequest request)
         {
             yield return request.SendWebRequest();
 

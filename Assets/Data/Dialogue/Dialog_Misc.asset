@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de8c8992beeb449099dce43c3033007, type: 3}
+  m_Name: Dialog_Misc
+  m_EditorClassIdentifier: 
+  DialogEntries:
+  - DialogId: Dialog_Misc_VendingFront_Intro
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u4E00\u500B\u6536\u9322\u7684\u6A5F\u5668...\n\u8981\u7D66\u65B0\u90CE\u65B0\u5A18\u9001\u591A\u5927\u7684\u7D05\u5305\u5462\uFF1F"
+    NextSelections:
+    - HintString: "1 \u76E7\u6069"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Misc_VendingFront_0
+    - HintString: "100 \u76E7\u6069"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Misc_VendingFront_1
+    - HintString: "1000 \u76E7\u6069"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Misc_VendingFront_2
+    - HintString: "1000000 \u76E7\u6069"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Misc_VendingFront_3
+  - DialogId: Dialog_Misc_VendingFront_0
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u53EE...\n\u6295\u5165\u7684\u786C\u5E63\u767C\u51FA\u4E86\u6E05\u8106\u7684\u91D1\u5C6C\u78B0\u649E\u8072..."
+    NextSelections: []
+  - DialogId: Dialog_Misc_VendingFront_1
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u4F60\u7684\u7D19\u5E63\u88AB\u6A5F\u5668\u5237\u5730\u5438\u4E86\u9032\u53BB..."
+    NextSelections: []
+  - DialogId: Dialog_Misc_VendingFront_2
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u4F60\u7C21\u76F4\u662F\u6A21\u7BC4\u73A9\u5BB6\uFF01\n\u660E\u5929\u65B0\u90CE\u548C\u65B0\u5A18\u6703\u5403\u4E00\u9813\u7D05\u71D2\u6392\u9AA8\u6176\u795D\u4E00\u4E0B\u3002"
+    NextSelections: []
+  - DialogId: Dialog_Misc_VendingFront_3
+    TriggerWorldEvent: 10
+    NextDialogId: 
+    HintText: "\u5594...\u4F60\u53EF\u5343\u842C\u8981\u8AAA\u8A71\u7B97\u6578\u5594...\n\u4F60\u88AB\u65B0\u90CE\u548C\u65B0\u5A18\u7784\u4E0A\u4E86\uFF01"
+    NextSelections: []
+  - DialogId: Dialog_Misc_VendingBack
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u6C92\u6709\u5BC6\u78BC\u7684\u8A71\u6253\u4E0D\u958B\u9019\u500B\u6536\u9322\u7684\u6A5F\u5668..."
+    NextSelections: []

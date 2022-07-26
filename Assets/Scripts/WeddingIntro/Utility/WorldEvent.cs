@@ -18,6 +18,7 @@ namespace WeddingIntro.Utility
             Quest_Groom_Win5Finish,
             Quest_Groom_WinAll,
             Quest_Groom_Finish,
+            Misc_Send1M,
         }
 
         static WorldEvent()

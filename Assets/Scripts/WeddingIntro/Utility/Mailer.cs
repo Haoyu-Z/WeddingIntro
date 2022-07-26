@@ -40,6 +40,7 @@ namespace WeddingIntro.Utility
             FinishBrideQuest,
             HalfFinishGroomQuest,
             FinishGroomQuest,
+            Send1M,
         }
 
         private static Mailer instance = null;

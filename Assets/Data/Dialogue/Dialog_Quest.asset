@@ -21,7 +21,7 @@ MonoBehaviour:
   - DialogId: Dialog_Quest_Groom_ItemWinAll
     TriggerWorldEvent: 0
     NextDialogId: 
-    HintText: "\u4E5D\u95A2\u5168\u90E8\u90FD\u904E\u4E86\uFF01\n\u4F60\u4E5F\u592A\u53B2\u5BB3\u4E86\u5427\uFF01"
+    HintText: "\u4E5D\u95A2\u5168\u90E8\u90FD\u901A\u904E\u4E86\uFF01\n\u4F60\u4E5F\u592A\u53B2\u5BB3\u4E86\u5427\uFF01"
     NextSelections: []
   - DialogId: Dialog_Quest_Bride_Intro
     TriggerWorldEvent: 0
@@ -44,17 +44,17 @@ MonoBehaviour:
       NextDialogId: Dialog_Quest_Bride_Fail
   - DialogId: Dialog_Quest_Bride_PleaseHelp
     TriggerWorldEvent: 0
-    NextDialogId: 
+    NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u6211\u9019\u88CF\u9084\u6709\u597D\u591A\u4E8B\u60C5\u8981\u505A\uFF0C\u53EF\u4EE5\u9EBB\u7169\u4F60\u5E6B\u6211\u53D6\u56DE\u4F86\u5417\uFF1F"
     NextSelections: []
   - DialogId: Dialog_Quest_Bride_Finish
     TriggerWorldEvent: 5
-    NextDialogId: 
+    NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u54C7\uFF0C\u4F60\u627E\u5230\u6211\u7684\u528D\u4E86\u3002\u8B1D\u8B1D\u4F60\u3002\n\u9019\u6A23\u6211\u5C31\u53EF\u4EE5\u5E36\u8457\u5B83\u5728\u65C5\u884C\u7684\u8DEF\u4E0A\u591A\u780D\u5E7E\u96BB\u602A\u7269\u4E86\uFF01"
     NextSelections: []
   - DialogId: Dialog_Quest_Bride_Fail
     TriggerWorldEvent: 0
-    NextDialogId: 
+    NextDialogId: Dialog_Bride_Meet_Reentry
     HintText: "\u8B93\u6211\u770B\u770B\u4F60\u7684\u66F8\u5305...\n\u597D\u50CF\u88CF\u9762\u6C92\u6709\u6211\u7684\u528D...\n\u4F60\u662F\u4E0D\u662F\u5F04\u932F\u4E86\uFF1F"
     NextSelections: []
   - DialogId: Dialog_Quest_Bride_AlreadyFinish
@@ -64,26 +64,26 @@ MonoBehaviour:
     NextSelections: []
   - DialogId: Dialog_Quest_Groom_Intro
     TriggerWorldEvent: 0
-    NextDialogId: 
+    NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u770B\u5230\u90A3\u908A\u7684\u6253\u62F3\u6A5F\u4E86\u6C92\uFF1F\u6211\u53EF\u662F\u525B\u525B\u6253\u904E\u4E86\u7B2C\u4E94\u95A2\u5594\uFF01\n\u6562\u4E0D\u6562\u62FF\u4F60\u7684\u6210\u7E3E\u548C\u6211\u8F03\u91CF\u770B\u770B\uFF1F"
     NextSelections: []
   - DialogId: Dialog_Quest_Groom_Win5
     TriggerWorldEvent: 7
-    NextDialogId: 
+    NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u597D\u5427\uFF0C\u4F60\u73A9\u6253\u62F3\u6A5F\u78BA\u5BE6\u6709\u9EDE\u6280\u5DE7\u3002\u4F60\u5DF2\u7D93\u8D85\u904E\u6211\u4E86\u3002\n\u8981\u4E0D\u8981\u8A66\u8A66\u770B\u5F8C\u9762\u5E7E\u95DC\u7684\u6311\u6230\uFF1F"
     NextSelections: []
   - DialogId: Dialog_Quest_Groom_Win5Finish
     TriggerWorldEvent: 0
-    NextDialogId: 
+    NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u4F60\u53BB\u8A66\u8A66\u770B\u5F8C\u9762\u5E7E\u95DC\u7684\u6311\u6230\u4E86\u5417\uFF1F"
     NextSelections: []
   - DialogId: Dialog_Quest_Groom_WinAll
     TriggerWorldEvent: 9
-    NextDialogId: 
+    NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u54C7\uFF01\u4F60\u6253\u5B8C\u4E86\u6253\u62F3\u6A5F\u5168\u90E8\u7684\u95DC\u5361\u4E86\u8036\uFF01\n\u6211\u6703\u7E7C\u7E8C\u7DF4\u7FD2\uFF0C\u5F88\u5FEB\u6211\u4E5F\u6703\u901A\u95DC\u7684\u3002"
     NextSelections: []
   - DialogId: Dialog_Quest_Groom_WinAllFinish
     TriggerWorldEvent: 0
-    NextDialogId: 
+    NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u6700\u5F8C\u5169\u95DC\u597D\u96E3\u5440\uFF0C\u6211\u9084\u5728\u52AA\u529B..."
     NextSelections: []

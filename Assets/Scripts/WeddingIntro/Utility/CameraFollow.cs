@@ -10,10 +10,10 @@ namespace WeddingIntro.Utility
 
         public float ScreenBorder { get { return screenBorder; } }
 
-        [SerializeField, Tooltip("Measured in world-space unit, as width value.")]
+        [SerializeField, Tooltip("Measured in scale ratio. This correspones to UI.GbaFace.ScreenSpace.")]
         private Vector2 uiBorderX = new Vector2(0.0f, 0.0f);
 
-        [SerializeField, Tooltip("Measured in world-space unit, as height value.")]
+        [SerializeField, Tooltip("Measured in scale ratio. This correspones to UI.GbaFace.ScreenSpace.")]
         private Vector2 uiBorderY = new Vector2(0.0f, 0.0f);
 
         [SerializeField, Tooltip("Measured in world-space unit, as absolute value.")]
@@ -58,11 +58,11 @@ namespace WeddingIntro.Utility
                 // ViewBorder range <= PlayerRenderBorder range
 
                 cameraBorderX = new Vector2(
-                    PlayerRenderBorderX.x + camera.orthographicSize * camera.aspect - uiBorderX.x,
-                    PlayerRenderBorderX.y - camera.orthographicSize * camera.aspect + uiBorderX.y);
+                    PlayerRenderBorderX.x + (1.0f - uiBorderX.x * 2.0f) * camera.orthographicSize * camera.aspect,
+                    PlayerRenderBorderX.y - (1.0f - uiBorderX.y * 2.0f) * camera.orthographicSize * camera.aspect);
                 cameraBorderY = new Vector2(
-                    PlayerRenderBorderY.x + camera.orthographicSize - uiBorderY.x,
-                    PlayerRenderBorderY.y - camera.orthographicSize + uiBorderY.y);
+                    PlayerRenderBorderY.x + (1.0f - uiBorderY.x * 2.0f) * camera.orthographicSize,
+                    PlayerRenderBorderY.y - (1.0f - uiBorderY.y * 2.0f) * camera.orthographicSize);
             }
         }
 
@@ -100,12 +100,13 @@ namespace WeddingIntro.Utility
 
 #if UNITY_EDITOR
         private Vector2 ViewBorderX => new Vector2(
-                transform.position.x - camera.orthographicSize * camera.aspect + uiBorderX.x,
-                transform.position.x + camera.orthographicSize * camera.aspect - uiBorderX.y);
+                transform.position.x - (1.0f - uiBorderX.x * 2.0f) * camera.orthographicSize * camera.aspect,
+                transform.position.x + (1.0f - uiBorderX.y * 2.0f) * camera.orthographicSize * camera.aspect
+            );
 
         private Vector2 ViewBorderY => new Vector2(
-            transform.position.y - camera.orthographicSize + uiBorderY.x,
-            transform.position.y + camera.orthographicSize - uiBorderY.y
+            transform.position.y - (1.0f - uiBorderY.x * 2.0f) * camera.orthographicSize,
+            transform.position.y + (1.0f - uiBorderY.y * 2.0f) * camera.orthographicSize
             );
 
         private void OnDrawGizmos()

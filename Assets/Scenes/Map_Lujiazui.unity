@@ -10799,7 +10799,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10842,8 +10842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenBorder: 0.125
-  uiBorderX: {x: 1.15, y: 1.15}
-  uiBorderY: {x: 10.63, y: 1.37}
+  uiBorderX: {x: 0.075, y: 0.075}
+  uiBorderY: {x: 0.44, y: 0.055}
   playerRenderBorderX: {x: -15, y: 16}
   playerRenderBorderY: {x: -18.5, y: -1.5}
   springArmOffset: {x: 0, y: -4}

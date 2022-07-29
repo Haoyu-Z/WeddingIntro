@@ -1,6 +1,6 @@
 - 0.3.1
     - successfully build WebGL game
-    - bug (0x01) mail self feature is broken
+    - bug (0x01, fixed @0.3.6) mail self feature is broken
     - bug (0x02, fixed @0.3.2) bride win5 dialog is not present
     - bug (0x03, fixed @0.3.4) not popping up screen keyboard
 - 0.3.2
@@ -17,4 +17,8 @@
 - 0.3.5
     - move to Gameboy interface
     - add some more dialogs
-    - bug (0x05) arial font does not support chinese characters on phones
+    - bug (0x05, fixed @0.3.6) arial font does not support chinese characters on phones
+- 0.3.6
+    - fix font bug
+    - add mailer support
+    - add more dialogue and reviews

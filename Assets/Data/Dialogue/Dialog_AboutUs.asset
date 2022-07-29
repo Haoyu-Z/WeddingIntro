@@ -13,11 +13,6 @@ MonoBehaviour:
   m_Name: Dialog_AboutUs
   m_EditorClassIdentifier: 
   DialogEntries:
-  - DialogId: Dialog_AboutUs_Bride_01
-    TriggerWorldEvent: 0
-    NextDialogId: Dialog_Bride_Meet_Reentry
-    HintText: "\u65B0\u5A18\u9084\u6C92\u6709\u958B\u59CB\u5BEB..."
-    NextSelections: []
   - DialogId: Dialog_AboutUs_Groom_01
     TriggerWorldEvent: 0
     NextDialogId: Dialog_AboutUs_Groom_02
@@ -42,4 +37,55 @@ MonoBehaviour:
     TriggerWorldEvent: 0
     NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u9019\u5C31\u662F\u6211\u7684\u6D41\u6C34\u5E33\u5F0F\u56DE\u61B6\u9304\u4E86\u3002\n\u5927\u5BB6\u73A9\u5230\u9019\u500B\u904A\u6232\u7684\u6642\u5019\u61C9\u8A72\u525B\u597D\u662F\u6211\u5011\u5728\u4E00\u8D77\u5341\u5468\u5E74\u7684\u65E5\u5B50\u3002\n\u9019\u6B21\u8981\u8A02\u4E00\u500B\u4EC0\u9EBC\u86CB\u7CD5\u6BD4\u8F03\u597D\u5462...\u592A\u50B7\u8166\u7B4B\u4E86\u4E5F\u3002"
+    NextSelections: []
+  - DialogId: Dialog_AboutUs_Bride_Branch
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u4F60\u60F3\u807D\u6211\u8AAA\u54EA\u4E00part\uFF1F"
+    NextSelections:
+    - HintString: "\u8AAA\u65B0\u90CE\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Bride_P1
+    - HintString: "\u8AAA\u4F60\u81EA\u5DF1\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Bride_P2
+    - HintString: "\u8AAA\u4F60\u5011\u7684\u5A5A\u79AE\u5427\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Bride_Wedding1
+  - DialogId: Dialog_AboutUs_Bride_Reentry
+    TriggerWorldEvent: 0
+    NextDialogId: 
+    HintText: "\u9084\u6709\u5176\u4ED6part\u60F3\u807D\u5417\uFF1F"
+    NextSelections:
+    - HintString: "\u8AAA\u65B0\u90CE\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Bride_P1
+    - HintString: "\u8AAA\u4F60\u81EA\u5DF1\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Bride_P2
+    - HintString: "\u8AAA\u4F60\u5011\u7684\u5A5A\u79AE\u5427\uFF01"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_AboutUs_Bride_Wedding1
+    - HintString: "\u6C92\u4E86\u3002"
+      ConditionedDialogs: []
+      NextDialogId: Dialog_Bride_Meet_Reentry
+  - DialogId: Dialog_AboutUs_Bride_P1
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_AboutUs_Bride_Reentry
+    HintText: "\u65B0\u90CE\u5F9E\u5C0F\u662F\u4E00\u500B\u5F88\u6709\u60F3\u6CD5\u7684\u670B\u53CB\uFF0C\u96D6\u7136\u73FE\u572895%\u7684\u6709\u8DA3idea\u90FD\u6703\u592D\u6298\u5728\u6211\u5006\u7684\u61F6\u60F0\u548C\u62D6\u5EF6\u4E2D\uFF0C\u800C\u5728\u4E0D\u5065\u5EB7\u7684\u751F\u6D3B\u65B9\u5F0F\u4E0A\u6211\u5011\u7E3D\u662F\u4E00\u62CD\u5373\u5408\u3002\n\u55EF...\u4E00\u8D77\u901B\u5E02\u5834\u4E00\u8D77\u8EBA\u5728\u5BB6\u4E0D\u4E5F\u9084\u662F\u5FEB\u6A02\u7684\u5468\u672B\u5417\uFF1F"
+    NextSelections: []
+  - DialogId: Dialog_AboutUs_Bride_P2
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_AboutUs_Bride_Reentry
+    HintText: "\u95DC\u65BC\u6211\u554A...\u90A3\u4F60\u5FEB\u5728\u5A5A\u79AE\u4E0A\u4F86\u627E\u6211\u804A\u5929\u5427\uFF0C\u6210\u70BA\u65B0\u7684\u670B\u53CB\u6216\u8005\u804A\u804A\u904E\u53BB\u5410\u69FD\u751F\u6D3B\u3002"
+    NextSelections: []
+  - DialogId: Dialog_AboutUs_Bride_Wedding1
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_AboutUs_Bride_Wedding2
+    HintText: "\u8AAA\u5BE6\u5728\u7684\uFF0C\u6211\u73FE\u5728\u4E5F\u9084\u4E0D\u77E5\u9053\u5A5A\u79AE\u6703\u662F\u4EC0\u4E48\u6A23\u5B50\u54C8\u54C8\u54C8\u3002\u7E3D\u662F\u6709\u592A\u591A\u4E0D\u91CD\u8981\u60F3\u6CD5\u5F9E\u6211\u7684\u8166\u5B50\u88CF\u7D93\u904E\u3002\n\u76F8\u6BD4\u4E4B\u4E0B\uFF0C\u65B0\u90CE\u597D\u50CF\u4E0A\u5FC3\u66F4\u591A\u3002"
+    NextSelections: []
+  - DialogId: Dialog_AboutUs_Bride_Wedding2
+    TriggerWorldEvent: 0
+    NextDialogId: Dialog_AboutUs_Bride_Reentry
+    HintText: "\u5B83\u6216\u8A31\u66F4\u50CF\u4E00\u500B\u7BC0\u9EDE\uFF0C\u6F2B\u9577\u7D00\u4E8B\u7684\u7E69\u7D50\uFF0C\u96E2\u958B\u65B0\u624B\u6751\u7684\u6B61\u9001\u5100\u5F0F\u3002\n\u800C\u5F8C\u9762\u6703\u662F\u6301\u76FE\u528D\u58EB\u548C\u898B\u7FD2\u6CD5\u5E2B\u7684\u5049\u5927\u5192\u96AA\uFF01"
     NextSelections: []

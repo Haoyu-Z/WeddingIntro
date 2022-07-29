@@ -23,7 +23,7 @@ MonoBehaviour:
       NextDialogId: Dialog_Bride_Info_01
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
       ConditionedDialogs: []
-      NextDialogId: Dialog_AboutUs_Bride_01
+      NextDialogId: Dialog_AboutUs_Bride_Branch
     - HintString: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u9700\u8981\u5E6B\u5FD9\u5417\uFF1F"
       ConditionedDialogs:
       - NextDialogId: Dialog_Quest_Bride_AlreadyFinish
@@ -42,7 +42,7 @@ MonoBehaviour:
       NextDialogId: Dialog_Bride_Info_01
     - HintString: "\u95DC\u65BC\u4F60\u5011\u5006..."
       ConditionedDialogs: []
-      NextDialogId: Dialog_AboutUs_Bride_01
+      NextDialogId: Dialog_AboutUs_Bride_Branch
     - HintString: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u9700\u8981\u5E6B\u5FD9\u5417\uFF1F"
       ConditionedDialogs:
       - NextDialogId: Dialog_Quest_Bride_AlreadyFinish

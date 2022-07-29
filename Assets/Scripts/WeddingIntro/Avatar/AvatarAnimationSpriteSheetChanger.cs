@@ -6,9 +6,7 @@ namespace WeddingIntro.Avatar
 {
     public class AvatarAnimationSpriteSheetChanger : MonoBehaviour
     {
-        private string asPrefix;
-
-        private Sprite[] newSprites;
+        private SpriteSheetTableUnit[] tableEntries;
 
         private SpriteRenderer spriteRenderer;
 
@@ -25,29 +23,32 @@ namespace WeddingIntro.Avatar
 
         private void LateUpdate()
         {
-            if (spriteRenderer == null)
+            if (spriteRenderer == null || tableEntries == null)
             {
                 return;
             }
 
-            if (asPrefix == null || asPrefix.Length <= 0)
+            foreach (SpriteSheetTableUnit unit in tableEntries)
             {
-                return;
-            }
-
-            if (newSprites == null || newSprites.Length <= 0)
-            {
-                return;
-            }
-
-            string currentSpriteName = spriteRenderer.sprite.name;
-            if (currentSpriteName.Length > asPrefix.Length && currentSpriteName.StartsWith(asPrefix))
-            {
-                string indexString = currentSpriteName.Substring(asPrefix.Length);
-                bool indexParseResult = int.TryParse(indexString, out int spriteIndex);
-                if (indexParseResult && spriteIndex < newSprites.Length)
+                if (unit.Prefix == null || unit.Prefix.Length <= 0)
                 {
-                    spriteRenderer.sprite = newSprites[spriteIndex];
+                    continue;
+                }
+
+                if (unit.SpriteSequence == null || unit.SpriteSequence.Length <= 0)
+                {
+                    continue;
+                }
+
+                string currentSpriteName = spriteRenderer.sprite.name;
+                if (currentSpriteName.Length > unit.Prefix.Length && currentSpriteName.StartsWith(unit.Prefix))
+                {
+                    string indexString = currentSpriteName.Substring(unit.Prefix.Length);
+                    bool indexParseResult = int.TryParse(indexString, out int spriteIndex);
+                    if (indexParseResult && spriteIndex < unit.SpriteSequence.Length)
+                    {
+                        spriteRenderer.sprite = unit.SpriteSequence[spriteIndex];
+                    }
                 }
             }
         }
@@ -58,17 +59,16 @@ namespace WeddingIntro.Avatar
             {
                 if (pair.Key == info.Gender)
                 {
-                    SetSpriteSheetChangerData(pair.Prefix, pair.SpriteSequence);
+                    SetSpriteSheetChangerData(pair.TableUnits);
                     break;
                 }
             }
         }
 
-        private void SetSpriteSheetChangerData(string prefix, Sprite[] sprites)
+        private void SetSpriteSheetChangerData(SpriteSheetTableUnit[] tableUnits)
         {
-            Debug.Assert(prefix != null && sprites != null);
-            asPrefix = prefix;
-            newSprites = sprites;
+            Debug.Assert(tableUnits != null);
+            tableEntries = tableUnits;
         }
     }
 }

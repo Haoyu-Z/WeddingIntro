@@ -22,3 +22,7 @@
     - fix font bug
     - add mailer support
     - add more dialogue and reviews
+- 0.3.7
+    - add eat/drink interaction and animation
+    - add splash screen photo
+    - add audio effects

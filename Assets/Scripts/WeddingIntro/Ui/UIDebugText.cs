@@ -68,6 +68,11 @@ namespace WeddingIntro.Ui
 
         public void AddDebugText(string inText, DebugTextLevel level)
         {
+            if (level < GameStatics.Instance.logLevel)
+            {
+                return;
+            }
+
             if (GameStatics.Instance == null || GameStatics.Instance.logType == LogType.UnityLog)
             {
                 WriteUnityLog(inText, level);

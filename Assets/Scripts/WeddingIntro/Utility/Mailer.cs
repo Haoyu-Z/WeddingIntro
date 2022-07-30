@@ -8,6 +8,9 @@ namespace WeddingIntro.Utility
 {
     public class Mailer : MonoBehaviour
     {
+        [SerializeField]
+        private string NetworkErrorPrompt;
+
         public interface IJsonSerializable
         {
             public string ToJsonObject();
@@ -133,7 +136,7 @@ namespace WeddingIntro.Utility
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                UIDebugText.Instance.AddDebugText($"Send web request error {request.error}", UIDebugText.DebugTextLevel.Error);
+                UIDebugText.Instance.AddDebugText(Instance.NetworkErrorPrompt + request.error, UIDebugText.DebugTextLevel.Error);
             }
             else
             {

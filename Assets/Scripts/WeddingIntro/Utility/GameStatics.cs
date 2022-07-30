@@ -59,6 +59,8 @@ namespace WeddingIntro.Utility
 
         public UIDebugText.LogType logType;
 
+        public UIDebugText.DebugTextLevel logLevel;
+
         [Header("Non-prefab Attribute")]
 
         public GameObject PlayerAvatar;

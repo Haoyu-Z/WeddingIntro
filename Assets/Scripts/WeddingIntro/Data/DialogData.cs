@@ -32,6 +32,8 @@ namespace WeddingIntro.Data
     {
         public string DialogId;
 
+        public string StandaloneAudioEffectKey;
+
         public WorldEvent.WorldEventType TriggerWorldEvent;
 
         [Tooltip("Will jump to this dialog if there's no selection candidate.")]

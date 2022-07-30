@@ -14,48 +14,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogEntries:
   - DialogId: Dialog_Misc_VendingFront_Intro
+    StandaloneAudioEffectKey: 
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u4E00\u500B\u6536\u9322\u7684\u6A5F\u5668...\n\u8981\u7D66\u65B0\u90CE\u65B0\u5A18\u9001\u591A\u5927\u7684\u7D05\u5305\u5462\uFF1F"
     NextSelections:
-    - HintString: "1 \u76E7\u6069"
+    - HintString: 1 G
       ConditionedDialogs: []
       NextDialogId: Dialog_Misc_VendingFront_0
-    - HintString: "100 \u76E7\u6069"
+    - HintString: 100 G
       ConditionedDialogs: []
       NextDialogId: Dialog_Misc_VendingFront_1
-    - HintString: "1000 \u76E7\u6069"
+    - HintString: 1000 G
       ConditionedDialogs: []
       NextDialogId: Dialog_Misc_VendingFront_2
-    - HintString: "1000000 \u76E7\u6069"
+    - HintString: 1000000 G
       ConditionedDialogs: []
       NextDialogId: Dialog_Misc_VendingFront_3
   - DialogId: Dialog_Misc_VendingFront_0
+    StandaloneAudioEffectKey: Gift_1
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u53EE...\n\u6295\u5165\u7684\u786C\u5E63\u767C\u51FA\u4E86\u6E05\u8106\u7684\u91D1\u5C6C\u78B0\u649E\u8072..."
     NextSelections: []
   - DialogId: Dialog_Misc_VendingFront_1
+    StandaloneAudioEffectKey: Gift_100
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u4F60\u7684\u7D19\u5E63\u88AB\u6A5F\u5668\u5237\u5730\u5438\u4E86\u9032\u53BB..."
     NextSelections: []
   - DialogId: Dialog_Misc_VendingFront_2
+    StandaloneAudioEffectKey: Gift_1000
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u4F60\u7C21\u76F4\u662F\u6A21\u7BC4\u73A9\u5BB6\uFF01\n\u660E\u5929\u65B0\u90CE\u548C\u65B0\u5A18\u6703\u5403\u4E00\u9813\u7D05\u71D2\u6392\u9AA8\u6176\u795D\u4E00\u4E0B\u3002"
     NextSelections: []
   - DialogId: Dialog_Misc_VendingFront_3
+    StandaloneAudioEffectKey: 
     TriggerWorldEvent: 10
     NextDialogId: 
     HintText: "\u5594...\u4F60\u53EF\u5343\u842C\u8981\u8AAA\u8A71\u7B97\u6578\u5594...\n\u4F60\u88AB\u65B0\u90CE\u548C\u65B0\u5A18\u7784\u4E0A\u4E86\uFF01"
     NextSelections: []
   - DialogId: Dialog_Misc_VendingBack
+    StandaloneAudioEffectKey: 
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u6C92\u6709\u5BC6\u78BC\u7684\u8A71\u6253\u4E0D\u958B\u9019\u500B\u6536\u9322\u7684\u6A5F\u5668..."
     NextSelections: []
   - DialogId: Dialog_Misc_Food
+    StandaloneAudioEffectKey: 
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u684C\u4E0A\u6709\u597D\u591A\u5403\u7684\u6771\u897F\uFF0C\u9078\u54EA\u6A23\u597D\u5462\uFF1F"
@@ -73,6 +80,7 @@ MonoBehaviour:
       ConditionedDialogs: []
       NextDialogId: 
   - DialogId: Dialog_Misc_Drink
+    StandaloneAudioEffectKey: 
     TriggerWorldEvent: 0
     NextDialogId: 
     HintText: "\u559D\u9EDE\u6771\u897F\u5427..."

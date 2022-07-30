@@ -43,3 +43,12 @@ MonoBehaviour:
   - EntryName: PlayerDrink
     ClipAsset: {fileID: 8300000, guid: 6de6a01b582a7094e985491c8b8608bc, type: 3}
     EffectHideBackground: 0
+  - EntryName: Gift_1
+    ClipAsset: {fileID: 8300000, guid: 0e32eaa4c87c0a84981c3cb15eed6a8f, type: 3}
+    EffectHideBackground: 0
+  - EntryName: Gift_100
+    ClipAsset: {fileID: 8300000, guid: ace0fe48999ef8a4fb8b04c25feb51ec, type: 3}
+    EffectHideBackground: 0
+  - EntryName: Gift_1000
+    ClipAsset: {fileID: 8300000, guid: d54b8be41e2a46448851a9bb3ab6a20f, type: 3}
+    EffectHideBackground: 1

@@ -42,6 +42,10 @@ namespace WeddingIntro.Ui
                 {
                     WorldEvent.TriggerEvent(value.TriggerWorldEvent);
                 }
+                if (value.StandaloneAudioEffectKey != null && value.StandaloneAudioEffectKey.Length > 0)
+                {
+                    AudioManager.Instance.PlayerSoundEffect(value.StandaloneAudioEffectKey);
+                }
             }
         }
 

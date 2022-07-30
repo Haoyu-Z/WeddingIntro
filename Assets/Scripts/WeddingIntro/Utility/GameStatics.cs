@@ -79,6 +79,10 @@ namespace WeddingIntro.Utility
 
         public AvatarInput PlayerAvatarInput => playerAvatarInput;
 
+        private AvatarAnimationControlComponent playerAvatarAnimation;
+
+        public AvatarAnimationControlComponent PlayerAvatarAnimation => playerAvatarAnimation;
+
         private void Awake()
         {
             Debug.Assert(Instance == null);
@@ -89,6 +93,7 @@ namespace WeddingIntro.Utility
                 playerAvatarMovement = PlayerAvatar.GetComponent<AvatarMovementComponent>();
                 playerAvatarInteraction = PlayerAvatar.GetComponent<AvatarInteraction>();
                 playerAvatarInput = PlayerAvatar.GetComponent<AvatarInput>();
+                playerAvatarAnimation = PlayerAvatar.GetComponent<AvatarAnimationControlComponent>();
             }
         }
 

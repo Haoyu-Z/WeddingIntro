@@ -34,6 +34,7 @@ namespace WeddingIntro.Avatar
         public Direction FacingDirection
         {
             get { return facingDirection; }
+            set { facingDirection = value; }
         }
 
         public bool IsMoving

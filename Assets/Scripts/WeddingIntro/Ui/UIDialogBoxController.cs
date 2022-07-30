@@ -49,6 +49,8 @@ namespace WeddingIntro.Ui
 
         private string currentSpeechVoiceId;
 
+        private System.Action<int> dialogBoxEndCallback;
+
         private void Awake()
         {
             Debug.Assert(instance == null);
@@ -61,7 +63,7 @@ namespace WeddingIntro.Ui
             Debug.Assert(avatarInput != null);
         }
 
-        public void StartDialog(string dialogId, string speechVoiceId)
+        public void StartDialog(string dialogId, string speechVoiceId, System.Action<int> dialogEndCallback = null)
         {
             if (state != DialogBoxState.Hidden)
             {
@@ -79,6 +81,9 @@ namespace WeddingIntro.Ui
 
             CurrentDialogEntry = dialogEntry;
             currentSpeechVoiceId = speechVoiceId;
+
+            dialogBoxEndCallback = dialogEndCallback;
+
             TriggerNextState();
         }
 
@@ -126,6 +131,7 @@ namespace WeddingIntro.Ui
                     Debug.Assert(CurrentDialogEntry != null);
 
                     string nextDialogId = "";
+                    int dialogEndCallbackSelection = 0;
                     if (textPopper.TextType == UIDialogTextPopper.DialogTextType.PlainText)
                     {
                         nextDialogId = CurrentDialogEntry.NextDialogId;
@@ -134,6 +140,7 @@ namespace WeddingIntro.Ui
                     {
                         Debug.Assert(textPopper.SelectedIndex >= 0 && textPopper.SelectedIndex < CurrentDialogEntry.NextSelections.Length);
                         DialogNextSelection nextSelection = CurrentDialogEntry.NextSelections[textPopper.SelectedIndex];
+                        dialogEndCallbackSelection = textPopper.SelectedIndex;
 
                         nextDialogId = nextSelection.NextDialogId;
                         foreach (ConditionedNextDialog conditionedNext in nextSelection.ConditionedDialogs)
@@ -155,7 +162,7 @@ namespace WeddingIntro.Ui
                     }
                     else
                     {
-                        StartScaleOutEventImpl();
+                        StartScaleOutEventImpl(dialogEndCallbackSelection);
                     }
                     break;
                 case DialogBoxState.ScaleOut:
@@ -174,12 +181,15 @@ namespace WeddingIntro.Ui
             }));
         }
 
-        private void StartScaleOutEventImpl()
+        private void StartScaleOutEventImpl(int callbackSelectionValue)
         {
             panelScaler.TriggerScaleOut(new UIDialogPanelFinishEvent(() =>
             {
                 state = DialogBoxState.Hidden;
                 textPopper.ResetText(null);
+
+                dialogBoxEndCallback?.Invoke(callbackSelectionValue);
+                dialogBoxEndCallback = null;
             }));
             state = DialogBoxState.ScaleOut;
 

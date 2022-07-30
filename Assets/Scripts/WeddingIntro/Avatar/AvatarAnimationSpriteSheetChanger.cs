@@ -48,6 +48,7 @@ namespace WeddingIntro.Avatar
                     if (indexParseResult && spriteIndex < unit.SpriteSequence.Length)
                     {
                         spriteRenderer.sprite = unit.SpriteSequence[spriteIndex];
+                        break;
                     }
                 }
             }

@@ -6,10 +6,10 @@ namespace WeddingIntro.Character
     public class InteractiveWatcherDialog : InteractiveWatcherBase
     {
         [SerializeField]
-        private string dialogEntrance;
+        protected string dialogEntrance;
 
         [SerializeField]
-        private string dialogVoice;
+        protected string dialogVoice;
 
         public override void InvokeInteract()
         {

@@ -80,6 +80,11 @@ MonoBehaviour:
     NextSelections: []
   - DialogId: Dialog_Groom_AboutGame_04
     TriggerWorldEvent: 0
+    NextDialogId: Dialog_Groom_AboutGame_05
+    HintText: "\u7279\u5225\u611F\u8B1D\u6211\u5011\u7684\u597D\u53CBzzp\u540C\u5B78\u5E6B\u52A9\u6211\u5011\u88FD\u4F5C\u4E86\u904A\u6232\u7684\u5F8C\u53F0\u6578\u64DA\u5B58\u5132\uFF01"
+    NextSelections: []
+  - DialogId: Dialog_Groom_AboutGame_05
+    TriggerWorldEvent: 0
     NextDialogId: Dialog_Groom_Meet_Reentry
     HintText: "\u54E6\u5C0D\u4E86\uFF0C\u5225\u5FD8\u4E86\u5728\u5C0F\u90F5\u7B52\u5411\u6211\u5011\u5BC4\u4FE1\uFF01"
     NextSelections: []

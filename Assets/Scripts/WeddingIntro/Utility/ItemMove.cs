@@ -19,10 +19,13 @@ namespace WeddingIntro.Utility
 
         public Vector3 CurrentLocation => fallToLocation + new Vector3(0.0f, (fallDuration - (Time.time - fallStartTime)) * fallSpeed, 0.0f);
 
-        public void FallTo(Vector3 target)
+        private string destroyAudioKey;
+
+        public void FallTo(Vector3 target, string destroyAudio = null)
         {
             fallStartTime = Time.time;
             fallToLocation = target + new Vector3(0.0f, FallRelativeHeight, 0.0f);
+            destroyAudioKey = destroyAudio;
         }
 
         private void Update()
@@ -30,6 +33,7 @@ namespace WeddingIntro.Utility
             if (Time.time - fallStartTime >= fallDuration)
             {
                 Destroy(gameObject);
+                AudioManager.Instance.PlayerSoundEffect(destroyAudioKey);
                 return;
             }
 

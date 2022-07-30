@@ -4022,6 +4022,8 @@ MonoBehaviour:
   action: 1
   foodSprite: []
   foodObject: {fileID: 0}
+  audioKey: PlayerDrink
+  audioPlayType: 0
 --- !u!114 &638087479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4603,6 +4605,8 @@ MonoBehaviour:
   - {fileID: 4567083275015250255, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   - {fileID: -2371963762393953391, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   foodObject: {fileID: 4053358325851407701, guid: 11474d6bc31ff4a90bf899c4773074e6, type: 3}
+  audioKey: PlayerEat
+  audioPlayType: 1
 --- !u!114 &826451695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5408,6 +5412,8 @@ MonoBehaviour:
   - {fileID: 4567083275015250255, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   - {fileID: -2371963762393953391, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   foodObject: {fileID: 4053358325851407701, guid: 11474d6bc31ff4a90bf899c4773074e6, type: 3}
+  audioKey: PlayerEat
+  audioPlayType: 1
 --- !u!114 &913371895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7379,6 +7385,8 @@ MonoBehaviour:
   action: 1
   foodSprite: []
   foodObject: {fileID: 0}
+  audioKey: PlayerDrink
+  audioPlayType: 0
 --- !u!114 &1294856293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9228,6 +9236,8 @@ MonoBehaviour:
   - {fileID: 4567083275015250255, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   - {fileID: -2371963762393953391, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   foodObject: {fileID: 4053358325851407701, guid: 11474d6bc31ff4a90bf899c4773074e6, type: 3}
+  audioKey: PlayerEat
+  audioPlayType: 1
 --- !u!114 &1598547917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9413,6 +9423,8 @@ MonoBehaviour:
   - {fileID: 4567083275015250255, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   - {fileID: -2371963762393953391, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   foodObject: {fileID: 4053358325851407701, guid: 11474d6bc31ff4a90bf899c4773074e6, type: 3}
+  audioKey: PlayerEat
+  audioPlayType: 1
 --- !u!114 &1617834567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10266,6 +10278,8 @@ MonoBehaviour:
   - {fileID: 4567083275015250255, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   - {fileID: -2371963762393953391, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   foodObject: {fileID: 4053358325851407701, guid: 11474d6bc31ff4a90bf899c4773074e6, type: 3}
+  audioKey: PlayerEat
+  audioPlayType: 1
 --- !u!114 &1695663560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12467,6 +12481,8 @@ MonoBehaviour:
   - {fileID: 4567083275015250255, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   - {fileID: -2371963762393953391, guid: a352ffbe8c43c43d3a5e16ab0e535db7, type: 3}
   foodObject: {fileID: 4053358325851407701, guid: 11474d6bc31ff4a90bf899c4773074e6, type: 3}
+  audioKey: PlayerEat
+  audioPlayType: 1
 --- !u!114 &1991633488
 MonoBehaviour:
   m_ObjectHideFlags: 0

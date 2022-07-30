@@ -8,14 +8,14 @@ namespace WeddingIntro.Data
     {
         public AudioEntry[] AudioEntries;
 
-        public AudioClip FindClip(string clipName)
+        public AudioEntry FindClip(string clipName)
         {
             foreach (AudioEntry entry in AudioEntries)
             {
                 if (entry.EntryName == clipName)
                 {
                     Debug.Assert(entry.ClipAsset != null);
-                    return entry.ClipAsset;
+                    return entry;
                 }
             }
             return null;

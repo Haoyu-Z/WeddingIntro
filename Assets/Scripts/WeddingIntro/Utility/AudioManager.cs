@@ -10,6 +10,8 @@ namespace WeddingIntro.Utility
         public string EntryName;
 
         public AudioClip ClipAsset;
+
+        public bool EffectHideBackground;
     }
 
     public class AudioManager : MonoBehaviour
@@ -30,6 +32,7 @@ namespace WeddingIntro.Utility
 
         public static AudioManager Instance => instance;
 
+        private bool effectHideBackground = false;
 
         private void Awake()
         {
@@ -43,7 +46,7 @@ namespace WeddingIntro.Utility
 
         public void PlayBackgroundMusic(string name)
         {
-            AudioClip clip = audioData?.FindClip(name);
+            AudioClip clip = audioData?.FindClip(name)?.ClipAsset;
             if (clip != null)
             {
                 backgroundAudioSource.clip = clip;
@@ -54,12 +57,13 @@ namespace WeddingIntro.Utility
 
         public void PlayerSoundEffect(string effectName)
         {
-            AudioClip clip = audioData?.FindClip(effectName);
-            if (clip != null)
+            AudioEntry entry = audioData?.FindClip(effectName);
+            if (entry.ClipAsset != null)
             {
-                effectAudioSource.clip = clip;
+                effectAudioSource.clip = entry.ClipAsset;
                 effectAudioSource.loop = false;
                 effectAudioSource.Play();
+                effectHideBackground = entry.EffectHideBackground;
             }
         }
 
@@ -77,7 +81,7 @@ namespace WeddingIntro.Utility
         {
             if (backgroundAudioSource.isPlaying)
             {
-                backgroundAudioSource.mute = effectAudioSource.isPlaying;
+                backgroundAudioSource.mute = effectAudioSource.isPlaying && effectHideBackground;
             }
         }
     }

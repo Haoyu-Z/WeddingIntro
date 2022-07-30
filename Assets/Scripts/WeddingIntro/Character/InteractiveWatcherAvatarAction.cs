@@ -7,6 +7,12 @@ namespace WeddingIntro.Character
 {
     public class InteractiveWatcherAvatarAction : InteractiveWatcherDialog
     {
+        private enum AudioPlayEventType
+        {
+            AtStart,
+            AtDestroy,
+        }
+
         [SerializeField]
         private AvatarAnimationControlComponent.ActionType action;
 
@@ -15,6 +21,12 @@ namespace WeddingIntro.Character
 
         [SerializeField]
         private GameObject foodObject;
+
+        [SerializeField]
+        private string audioKey;
+
+        [SerializeField]
+        private AudioPlayEventType audioPlayType;
 
         public override void InvokeInteract()
         {
@@ -38,13 +50,18 @@ namespace WeddingIntro.Character
                 avatarInput.RemoveKeyResponse(InteractionKeyPriority.UIFocus);
             });
 
+            if (audioPlayType == AudioPlayEventType.AtStart)
+            {
+                AudioManager.Instance.PlayerSoundEffect(audioKey);
+            }
+
             if (selection < foodSprite.Length)
             {
                 GameObject food = Instantiate(foodObject);
                 ItemMove moveScript = food.GetComponent<ItemMove>();
                 Debug.Assert(moveScript != null);
 
-                moveScript.FallTo(avatarInput.transform.position);
+                moveScript.FallTo(avatarInput.transform.position, audioPlayType == AudioPlayEventType.AtDestroy ? audioKey : null);
                 food.transform.position = moveScript.CurrentLocation;
 
                 SpriteRenderer renderer = food.GetComponent<SpriteRenderer>();

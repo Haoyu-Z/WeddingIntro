@@ -36,7 +36,7 @@ MonoBehaviour:
     EffectHideBackground: 0
   - EntryName: WinClick
     ClipAsset: {fileID: 8300000, guid: 6576e185bae21944e952d4990f1b555b, type: 3}
-    EffectHideBackground: 1
+    EffectHideBackground: 0
   - EntryName: PlayerEat
     ClipAsset: {fileID: 8300000, guid: 8dac98793730f3e4eb54e171caedcafb, type: 3}
     EffectHideBackground: 0
@@ -51,4 +51,4 @@ MonoBehaviour:
     EffectHideBackground: 0
   - EntryName: Gift_1000
     ClipAsset: {fileID: 8300000, guid: d54b8be41e2a46448851a9bb3ab6a20f, type: 3}
-    EffectHideBackground: 1
+    EffectHideBackground: 0

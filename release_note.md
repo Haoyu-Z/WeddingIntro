@@ -26,3 +26,5 @@
     - add eat/drink interaction and animation
     - add splash screen photo
     - add audio effects
+- 0.3.8
+    - finish tweaking mailer settings

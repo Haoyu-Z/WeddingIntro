@@ -8,9 +8,6 @@ namespace WeddingIntro.Utility
 {
     public class Mailer : MonoBehaviour
     {
-        [SerializeField]
-        private string NetworkErrorPrompt;
-
         public interface IJsonSerializable
         {
             public string ToJsonObject();
@@ -43,14 +40,12 @@ namespace WeddingIntro.Utility
             FinishBrideQuest,
             HalfFinishGroomQuest,
             FinishGroomQuest,
-            Send1M,
+            Gift1M,
         }
 
         private static Mailer instance = null;
 
         public static Mailer Instance => instance;
-
-        private static readonly string ServerAddress = "http://47.111.125.115:8080";
 
         private void Awake()
         {
@@ -88,7 +83,7 @@ namespace WeddingIntro.Utility
             }
         }
 
-        public static string FormatJsonObject(IJsonSerializable[] objects, params IJsonSerializable[] otherObjects)
+        private static string FormatJsonObjectArray(IJsonSerializable[] objects, params IJsonSerializable[] otherObjects)
         {
             IJsonSerializable[] total = new IJsonSerializable[objects.Length + otherObjects.Length];
             for (int i = 0; i < objects.Length; i++)
@@ -123,24 +118,24 @@ namespace WeddingIntro.Utility
         public void SendMail(MailType mailType, IJsonSerializable[] objects)
         {
             UIDebugText.Instance.AddDebugText($"Sending web request message of type {mailType}", UIDebugText.DebugTextLevel.Log);
-            string JsonMessage = FormatJsonObject(objects, new SingleValueSerializableField<string>("Type", $"{mailType}"));
+            string JsonMessage = FormatJsonObjectArray(objects, new SingleValueSerializableField<string>("Type", $"{mailType}"));
             string EscapedMessage = System.Uri.EscapeDataString(JsonMessage);
-            byte[] messageBytes = Encoding.UTF8.GetBytes(EscapedMessage);
-            UnityWebRequest request = UnityWebRequest.Put(ServerAddress, messageBytes);
-            StartCoroutine(SendWebRequest(request));
+            // byte[] messageBytes = Encoding.UTF8.GetBytes(EscapedMessage);
+            UnityWebRequest request = UnityWebRequest.Get(GameStatics.Instance.ServerAddress + EscapedMessage);
+            StartCoroutine(SendBinaryRequest(request));
         }
 
-        private static IEnumerator SendWebRequest(UnityWebRequest request)
+        private static IEnumerator SendBinaryRequest(UnityWebRequest request)
         {
             yield return request.SendWebRequest();
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                UIDebugText.Instance.AddDebugText(Instance.NetworkErrorPrompt + request.error, UIDebugText.DebugTextLevel.Error);
+                UIDebugText.Instance.AddDebugText(GameStatics.Instance.NetworkErrorPrompt + request.error, UIDebugText.DebugTextLevel.Error);
             }
             else
             {
-                UIDebugText.Instance.AddDebugText($"Send web request success.", UIDebugText.DebugTextLevel.Log);
+                UIDebugText.Instance.AddDebugText($"Send web request success, result = {request.downloadHandler.text}", UIDebugText.DebugTextLevel.Log);
             }
         }
     }

@@ -61,6 +61,10 @@ namespace WeddingIntro.Utility
 
         public UIDebugText.DebugTextLevel logLevel;
 
+        public string NetworkErrorPrompt;
+
+        public string ServerAddress = "http://139.196.199.72:8080/wedding/log?context=";
+
         [Header("Non-prefab Attribute")]
 
         public GameObject PlayerAvatar;

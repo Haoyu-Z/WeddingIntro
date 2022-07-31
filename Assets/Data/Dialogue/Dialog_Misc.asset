@@ -25,7 +25,7 @@ MonoBehaviour:
     - HintString: 100 G
       ConditionedDialogs: []
       NextDialogId: Dialog_Misc_VendingFront_1
-    - HintString: 1000 G
+    - HintString: 388 G
       ConditionedDialogs: []
       NextDialogId: Dialog_Misc_VendingFront_2
     - HintString: 1000000 G
@@ -47,7 +47,7 @@ MonoBehaviour:
     StandaloneAudioEffectKey: Gift_1000
     TriggerWorldEvent: 0
     NextDialogId: 
-    HintText: "\u4F60\u7C21\u76F4\u662F\u6A21\u7BC4\u73A9\u5BB6\uFF01\n\u660E\u5929\u65B0\u90CE\u548C\u65B0\u5A18\u6703\u5403\u4E00\u9813\u7D05\u71D2\u6392\u9AA8\u6176\u795D\u4E00\u4E0B\u3002"
+    HintText: "\u6A5F\u5668\u5410\u51FA\u4E8660\u5305\u300A\u5A5A\u79AE\u722D\u9738\uFF08WeddingCraft\uFF09\u300B\u5361\u724C\u5305\u3002"
     NextSelections: []
   - DialogId: Dialog_Misc_VendingFront_3
     StandaloneAudioEffectKey: 

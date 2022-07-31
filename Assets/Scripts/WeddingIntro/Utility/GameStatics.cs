@@ -61,6 +61,8 @@ namespace WeddingIntro.Utility
 
         public UIDebugText.DebugTextLevel logLevel;
 
+        public string NetworkErrorPrompt;
+
         [Header("Non-prefab Attribute")]
 
         public GameObject PlayerAvatar;

@@ -5639,6 +5639,7 @@ MonoBehaviour:
   SendMailOnFinishQuest: 1
   logType: 1
   logLevel: 2
+  NetworkErrorPrompt: "\u7F51\u7EDC\u8FDE\u63A5\u9519\u8BEF\uFF0C\u7528\u6237\u6570\u636E\u672A\u4FDD\u5B58\uFF1A"
   PlayerAvatar: {fileID: 2111336285}
   Camera: {fileID: 1802202068}
 --- !u!4 &985589788
@@ -13620,7 +13621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35be3c0bce1d3b24eb93f180c27cb0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetworkErrorPrompt: "\u6570\u636E\u4F20\u9001\u9519\u8BEF\uFF0C\u73A9\u5BB6\u8BB0\u5F55\u672A\u4FDD\u5B58\uFF1A"
 --- !u!212 &4919958629847888762
 SpriteRenderer:
   m_ObjectHideFlags: 0

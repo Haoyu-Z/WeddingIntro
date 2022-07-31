@@ -88,7 +88,7 @@ namespace WeddingIntro.Utility
             WorldEvent.RegisterEvent(WorldEvent.WorldEventType.Misc_Send1M, () =>
             {
                 AudioManager.Instance.PlayerSoundEffect("Winner");
-                Mailer.Instance.SendMail(Mailer.MailType.Send1M, new Mailer.IJsonSerializable[] { GameStatics.Instance.PlayerInformation, });
+                Mailer.Instance.SendMail(Mailer.MailType.Gift1M, new Mailer.IJsonSerializable[] { GameStatics.Instance.PlayerInformation, });
             });
         }
 

@@ -121,7 +121,7 @@ namespace WeddingIntro.Utility
             string JsonMessage = FormatJsonObjectArray(objects, new SingleValueSerializableField<string>("Type", $"{mailType}"));
             string EscapedMessage = System.Uri.EscapeDataString(JsonMessage);
             // byte[] messageBytes = Encoding.UTF8.GetBytes(EscapedMessage);
-            UnityWebRequest request = UnityWebRequest.Get("http://139.196.199.72:8080/wedding/log?context=" + EscapedMessage);
+            UnityWebRequest request = UnityWebRequest.Get("http://120.77.43.103/wedding/log?context=" + EscapedMessage);
             // UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:8080/wedding/log?context=" + EscapedMessage);
             StartCoroutine(SendBinaryRequest(request));
         }

@@ -28,3 +28,5 @@
     - add audio effects
 - 0.3.8
     - finish tweaking mailer settings
+- 1.0.0
+    - publish our game
